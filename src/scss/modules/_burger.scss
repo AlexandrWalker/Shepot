@@ -1,0 +1,64 @@
+@use './../mixins' as *;
+
+.burger {
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    width: 5.4rem;
+    height: 5.4rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    background-color: var(--white);
+    border-radius: 1.2rem;
+
+    position: relative;
+
+    @include sm {}
+
+    &.burger-btn--open {
+      background-color: var(--cyan);
+
+      .burger__line {
+        background-color: var(--black);
+      }
+
+      .burger__line--first {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .burger__line--second {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      .mobile-search-menu--open & {
+        background-color: var(--white);
+      }
+    }
+  }
+
+  &__line {
+    width: 1.4rem;
+    height: 0.15rem;
+    border-radius: 0.075rem;
+    background-color: var(--black);
+    transition: background-color 0.3s ease, width 0.3s ease, transform 0.3s ease;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &--first {
+      transform: translate(-50%, calc(-50% - 0.35rem));
+    }
+
+    &--second {
+      transform: translate(-50%, calc(-50% + 0.35rem));
+    }
+  }
+}

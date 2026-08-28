@@ -1,0 +1,65 @@
+@use './../mixins' as *;
+
+.header {
+  width: 100%;
+  height: auto;
+  transition: background-color 0.3s ease;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  .header-fixed & {
+    background-color: var(--dark-purple);
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 2rem 0 2rem;
+    transition: padding 0.3s ease;
+
+    @include dosm {
+      padding: 5rem 0 2rem;
+    }
+
+    .header-fixed & {
+
+      @include dosm {
+        padding: 2rem 0 2rem;
+      }
+    }
+  }
+
+  &__logo {}
+
+  &__nav {
+    display: none;
+
+    @include dosm {
+      display: block;
+    }
+  }
+
+  &__control {
+    display: none;
+
+    @include dosm {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    &-link {
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 125%;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+  }
+}

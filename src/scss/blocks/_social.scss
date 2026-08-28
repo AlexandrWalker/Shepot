@@ -1,0 +1,310 @@
+@use './../mixins' as *;
+
+// .social {
+//   // display: none;
+//   display: block;
+//   // opacity: 0;
+//   opacity: 1;
+//   transition: all 0.3s ease;
+//   padding-bottom: 6.1rem;
+//   transform: translateY(50%);
+
+//   position: fixed;
+//   bottom: 17.1rem;
+//   right: 1.2rem;
+//   z-index: 20;
+
+//   @include dosm {
+//     // display: block;
+//     // opacity: 1;
+//     pointer-events: none;
+//     transform: translate(50%, -50%);
+
+//     top: 50%;
+//     right: 6rem;
+//   }
+
+//   &.active {
+//     pointer-events: all;
+
+//     .social__link {
+//       transition: 0.3s ease;
+
+//       &:not(.social__item-btn) {
+//         opacity: 1;
+//         pointer-events: auto;
+//         transform: translateY(0);
+//       }
+
+//       &:nth-child(1) {
+//         transition: transform 0.3s ease 0.1s, opacity 0.3s ease 0.15s, background-color 0.3s ease;
+//       }
+
+//       &:nth-child(2) {
+//         transition: transform 0.3s ease 0.05s, opacity 0.3s ease 0.1s, background-color 0.3s ease;
+//       }
+//     }
+//   }
+
+//   .menu--open & {
+//     opacity: 0;
+//     pointer-events: none;
+//     display: none;
+//   }
+
+//   &__items {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-end;
+//     gap: 0.5rem;
+
+//     position: relative;
+//   }
+
+//   &__wrap {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-end;
+//     gap: 0.5rem;
+
+//     @include sm {
+//       background-color: var(--white);
+//       border-radius: 1.2rem;
+//       padding: 1rem 0.6rem 1rem 1.7rem;
+//     }
+//   }
+
+//   &__item {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: flex-end;
+//     align-items: center;
+//     gap: 0.8rem;
+
+//     &-text {
+//       font-weight: 400;
+//       font-size: 1rem;
+//       line-height: 130%;
+//       text-align: right;
+//     }
+//   }
+
+//   &__link {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 5.4rem;
+//     height: 5.4rem;
+//     background-color: var(--white);
+//     border-radius: 50%;
+
+//     text-align: center;
+//     color: var(--white);
+//     opacity: 0;
+//     pointer-events: none;
+//     transform: translateY(20px);
+//     transition: background-color 0.3s ease, all 0.1s ease;
+//     box-shadow: 0px 16px 38.2px rgba(48, 99, 180, 0.1);
+
+//     @include sm {
+//       width: 3.4rem;
+//       height: 3.4rem;
+//     }
+
+//     &:hover {
+
+//       i {
+//         transform: scale(1.1);
+//       }
+//     }
+
+//     &--max {
+//       background-color: var(--purple);
+//     }
+
+//     &--tg {
+//       background-color: var(--sky);
+//     }
+
+//     i {
+//       --font-size: 3.6rem;
+
+//       @include sm {
+//         --font-size: 1.9rem;
+//       }
+//     }
+
+//     &-btn {
+//       background: var(--red);
+//       transition: all 0.3s ease;
+//       opacity: 1;
+//       pointer-events: all;
+//       transform: translateY(0);
+//       cursor: pointer;
+//       box-shadow: 0px 16px 38.2px rgba(48, 99, 180, 0.1);
+
+//       bottom: 0;
+//     }
+//   }
+// }
+
+.social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+
+  position: fixed;
+  bottom: 17.1rem;
+  right: 1.2rem;
+  z-index: 20;
+
+  @include dosm {
+    pointer-events: none;
+    transform: translateY(-50%);
+
+    top: 50%;
+    bottom: unset;
+    right: 6rem;
+  }
+
+  &.active {
+    pointer-events: all;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @include sm {
+      gap: 1rem;
+      padding: 1rem 0.6rem 1rem 1.7rem;
+      border-radius: 1.2rem;
+      background-color: var(--white);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      box-shadow: 0px 16px 38.2px rgba(48, 99, 180, 0.1);
+
+      .social.active & {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.8rem;
+
+    &:nth-child(1) {
+
+      .social__item-link {
+        transition: transform 0.3s ease 0.1s, opacity 0.3s ease 0.15s, background-color 0.3s ease;
+      }
+    }
+
+    &:nth-child(2) {
+
+      .social__item-link {
+        transition: transform 0.3s ease 0.05s, opacity 0.3s ease 0.1s, background-color 0.3s ease;
+      }
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 130%;
+      text-align: right;
+
+      @include dosm {
+        display: none;
+      }
+    }
+
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5.4rem;
+      height: 5.4rem;
+      background-color: var(--white);
+      border-radius: 50%;
+
+      text-align: center;
+      color: var(--white);
+
+      transition: background-color 0.3s ease, all 0.1s ease;
+      box-shadow: 0px 16px 38.2px rgba(48, 99, 180, 0.1);
+
+      &:not(.social__item-btn) {
+
+        @include dosm {
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(20px);
+
+          .social.active & {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+          }
+        }
+      }
+
+      @include sm {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      &:hover {
+
+        i {
+          transform: scale(1.1);
+        }
+      }
+
+      &--max {
+        background-color: var(--purple);
+      }
+
+      &--tg {
+        background-color: var(--sky);
+      }
+
+      i {
+        --font-size: 3.6rem;
+
+        @include sm {
+          --font-size: 1.6rem;
+        }
+      }
+    }
+
+    &-btn {
+      background: var(--red);
+      transition: all 0.3s ease;
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+      cursor: pointer;
+      box-shadow: 0px 16px 38.2px rgba(48, 99, 180, 0.1);
+
+      bottom: 0;
+
+      @include sm {
+        width: 3.4rem;
+        height: 3.4rem;
+      }
+
+      i {
+
+        @include sm {
+          --font-size: 1.9rem;
+        }
+      }
+    }
+  }
+}

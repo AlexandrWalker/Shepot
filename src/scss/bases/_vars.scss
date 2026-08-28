@@ -1,0 +1,39 @@
+@use './../mixins' as *;
+
+:root {
+  --font-family: "Geologica", Arial, Verdana, sans-serif;
+  --second-family: 'LTRemark', Arial, Verdana, sans-serif;
+
+  --container-padding: 10rem;
+  --container-width: 172rem;
+  --header-height: 17.2rem;
+  --section-padding-top: 4rem;
+  --section-padding-bottom: 4rem;
+
+
+  --body-bg: #33203D;
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --dark-purple: #33203D;
+  --light-purple: #462D52;
+
+  --purple: #B078CB;
+  --purple-50: #B078CB80;
+
+  --cream: #F9E2D2;
+  --cream-50: #f9e2d280;
+  --cream-2: #F2D1AB;
+  --cream-2-50: #F2D1AB80;
+
+  --text-gold-gradient: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+  --gold-gradient-right: linear-gradient(to right, #F2D1AB 0%, #BB8747 45%, #F0CFA8 81%);
+  --gold-gradient-incline: linear-gradient(45%, #F2D1AB 0%, #BB8747 45%, #F0CFA8 81%);
+
+  @include sm {
+    --container-padding: 1.5rem;
+    --header-height: 10.3rem;
+    --section-padding-top: 2rem;
+    --section-padding-bottom: 2rem;
+  }
+}

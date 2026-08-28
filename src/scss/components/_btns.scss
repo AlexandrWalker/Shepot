@@ -1,0 +1,140 @@
+@use './../mixins' as *;
+
+/* Кнопки */
+.btn {
+  --btn-width: fit-content;
+  --btn-height: 5.4rem;
+  --btn-padding-x: 3.6rem;
+  --btn-background: var(--white);
+  --btn-color: var(--black);
+  --btn-transition: all 0.3s ease;
+  --btn-border-radius: 0.9rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-shrink: 0;
+  width: var(--btn-width);
+  min-width: var(--btn-height);
+  height: var(--btn-height);
+  padding: 0 var(--btn-padding-x);
+  border-radius: var(--btn-border-radius);
+  background: var(--btn-background);
+  transition: var(--btn-transition);
+  overflow: hidden;
+
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 130%;
+  white-space: nowrap;
+  pointer-events: all;
+  cursor: pointer;
+  color: var(--btn-color);
+
+  position: relative;
+
+  i {
+    --font-size: 2.4rem;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &:hover {
+
+    @include dosm {
+      --btn-background: var(--cyan);
+      --btn-color: var(--white);
+    }
+  }
+
+  &--pulse {
+    z-index: 2;
+
+    @include dosm {
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        z-index: 1;
+        opacity: 1;
+        transition: all 0.3s ease;
+
+        -webkit-animation: pulse-wave 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        animation: pulse-wave 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+
+        .social.active & {
+          opacity: 0;
+        }
+      }
+
+      &::after {
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+      }
+    }
+  }
+
+  &--icon {
+    --btn-width: 8rem;
+    --btn-height: 8rem;
+    --btn-padding-x: 0;
+    --btn-border-radius: 50%;
+    --btn-background: var(--white);
+    --btn-color: var(--black);
+
+    border: 0.05rem solid var(--cream-2-50);
+
+    background: var(--gold-gradient-incline);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+
+@-webkit-keyframes pulse-wave {
+  0% {
+    box-shadow: 0 0 0 0.1rem rgba(255, 91, 91, 1);
+  }
+
+  33% {
+    box-shadow: 0 0 0 0.4rem rgba(255, 91, 91, 0.5);
+  }
+
+  66% {
+    box-shadow: 0 0 0 0.8rem rgba(255, 91, 91, 0.3);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.8rem rgba(255, 91, 91, 0);
+  }
+}
+
+@keyframes pulse-wave {
+  0% {
+    box-shadow: 0 0 0 0.1rem rgba(255, 91, 91, 1);
+  }
+
+  33% {
+    box-shadow: 0 0 0 0.4rem rgba(255, 91, 91, 0.5);
+  }
+
+  66% {
+    box-shadow: 0 0 0 0.8rem rgba(255, 91, 91, 0.3);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.8rem rgba(255, 91, 91, 0);
+  }
+}

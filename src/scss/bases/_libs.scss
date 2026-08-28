@@ -1,0 +1,293 @@
+@use './../mixins' as *;
+
+.swiper {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+
+  &-side-block {
+
+    &::before {
+      content: "";
+      display: block;
+      width: var(--container-padding);
+      height: calc(100% + 10rem);
+      background-color: var(--body-bg);
+
+      position: absolute;
+      top: -5rem;
+      left: calc((var(--container-padding) + 1.3rem) * -1);
+      z-index: 3;
+
+      @include sm {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: var(--container-padding);
+      height: calc(100% + 10rem);
+      background-color: var(--body-bg);
+
+      position: absolute;
+      top: -5rem;
+      right: calc((var(--container-padding) + 1.3rem) * -1);
+      z-index: 3;
+
+      @include sm {
+        display: none;
+      }
+    }
+  }
+
+  &-slide {
+    height: auto;
+  }
+
+  &-buttons {}
+
+  &-button {
+
+    &-prev {
+      // left: -15.7rem;
+
+      i {
+        transform: scale(-1, -1);
+      }
+    }
+
+    // &-next {
+    //   right: -15.7rem;
+    // }
+
+    &-disabled {
+      opacity: 0 !important;
+      // pointer-events: none;
+    }
+  }
+
+  &-pagination {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem auto 0 auto;
+    font-size: 0.5rem;
+    line-height: 0.5rem;
+    position: static;
+    max-width: 20.2rem;
+    width: 20.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @include domd {
+      justify-content: center;
+      margin: 4rem auto 0 auto;
+    }
+
+    &-inner {
+      display: flex;
+      flex-direction: row;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &-bullet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.7rem;
+      height: 2.7rem;
+      margin: 0 0.1rem !important;
+      background-color: transparent;
+      opacity: 1;
+      border: 0.1rem solid transparent;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+
+      &:hover {
+
+        &::before {
+
+          @include dosm {
+            background-color: var(--cyan);
+          }
+        }
+      }
+
+      &::before {
+        content: "";
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background-color: var(--navy);
+        transition: all 0.3s ease;
+      }
+
+      &-active {
+        border-color: var(--navy);
+      }
+    }
+
+    &-bullets {
+
+      &-dynamic {
+
+        transform: scale(1) !important;
+      }
+    }
+  }
+
+  &-scrollbar-drag {
+    max-width: 18.8rem;
+    height: 10.7rem;
+  }
+}
+
+[class^="swiper-button-"],
+[class*=" swiper-button-"] {
+  width: 5.4rem;
+  height: 5.4rem;
+  margin: 0;
+  border-radius: 50%;
+  background-color: var(--white);
+  box-shadow: 0px 16px 38.2px rgba(48, 99, 180, 0.1);
+  transition: all 0.3s ease;
+  pointer-events: all;
+
+  color: var(--black);
+
+  position: static;
+  transform: unset;
+
+  @include sm {}
+
+  &:hover {
+    color: var(--cyan);
+  }
+
+  &::after {
+    display: none;
+  }
+
+  i {
+    --font-size: 5.4rem;
+  }
+
+  .swiper-navigation-icon {
+    display: none;
+  }
+}
+
+// Fancybox
+.f-html {
+  padding: 0;
+}
+
+.f-button.is-close-button {
+  --f-close-button-width: 3rem;
+  --f-close-button-height: 3rem;
+  --f-close-border-radius: 50%;
+  --f-close-button-color: var(--white);
+  --f-close-button-hover-color: var(--white);
+  --f-close-button-bg: transparent;
+  --f-close-button-hover-bg: transparent;
+  --f-close-button-active-bg: transparent;
+  // --f-close-button-svg-width: 2.2rem;
+  // --f-close-button-svg-height: 2.2rem;
+  // --f-button-svg-width: 2.4rem;
+  // --f-button-svg-height: 2.4rem;
+  --f-button-svg-stroke-width: 0.4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: transparent;
+  flex-shrink: 0;
+
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xMC4xMDI1IDAuMjE5NTYzQzEwLjM5NTQgLTAuMDczMTE2NSAxMC44NzAyIC0wLjA3MzI1ODkgMTEuMTYzIDAuMjE5NTYzQzExLjQ1NTggMC41MTIzODggMTEuNDU1NyAwLjk4NzIxIDExLjE2MyAxLjI4MDExTDYuNzUxOSA1LjY5MTI0TDExLjE2MyAxMC4xMDI0QzExLjQ1NTggMTAuMzk1MiAxMS40NTU2IDEwLjg3IDExLjE2MyAxMS4xNjI5QzEwLjg3MDEgMTEuNDU1OCAxMC4zOTU0IDExLjQ1NTggMTAuMTAyNSAxMS4xNjI5TDUuNjkxMzUgNi43NTE3OUwxLjI4MDIyIDExLjE2MjlDMC45ODczMzMgMTEuNDU1OCAwLjUxMjU2NiAxMS40NTU4IDAuMjE5NjcgMTEuMTYyOUMtMC4wNzMyMjMyIDEwLjg3IC0wLjA3MzIyMzYgMTAuMzk1MyAwLjIxOTY3IDEwLjEwMjRMNC42MzA4IDUuNjkxMjRMMC4yMTk2NyAxLjI4MDExQy0wLjA3MzIyMzIgMC45ODcyMTcgLTAuMDczMjIzMiAwLjUxMjQ1NiAwLjIxOTY3IDAuMjE5NTYzQzAuNTEyNTg4IC0wLjA3MzAyNDkgMC45ODc0MjYgLTAuMDczMjI4NCAxLjI4MDIyIDAuMjE5NTYzTDUuNjkxMzUgNC42MzA3TDEwLjEwMjUgMC4yMTk1NjNaIiBmaWxsPSJibGFjayIvPg0KPC9zdmc+DQo=);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: all 0.3s ease;
+
+  top: 2rem;
+  right: 2rem;
+
+  @include sm {
+    --f-close-button-width: 2rem;
+    --f-close-button-height: 2rem;
+    --f-button-svg-stroke-width: 0.2rem;
+
+    width: 2rem;
+    height: 2rem;
+
+    top: 1.4rem;
+    right: 1.4rem;
+  }
+
+  svg {
+    stroke-linecap: round !important;
+    display: none;
+  }
+}
+
+.fancybox__slide.has-html {
+  padding: 1.5rem;
+}
+
+.fancybox__container {
+  @include sm {
+    --f-arrow-pos: 20px;
+  }
+}
+
+.fancybox__container,
+.fancybox__viewport,
+.fancybox__slide {
+  touch-action: pan-y;
+}
+
+.f-button svg {}
+
+.fancybox__backdrop {
+  background: var(--black-50);
+  backdrop-filter: blur(5.7px);
+  transition: all 0.3s ease;
+}
+
+.fancybox__content {
+  border-radius: 1rem;
+  margin: 2rem;
+  overflow: hidden !important;
+  padding: 0;
+}
+
+.fancybox__content::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.fancybox__slide {
+  padding: 5rem;
+
+  @include sm {
+    padding: 1rem;
+  }
+}
+
+.f-panzoom__wrapper {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+html.with-fancybox body.hide-scrollbar {
+  overflow: clip !important;
+}

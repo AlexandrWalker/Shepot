@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru" class="main-page login">
+@@include('blocks/head.html', {"title": "Шёпот"})
+
+<body>
+  <div class="wrapper">
+    <!-- Шапка -->
+    @@include('./blocks/header.html')
+    <main class="main">
+
+      <section class="hero">
+
+        <div class="hero__bg">
+          <picture>
+            <source media="(min-width: 601px)" srcset="./../images/temp/hero-bg-desktop.jpg">
+            <source media="(max-width: 600px)" srcset="./../images/temp/hero-bg-mob.jpg">
+            <img src="./../images/temp/hero-bg-desktop.jpg" alt="">
+          </picture>
+        </div>
+
+        <div class="container">
+          <div class="hero__inner">
+
+
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <!-- Подвал -->
+    @@include('blocks/footer.html')

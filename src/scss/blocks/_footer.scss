@@ -1,0 +1,273 @@
+@use './../mixins' as *;
+
+.footer {
+  background-color: var(--body-bg);
+  box-shadow: 0px 37px 63.8px #281930;
+
+  @include sm {
+    background-color: var(--light-purple);
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 5rem 0 0 0;
+
+    @include dosm {
+      gap: 6rem;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 3rem;
+    border-bottom: 0.1rem dotted var(--cream-2);
+
+    @include dosm {
+      padding-bottom: 6rem;
+    }
+
+    &-logo {
+      display: none;
+
+      @include dosm {
+        display: block;
+      }
+
+      .logo {
+        max-width: 40.7rem;
+        height: 21rem;
+      }
+    }
+
+    &-text {
+      max-width: 65.7rem;
+
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 3.4rem;
+      line-height: 120%;
+      text-transform: uppercase;
+
+      background: var(--text-gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+
+      @include dosm {
+        font-size: 3.6rem;
+        text-align: right;
+      }
+    }
+  }
+
+  &__mid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding-bottom: 1rem;
+
+    @include dosm {
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      padding-bottom: 6rem;
+      border-bottom: 0.1rem dotted var(--cream-2);
+    }
+
+    &-nav {
+
+      .nav {
+
+        ul {
+          flex-direction: column;
+          align-items: flex-start;
+
+          @include sm {
+            gap: 2rem;
+          }
+        }
+      }
+    }
+
+    &-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      @include dosm {
+        gap: 5rem;
+      }
+    }
+
+    &-tel {
+
+      a {
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 4.4rem;
+        line-height: 120%;
+        text-transform: uppercase;
+
+        background: var(--text-gold-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+
+        @include dosm {
+          font-size: 6.4rem;
+        }
+      }
+    }
+
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @include dosm {
+        gap: 3rem;
+      }
+    }
+
+    &-suptitle {
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 125%;
+      text-transform: uppercase;
+      color: var(--cream-50);
+
+      @include dosm {
+        font-size: 2rem;
+      }
+    }
+
+    &-social {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+
+      &--link {
+        width: 8rem;
+        height: 8rem;
+        flex-shrink: 0;
+      }
+    }
+
+    &-control {
+      display: none;
+
+      @include dosm {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
+    &-link {
+      display: block;
+      height: fit-content;
+
+      font-weight: 300;
+      font-size: 2rem;
+      line-height: 125%;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+  }
+
+  &__bot {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem 0 3rem;
+
+    @include dosm {
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 4rem 0;
+    }
+
+    &-copyright {
+      font-weight: 300;
+      font-size: 1.4rem;
+      line-height: 140%;
+      text-transform: uppercase;
+      color: var(--cream-50);
+
+      @include sm {
+        grid-row: 2/3;
+        padding-top: 3rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @include dosm {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 4.7rem;
+      }
+
+      @include sm {
+        grid-row: 1/2;
+        padding-bottom: 4rem;
+        border-bottom: 0.1rem dotted var(--cream-2);
+      }
+    }
+
+    &-link {
+      font-weight: 300;
+      font-size: 1.4rem;
+      line-height: 140%;
+      text-transform: uppercase;
+      color: var(--cream-50);
+      text-decoration: underline !important;
+      text-decoration-skip-ink: none;
+
+      &:hover {
+
+        @include dosm {
+          color: var(--cream);
+        }
+      }
+    }
+
+    &-made {
+      font-weight: 300;
+      font-size: 1.4rem;
+      line-height: 140%;
+      text-transform: uppercase;
+      color: var(--cream-50);
+
+      @include dosm {
+        text-align: right;
+      }
+
+      @include sm {
+        grid-row: 3/4;
+      }
+
+      a {
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+
+        &:hover {
+
+          @include dosm {
+            color: var(--cream);
+          }
+        }
+      }
+    }
+  }
+}

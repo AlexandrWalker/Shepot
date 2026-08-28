@@ -1,0 +1,68 @@
+<div class="modal popup--auth" data-modal="modal-1" data-lenis-prevent>
+  <div class="modal__wrap"></div>
+  <div class="modal__content">
+    <div class="popup__content">
+
+      <div class="popup__head">
+        <div class="popup__head-title">
+          Авторизация на сайте
+        </div>
+        <div class="popup__head-text">
+          Введите свой номер для получения кода или войдите с помощью Телеграм
+        </div>
+      </div>
+      <div class="popup__body">
+        <div class="form-group">
+          <input class="form-input" type="tel" name="popup_auth_tel" placeholder="+ 7 (___) ___-__-__">
+        </div>
+      </div>
+      <div class="popup__btns">
+        <button class="btn btn--blue" data-fancybox-close>
+          <i class="icon-telegram"></i>
+          Войти через Телеграм
+        </button>
+        <button class="btn btn--gray" data-fancybox-close>
+          <i class="icon-max social-max-gradient"></i>
+          Отправить код в Макс
+        </button>
+        <button class="btn btn--stroke modal__btn" data-modal="modal-3">
+          Войти через почту
+        </button>
+      </div>
+      <div class="popup__foot">
+        <div class="popup__foot-text">
+          Авторизация через почту доступна только для старых пользователей
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal popup--auth" data-modal="modal-3" data-lenis-prevent>
+  <div class="modal__wrap"></div>
+  <div class="modal__content">
+    <div class="popup__content">
+
+      <div class="popup__head">
+        <div class="popup__head-title">
+          Авторизация на сайте
+        </div>
+        <div class="popup__head-text">
+          Введите свой номер для получения кода или войдите с помощью Телеграм
+        </div>
+      </div>
+      <div class="popup__body">
+        <div class="form-group">
+          <input class="form-input" type="tel" name="popup_auth_tel" placeholder="Введите почту">
+        </div>
+      </div>
+      <div class="popup__btns">
+        <button class="btn btn--stroke" data-fancybox href="#popup-code">
+          Получить код
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
