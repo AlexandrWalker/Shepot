@@ -1,0 +1,66 @@
+@use './../mixins' as *;
+
+.general {
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.5rem;
+
+    @include dosm {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @include dosm {
+      grid-column: 1/6;
+      grid-row: 1/2;
+      gap: 3rem;
+    }
+
+    &-suptitle {
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 100%;
+      text-transform: uppercase;
+
+      background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+
+      @include dosm {
+        font-size: 2rem;
+      }
+    }
+
+    &-title {
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 3.4rem;
+      line-height: 120%;
+      text-transform: uppercase;
+
+      background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+
+      @include dosm {
+        font-size: 6.4rem;
+      }
+    }
+
+    &-text {}
+  }
+
+  &__body {}
+}

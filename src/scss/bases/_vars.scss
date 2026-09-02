@@ -2,7 +2,7 @@
 
 :root {
   --font-family: "Geologica", Arial, Verdana, sans-serif;
-  --second-family: 'LTRemark', Arial, Verdana, sans-serif;
+  --second-family: "LTRemark", Arial, Verdana, sans-serif;
 
   --container-padding: 10rem;
   --container-width: 172rem;
@@ -32,7 +32,7 @@
 
   @include sm {
     --container-padding: 1.5rem;
-    --header-height: 10.3rem;
+    --header-height: 8rem;
     --section-padding-top: 2rem;
     --section-padding-bottom: 2rem;
   }

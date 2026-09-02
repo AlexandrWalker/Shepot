@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru" class="main-page login">
+<html lang="ru">
 @@include('blocks/head.html', {"title": "Шёпот"})
 
 <body>
+  <!-- @@include('blocks/sprite.html') -->
   <div class="wrapper">
     <!-- Шапка -->
     @@include('./blocks/header.html')
@@ -18,10 +19,139 @@
           </picture>
         </div>
 
+        <div class="container hero__container">
+          <div class="hero__inner general__inner">
+
+            <div class="hero__content">
+              <div class="hero__head"></div>
+              <div class="hero__title">
+                <h1>
+                  <span>пространство <br></span>
+                  <span>тихой <br></span>
+                  <span>роскоши</span>
+                </h1>
+              </div>
+              <div class="hero__quote">
+                <span>“</span>Все тайное любит <br> шепот
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
         <div class="container">
-          <div class="hero__inner">
+          <div class="about__inner general__inner">
 
+            <div class="general__head">
+              <div class="general__head-suptitle">
+                <p>
+                  О баре
+                </p>
+              </div>
+              <div class="general__head-title">
+                <h2>
+                  Не просто бар. <br>
+                  Пространство для избранных
+                </h2>
+              </div>
+            </div>
 
+          </div>
+        </div>
+      </section>
+
+      <section class="unique">
+        <div class="container">
+          <div class="unique__inner general__inner">
+
+            <div class="general__head">
+              <div class="general__head-suptitle">
+                <p>
+                  уникальность
+                </p>
+              </div>
+              <div class="general__head-title">
+                <h2>
+                  главные особенности
+                </h2>
+              </div>
+            </div>
+
+            <div class="general__body">
+              <div class="unique__items">
+                <div class="unique__item unique__item--1">
+                  <div class="unique__item-count">
+                    01
+                  </div>
+                  <div class="unique__item-icon">
+
+                  </div>
+                  <div class="unique__item-content">
+                    <div class="unique__item-title">
+                      Элитарность
+                    </div>
+                    <div class="unique__item-text">
+                      Сюда не приходят случайно. Только для тех, кто разделяет ценности тихой роскоши
+                    </div>
+                  </div>
+                </div>
+                <div class="unique__item unique__item--2">
+                  <div class="unique__item-count">
+                    02
+                  </div>
+                  <div class="unique__item-icon">
+
+                  </div>
+                  <div class="unique__item-content">
+                    <div class="unique__item-title">
+                      Авторская культура
+                    </div>
+                    <div class="unique__item-text">
+                      Уникальные коктейли, созданные шеф-барменом
+                    </div>
+                  </div>
+                </div>
+                <div class="unique__item unique__item--3">
+                  <div class="unique__item-count">
+                    03
+                  </div>
+                  <div class="unique__item-icon">
+
+                  </div>
+                  <div class="unique__item-content">
+                    <div class="unique__item-title">
+                      Премиальная персонализация
+                    </div>
+                    <div class="unique__item-text">
+                      Каждый сотрудник знает вас в лицо и предвосхищает ожидания
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="menu">
+        <div class="container">
+          <div class="menu__inner general__inner">
+
+            <div class="general__head">
+              <div class="general__head-suptitle">
+                <p>
+                  меню ресторана
+                </p>
+              </div>
+              <div class="general__head-title">
+                <h2>
+                  изысканная кухня для избранных
+                </h2>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -30,3 +160,9 @@
     </main>
     <!-- Подвал -->
     @@include('blocks/footer.html')
+  </div>
+  <!-- libs and script -->
+  @@include('blocks/libs.html')
+</body>
+
+</html>

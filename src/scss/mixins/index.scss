@@ -18,19 +18,19 @@
   }
 }
 
-@mixin md() {
-  @media (max-width: 834px) {
-    @content;
-  }
-}
-
 @mixin domd() {
   @media (min-width: 835px) {
     @content;
   }
 }
 
-@mixin xmd() {
+@mixin md() {
+  @media (max-width: 834px) {
+    @content;
+  }
+}
+
+@mixin emd() {
   @media (max-width: 768px) {
     @content;
   }
@@ -48,7 +48,7 @@
   }
 }
 
-@mixin xs() {
+@mixin esm() {
   @media (max-width: 420px) {
     @content;
   }

@@ -44,14 +44,6 @@
     pointer-events: none;
   }
 
-  &:hover {
-
-    @include dosm {
-      --btn-background: var(--cyan);
-      --btn-color: var(--white);
-    }
-  }
-
   &--pulse {
     z-index: 2;
 
@@ -90,16 +82,24 @@
     --btn-height: 8rem;
     --btn-padding-x: 0;
     --btn-border-radius: 50%;
-    --btn-background: var(--white);
-    --btn-color: var(--black);
+    --btn-background: transparent;
+    --btn-color: var(--cream-2);
 
     border: 0.05rem solid var(--cream-2-50);
 
-    background: var(--gold-gradient-incline);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+    &:hover {
+
+      i {
+
+        @include dosm {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    i {
+      --font-size: var(--btn-height);
+    }
   }
 }
 

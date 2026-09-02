@@ -1,8 +1,0 @@
-@use './../mixins' as *;
-
-.inner-page:not(.inner-page.trade-in-page) {
-
-  .main {
-    padding-top: var(--header-height);
-  }
-}

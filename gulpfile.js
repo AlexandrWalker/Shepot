@@ -6,9 +6,9 @@ import plumber from 'gulp-plumber';
 import replace from 'gulp-replace';
 import newer from 'gulp-newer';
 import browserSync from 'browser-sync';
-const bs = browserSync.create();
 import clean from 'gulp-clean';
 import fs from 'fs';
+import zip from 'gulp-zip';
 import gulpIf from 'gulp-if';
 
 //HTML
@@ -17,20 +17,23 @@ import typograf from 'gulp-typograf';
 
 // JS
 import uglify from 'gulp-uglify';
+import include from 'gulp-include';
 
 //SASS
-import * as dartSass from 'sass';
+import * as dartsass from 'sass';
 import gulpsass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import bulkSass from 'gulp-sass-glob-use-forward';
-import postcss from 'gulp-postcss';
-import sortMediaQueries from 'postcss-sort-media-queries';
-import cleanCss from 'gulp-clean-css';
+import groupMedia from 'gulp-group-css-media-queries';
+import csso from 'gulp-csso';
 
-const sass = gulpsass(dartSass);
+const sass = gulpsass(dartsass);
 
 //IMAGES
 import imagemin, { gifsicle, mozjpeg, optipng, svgo } from 'gulp-imagemin';
+import avif from 'gulp-avif';
+import webp from 'gulp-webp';
+import imageminWebp from 'imagemin-webp';
 import svgsprite from 'gulp-svg-sprite';
 
 //FONTS
@@ -52,6 +55,7 @@ const destFolder = isModeP ? docsFolder : buildFolder;
 // TUMBLERS
 const svgHtml = false; // Также нужно вкл или выкл коммент в index.html
 const imgAvif = false;
+const imgWebp = false;
 const imgMin = imgMinify || isModeP ? true : false;
 const typography = false;
 
@@ -64,6 +68,39 @@ const plumberNotify = (title) => {
     }),
   };
 };
+
+gulp.task('zip:src', function () {
+  return gulp
+    .src([`./**/*.zip`, `!${rootFolder}-build.zip`, `!${rootFolder}-prod.zip`])
+    .pipe(clean({ force: true }))
+
+    .pipe(gulp.src([`./**/*.*`, `!./node_modules/**/*.*`, `!./package-lock.json`, `!./build/**/*.*`, `!./prod/**/*.*`]))
+    .pipe(plumber(plumberNotify('ZIP:src')))
+    .pipe(zip(`${rootFolder}-src.zip`))
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('zip:build', function () {
+  return gulp
+    .src([`./**/*.zip`, `!${rootFolder}-src.zip`, `!${rootFolder}-prod.zip`])
+    .pipe(clean({ force: true }))
+
+    .pipe(gulp.src(`${buildFolder}**/*.*`))
+    .pipe(plumber(plumberNotify('ZIP:build')))
+    .pipe(zip(`${rootFolder}.zip`))
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('zip:docs', function () {
+  return gulp
+    .src([`./**/*.zip`, `!${rootFolder}-src.zip`, `!${rootFolder}-build.zip`])
+    .pipe(clean({ force: true }))
+
+    .pipe(gulp.src(`${docsFolder}**/*.*`))
+    .pipe(plumber(plumberNotify('ZIP:docs')))
+    .pipe(zip(`${rootFolder}-docs.zip`))
+    .pipe(gulp.dest('./'));
+});
 
 gulp.task('clean', function (done) {
   if (fs.existsSync(`${docsFolder}`)) {
@@ -79,14 +116,14 @@ gulp.task('clean', function (done) {
 
 gulp.task('html', function () {
   return gulp
-    .src([
-      `${srcFolder}html/**/*.html`,
-      `!${srcFolder}html/blocks/*.html`,
-      `!${srcFolder}html/elements/*.html`,
-      `!${srcFolder}html/privacy/*.html`,
-    ])
+    .src([`${srcFolder}html/**/*.html`, `!${srcFolder}html/blocks/*.html`, `!${srcFolder}html/elements/*.html`])
     .pipe(plumber(plumberNotify('HTML')))
-    .pipe(fileInclude({ prefix: '@@', basepath: '@file' }))
+    .pipe(
+      fileInclude({
+        prefix: '@@',
+        basepath: '@file',
+      })
+    )
     .pipe(
       replace(
         /(?<=src=|href=|srcset=)(['"])(\.(\.)?\/)*(img|images|fonts|css|scss|sass|js|files|audio|video)(\/[^\/'"]+(\/))?([^'"]*)\1/gi,
@@ -107,7 +144,7 @@ gulp.task('html', function () {
       )
     )
     .pipe(gulp.dest(`${destFolder}`))
-    .pipe(bs.stream());
+    .pipe(browserSync.stream());
 });
 
 gulp.task('styles', function () {
@@ -115,8 +152,8 @@ gulp.task('styles', function () {
     .src(`${srcFolder}scss/*.scss`)
     .pipe(plumber(plumberNotify('SCSS')))
     .pipe(bulkSass())
-    .pipe(sass.sync({ outputStyle: 'expanded' }).on('error', sass.logError))
-    .pipe(postcss([sortMediaQueries()]))
+    .pipe(sass())
+    .pipe(groupMedia())
     .pipe(autoprefixer({ cascade: false }))
     .pipe(
       replace(
@@ -124,52 +161,57 @@ gulp.task('styles', function () {
         '$1$2$3$4$6$1'
       )
     )
-    .pipe(gulpIf(isModeP, cleanCss()))
+    .pipe(gulpIf(isModeP, csso()))
     .pipe(gulp.dest(`${destFolder}css/`))
-    .pipe(bs.stream());
+    .pipe(browserSync.stream());
 });
 
 gulp.task('js', function () {
   return gulp
-    .src(`${srcFolder}js/**/*.js`)
-    .pipe(newer(`${destFolder}js`))
+    .src(`${srcFolder}js/*.js`)
+    .pipe(include())
+    // .pipe(newer(`${destFolder}js`))
     .pipe(gulpIf(isModeP, uglify()))
     .pipe(plumber(plumberNotify('JS')))
     .pipe(gulp.dest(`${destFolder}js/`))
-    .pipe(bs.stream());
+    .pipe(browserSync.stream());
 });
 
 gulp.task('images', function () {
-  const imgSrc = [`${srcFolder}images/**/*.*`, `!${srcFolder}images/sprite/**/*.*`, `!${srcFolder}images/**/*.mp4`,];
+  const imgSrc = [`${srcFolder}images/**/*.*`, `!${srcFolder}images/sprite/**/*.*`];
   return gulp
-    .src(imgSrc, { encoding: false })
-    .pipe(newer(`${destFolder}images`))
+    .src(imgSrc)
+
+    .pipe(gulpIf(imgAvif, newer(`${destFolder}images`)))
+    .pipe(gulpIf(imgAvif, avif({ quality: 85 }))) // 75
+    .pipe(gulpIf(imgAvif, gulp.dest(`${destFolder}images`)))
+    .pipe(gulpIf(imgAvif, gulp.src(imgSrc)))
+
+    .pipe(gulpIf(imgWebp, newer(`${destFolder}images`)))
+    .pipe(gulpIf(imgWebp, webp()))
+    .pipe(gulpIf(imgWebp, gulp.dest(`${destFolder}images`)))
+    .pipe(gulpIf(imgWebp, gulp.src(imgSrc)))
+
+    .pipe(gulpIf(imgMin, newer(`${destFolder}images`)))
     .pipe(
       gulpIf(
         imgMin,
-        imagemin([
-          gifsicle({ interlaced: true }),
-          mozjpeg({ quality: 90, progressive: true }),
-          optipng({ optimizationLevel: 3 }),
-        ], { verbose: true })
+        imagemin(
+          [
+            gifsicle({ interlaced: true }),
+            mozjpeg({ quality: 90, progressive: true }), // 75
+            optipng({ optimizationLevel: 3 }), // 5
+            imageminWebp({ quality: 85 }),
+          ],
+          { verbose: true }
+        )
       )
     )
     .pipe(gulp.dest(`${destFolder}images`))
-    .pipe(bs.stream());
+    .pipe(browserSync.stream());
 });
 
-gulp.task('video', function () {
-  return gulp
-    .src(`${srcFolder}files/video/**/*.*`, { encoding: false })
-    .pipe(newer(`${destFolder}video/`))
-    .pipe(gulp.dest(`${destFolder}video/`))
-    .pipe(bs.stream());
-});
-
-gulp.task('svg', function (done) {
-  if (!fs.existsSync(`${srcFolder}images/sprite`)) {
-    return done();
-  }
+gulp.task('svg', function () {
   return gulp
     .src(`${srcFolder}images/sprite/**/*.svg`)
     .pipe(plumber(plumberNotify('SVG:dev')))
@@ -186,113 +228,123 @@ gulp.task('svg', function (done) {
             {
               svgo: {
                 js2svg: { indent: 4, pretty: true },
-                plugins: [{ name: 'removeAttrs', params: { attrs: '(fill|stroke)' } }],
+                plugins: [
+                  {
+                    name: 'removeAttrs',
+                    params: {
+                      attrs: '(fill|stroke)',
+                    },
+                  },
+                ],
               },
             },
           ],
         },
       })
     )
-    .pipe(
-      svgHtml
-        ? gulp.dest(`${srcFolder}html/blocks/`)
-        : gulp.dest(`${destFolder}images/`)
-    );
+    .pipe(svgHtml ? gulp.dest(`${srcFolder}html/blocks/`) : gulp.dest(`${destFolder}images/`));
 });
 
 gulp.task('cleanSvg', function (done) {
   if (fs.existsSync(`${srcFolder}html/blocks/sprite.html`)) {
-    return gulp
-      .src(`${srcFolder}html/blocks/sprite.html`, { read: false })
-      .pipe(clean({ force: true }));
+    return gulp.src(`${srcFolder}html/blocks/sprite.html`, { read: false }).pipe(clean({ force: true }));
   }
   done();
 });
 
 gulp.task('otfToTtf', () => {
-  return gulp
-    .src(`${srcFolder}fonts/*.otf`, {})
-    .pipe(fonter({ formats: ['ttf'] }))
-    .pipe(gulp.dest(`${srcFolder}fonts/`))
-    .pipe(
-      plumber(
-        notify.onError({
-          title: 'FONTS',
-          message: 'Error: <%= error.message %>. File: <%= file.relative %>!',
+  // Ищем файлы шрифтов .otf
+  return (
+    gulp
+      .src(`${srcFolder}fonts/*.otf`, {})
+      // Конвертируем в .ttf
+      .pipe(
+        fonter({
+          formats: ['ttf'],
         })
       )
-    );
+      // Выгружаем в исходную папку
+      .pipe(gulp.dest(`${srcFolder}fonts/`))
+      .pipe(
+        plumber(
+          notify.onError({
+            title: 'FONTS',
+            message: 'Error: <%= error.message %>. File: <%= file.relative %>!',
+          })
+        )
+      )
+  );
 });
 
-// Конвертируем TTF в woff2
 gulp.task('ttfToWoff', () => {
-  return gulp
-    .src([`${srcFolder}fonts/*.ttf`])
-    .pipe(
-      plumber(
-        notify.onError({
-          title: 'FONTS',
-          message: 'Error: <%= error.message %>',
+  // Ищем файлы шрифтов .ttf
+  return (
+    gulp
+      .src(`${srcFolder}fonts/*.ttf`, {})
+      // Конвертируем в .woff
+      .pipe(
+        fonter({
+          formats: ['woff'],
         })
       )
-    )
-    .pipe(ttf2woff2())
-    .pipe(gulp.dest(`${destFolder}fonts/`));
+      // Выгружаем в папку с результатом
+      .pipe(gulp.dest(`${destFolder}fonts/`))
+      // Ищем файлы шрифтов .ttf
+      .pipe(gulp.src(`${srcFolder}fonts/*.ttf`))
+      // Конвертируем в .woff2
+      .pipe(ttf2woff2())
+      // Выгружаем в папку с результатом
+      .pipe(gulp.dest(`${destFolder}fonts/`))
+      .pipe(
+        plumber(
+          notify.onError({
+            title: 'FONTS',
+            message: 'Error: <%= error.message %>',
+          })
+        )
+      )
+  );
 });
 
-// Генерируем _fontsAutoGen.scss только из woff2 файлов
 gulp.task('fontsStyle', () => {
+  // Файл стилей подключения шрифтов
   let fontsFile = `${srcFolder}scss/bases/_fontsAutoGen.scss`;
+  // Проверяем существуют ли файлы шрифтов
   fs.readdir(`${buildFolder}fonts/`, function (err, fontsFiles) {
     if (fontsFiles) {
-      fontsFiles = fontsFiles.filter(
-        (file) => file.endsWith('.woff2')
-      );
+      // Проверяем существует ли файл стилей для подключения шрифтов
+
+      // Если файла нет, создаем его
       fs.writeFile(fontsFile, '', cb);
       let newFileOnly;
       for (var i = 0; i < fontsFiles.length; i++) {
+        // Записываем подключения шрифтов в файл стилей
         let fontFileName = fontsFiles[i].split('.')[0];
         if (newFileOnly !== fontFileName) {
           let fontName = fontFileName.split('-')[0] ? fontFileName.split('-')[0] : fontFileName;
           let fontWeight = fontFileName.split('-')[1] ? fontFileName.split('-')[1] : fontFileName;
           if (fontWeight.toLowerCase() === 'thin') {
             fontWeight = 100;
-          } else if (
-            fontWeight.toLowerCase() === 'extralight' ||
-            fontWeight.toLowerCase() === 'ultralight'
-          ) {
+          } else if (fontWeight.toLowerCase() === 'extralight') {
             fontWeight = 200;
           } else if (fontWeight.toLowerCase() === 'light') {
             fontWeight = 300;
           } else if (fontWeight.toLowerCase() === 'medium') {
             fontWeight = 500;
-          } else if (
-            fontWeight.toLowerCase() === 'semibold' ||
-            fontWeight.toLowerCase() === 'demibold'
-          ) {
+          } else if (fontWeight.toLowerCase() === 'semibold') {
             fontWeight = 600;
           } else if (fontWeight.toLowerCase() === 'bold') {
             fontWeight = 700;
-          } else if (
-            fontWeight.toLowerCase() === 'extrabold' ||
-            fontWeight.toLowerCase() === 'ultrabold'
-          ) {
+          } else if (fontWeight.toLowerCase() === 'extrabold' || fontWeight.toLowerCase() === 'heavy') {
             fontWeight = 800;
-          } else if (
-            fontWeight.toLowerCase() === 'black' ||
-            fontWeight.toLowerCase() === 'ultra' ||
-            fontWeight.toLowerCase() === 'extrablack' ||
-            fontWeight.toLowerCase() === 'ultrablack' ||
-            fontWeight.toLowerCase() === 'heavy' ||
-            fontWeight.toLowerCase() === 'fat'
-          ) {
+          } else if (fontWeight.toLowerCase() === 'black') {
             fontWeight = 900;
           } else {
             fontWeight = 400;
           }
           fs.appendFile(
             fontsFile,
-            `@font-face {\n\tfont-family: ${fontName};\n\tfont-display: swap;\n\tsrc: url("../fonts/${fontFileName}.woff2") format("woff2");\n\tfont-weight: ${fontWeight};\n\tfont-style: normal;\n}\r\n`,
+            `@font-face {\n\tfont-family: ${fontName};\n\tfont-display: swap;\n\tsrc: url("../fonts/${fontFileName}.woff2") format("woff2"), url("../fonts/${fontFileName}.woff") format("woff");\n\tfont-weight: ${fontWeight};\n\tfont-style: normal;\n}\r\n`,
             cb
           );
           newFileOnly = fontFileName;
@@ -302,30 +354,21 @@ gulp.task('fontsStyle', () => {
   });
 
   return gulp.src(`${srcFolder}`);
-  function cb() { }
+  function cb() {}
 });
 
 gulp.task('files', function () {
   return gulp
-    .src([
-      `${srcFolder}files/**/*.*`,
-      `!${srcFolder}files/icons/fonts/**/*.*`,
-      `!${srcFolder}files/video/**/*.*`,
-    ])
+    .src([`${srcFolder}files/**/*.*`])
     .pipe(gulp.dest(`${destFolder}`))
-    .pipe(bs.stream());
-});
-
-gulp.task('icons', function () {
-  return gulp
-    .src(`${srcFolder}files/icons/**/*.*`, { encoding: false })
-    .pipe(newer(`${destFolder}icons/`))
-    .pipe(gulp.dest(`${destFolder}icons/`));
+    .pipe(browserSync.stream());
 });
 
 gulp.task('server', function () {
-  bs.init({
-    server: { baseDir: destFolder },
+  browserSync.init({
+    server: {
+      baseDir: destFolder,
+    },
     browser: 'google chrome',
     open: false,
     notify: false,
@@ -341,15 +384,10 @@ gulp.task('server', function () {
 
 gulp.task('watch', function () {
   gulp.watch(`${srcFolder}scss/**/*.scss`, gulp.parallel('styles'));
-  gulp.watch(
-    [`${srcFolder}html/**/*.html`, `${srcFolder}**/*.json`],
-    gulp.parallel('html')
-  ).on('change', bs.reload);
+  gulp.watch([`${srcFolder}html/**/*.html`, `${srcFolder}**/*.json`], gulp.parallel('html')).on('change', browserSync.reload);
   gulp.watch(`${srcFolder}images/**/*.*`, gulp.parallel('images', 'svg'));
   gulp.watch(`${srcFolder}js/**/*.js`, gulp.parallel('js'));
   gulp.watch(`${srcFolder}files/**/*`, gulp.parallel('files'));
-  gulp.watch(`${srcFolder}files/video/**/*.*`, gulp.parallel('video'));
-  gulp.watch(`${srcFolder}files/icons/**/*.*`, gulp.parallel('icons'));
 });
 
 gulp.task('fonts', gulp.series('otfToTtf', 'ttfToWoff', 'fontsStyle'));
@@ -360,17 +398,24 @@ gulp.task(
     'clean',
     'fonts',
     gulp.series('cleanSvg', 'svg'),
-    gulp.series('html', 'styles', 'files', 'icons', 'js', 'images', 'video'),
+    // gulp.parallel('html', 'styles', 'js', 'images', 'files'),
+    gulp.series('html', 'styles', 'files', 'js', 'images'),
     gulp.parallel('server', 'watch')
   )
 );
-
 gulp.task(
   'build',
   gulp.series(
     'clean',
     'fonts',
     gulp.series('cleanSvg', 'svg'),
-    gulp.series('html', 'styles', 'files', 'icons', 'js', 'images', 'video')
+    // gulp.parallel('html', 'styles', 'js', 'images', 'files')
+    gulp.series('html', 'styles', 'files', 'js', 'images')
   )
 );
+
+gulp.task('zipsrc', gulp.parallel('zip:src'));
+
+gulp.task('zipbuild', gulp.parallel('zip:build'));
+
+gulp.task('zipdocs', gulp.series('zip:docs'));

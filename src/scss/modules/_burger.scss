@@ -2,63 +2,166 @@
 
 .burger {
 
-  &__btn {
+  &-btn {
+    --burger-btn-width: 5.6rem;
+    --burger-btn-height: 5.6rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.7rem;
-    width: 5.4rem;
-    height: 5.4rem;
+    gap: 0.6rem;
+    width: var(--burger-btn-width);
+    height: var(--burger-btn-height);
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: all 0.5s linear;
     pointer-events: all;
-    background-color: var(--white);
-    border-radius: 1.2rem;
+    border-radius: 50%;
 
     position: relative;
 
-    @include sm {}
+    @include dosm {
+      display: none;
+    }
 
-    &.burger-btn--open {
-      background-color: var(--cyan);
+    &.burger-btn--active {
 
-      .burger__line {
-        background-color: var(--black);
+      &::before {
+        border-color: var(--cream-2-50);
       }
 
-      .burger__line--first {
+      &::after {
+        border-color: var(--cream-2);
+      }
+
+      .burger-btn__line {
+        background-color: var(--cream-2);
+      }
+
+      .burger-btn__line--first {
         transform: translate(-50%, -50%) rotate(45deg);
       }
 
-      .burger__line--second {
+      .burger-btn__line--second {
         transform: translate(-50%, -50%) rotate(-45deg);
       }
+    }
 
-      .mobile-search-menu--open & {
-        background-color: var(--white);
+    &::before {
+      content: "";
+      display: block;
+      width: var(--burger-btn-width);
+      height: var(--burger-btn-height);
+      border-radius: 50%;
+      border: 0.05rem solid var(--purple-50);
+      transition: border-color 0.5s ease;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: calc(var(--burger-btn-width) - 1.4rem);
+      height: calc(var(--burger-btn-height) - 1.4rem);
+      border-radius: 50%;
+      border: 0.1rem solid var(--purple);
+      transition: border-color 0.5s ease;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    &__line {
+      width: 1.6rem;
+      height: 0.1rem;
+      background-color: var(--purple);
+      transition: background-color 0.5s ease, width 0.5s ease, transform 0.5s ease;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &--first {
+        transform: translate(-50%, calc(-50% - 0.3rem));
+      }
+
+      &--second {
+        transform: translate(-50%, calc(-50% + 0.3rem));
       }
     }
   }
 
-  &__line {
-    width: 1.4rem;
-    height: 0.15rem;
-    border-radius: 0.075rem;
-    background-color: var(--black);
-    transition: background-color 0.3s ease, width 0.3s ease, transform 0.3s ease;
+  &-menu {
+    display: block;
+    width: 100%;
+    max-height: 100dvh;
+    height: 100%;
+    background-color: var(--body-bg);
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+    overflow-y: auto;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
 
-    &--first {
-      transform: translate(-50%, calc(-50% - 0.35rem));
+    @include dosm {
+      display: none;
     }
 
-    &--second {
-      transform: translate(-50%, calc(-50% + 0.35rem));
+    .burger-menu--open & {
+      --header-height: 10.5rem;
+
+      transform: translateY(0);
+    }
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      padding: calc(var(--header-height) + 0.2rem) 0 4rem 0;
+      height: fit-content;
+      min-height: 100%;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0.1rem;
+        border-top: 0.1rem dotted var(--cream-2-50);
+
+        position: sticky;
+        top: var(--header-height);
+        left: 0;
+        z-index: 1;
+      }
+    }
+
+    &__nav {
+
+      .nav {
+
+        ul {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2rem;
+        }
+      }
+    }
+
+    &__contacts {
+      padding-top: 4rem;
+      border-top: 0.1rem dotted var(--cream-2-50);
     }
   }
 }

@@ -1,14 +1,11 @@
 /* Base */
-@forward './bases/base';
-@forward './bases/containers';
-@forward './bases/fonts';
 @forward './bases/fontsAutoGen';
-@forward './bases/general';
-@forward './bases/libs';
 @forward './bases/reset';
-@forward './bases/utils';
 @forward './bases/vars';
 // @forward './bases/mixins';
+@forward './bases/base';
+@forward './bases/utils';
+@forward './bases/containers';
 
 /* Components */
 @forward './components/*.scss';
@@ -21,9 +18,6 @@
 
 /* Elements */
 @forward './elements/*.scss';
-
-/* Pages */
-@forward './pages/*.scss';
 
 /* Sections */
 @forward './sections/*.scss';

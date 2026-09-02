@@ -3,6 +3,7 @@
 .hero {
   height: 100rem;
   box-shadow: 0px 37px 63.8px #281930;
+  padding: 0;
 
   position: relative;
 
@@ -25,7 +26,115 @@
     }
   }
 
-  .contaoner {
+  &__container {
+    position: relative;
     z-index: 2;
+  }
+
+  &__inner {
+    padding-top: calc(var(--header-height) + 3rem);
+    padding-bottom: 30.3rem;
+
+    @include dosm {
+      padding-top: 15.2rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  &__head {
+    display: none;
+
+    @include dosm {
+      display: block;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3.8rem;
+
+    @include dosm {
+      grid-column: 5/12;
+      gap: 20rem;
+    }
+  }
+
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 110%;
+    text-transform: uppercase;
+
+    background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    @include dosm {
+      font-size: 9rem;
+    }
+
+    span {
+
+      @include dosm {
+
+        &:nth-child(2) {
+          margin-left: 32rem;
+        }
+
+        &:nth-child(3) {
+          margin-left: 48rem;
+        }
+      }
+    }
+  }
+
+  &__quote {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 125%;
+
+    background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    @include dosm {
+      margin-left: -4.2rem;
+
+      font-size: 3.6rem;
+    }
+
+    span {
+      display: block;
+
+
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 6rem;
+      line-height: 5rem;
+
+      background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+
+      @include dosm {
+        width: 5.3rem;
+        height: 5.3rem;
+
+        font-size: 12rem;
+        line-height: 10rem;
+      }
+    }
   }
 }

@@ -11,22 +11,31 @@
         @@include('./nav.html')
       </div>
       <div class="header__control">
-        <a class="header__control-link link link--cream" href="tel:+71234567890">
-          <span>
-            +7 (123) 456-78-90
-          </span>
+        <a class="header__control-link link link--cream" href="/">
+          <div class="link-text">
+            Орджоникидзе 31
+          </div>
+          <div class="link-suptitle">
+            Ср – Сб с 17:00
+          </div>
+        </a>
+        <a class="header__control-link link link--cream" href="tel:+79658208090">
+          <div class="link-text">
+            7 965 820-80-90
+          </div>
         </a>
         <a class="header__control-link link link--purple" href="/">
-          <span>
+          <div class="link-text">
             Забронировать столик
-          </span>
+          </div>
         </a>
       </div>
-
+      <button class="burger-btn" data-js-burger-btn>
+        <span class="burger-btn__line burger-btn__line--first"></span>
+        <span class="burger-btn__line burger-btn__line--second"></span>
+      </button>
     </div>
   </div>
 </header>
 <!-- Мобильное меню -->
-<!-- @@include('./mobile-menu.html') -->
-<!-- Фиксированные соц. сети -->
-<!-- @@include('./fixed-social.html') -->
+@@include('./burger-menu.html')

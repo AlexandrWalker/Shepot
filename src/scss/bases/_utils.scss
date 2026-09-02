@@ -15,14 +15,6 @@
 	overflow: hidden;
 }
 
-.html-no-scroll {
-	overflow: hidden !important;
-	--f-scrollbar-compensate: 0px;
-	max-height: 100vh;
-
-	
-}
-
 .no-scroll {
 	overflow: hidden !important;
 	overscroll-behavior-y: none;
