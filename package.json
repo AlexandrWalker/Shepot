@@ -6,7 +6,8 @@
     "dev": "gulp",
     "build": "gulp build --imgmin",
     "docs": "gulp build --docs",
-    "deploy": "gh-pages -d docs",
+    "deploy": "gh-pages -d build",
+    "deploy-docs": "gh-pages -d docs",
     
     "zipsrc": "gulp zipsrc",
     "zipbuild": "gulp zipbuild",

@@ -29,13 +29,6 @@
 @font-face {
 	font-family: Geologica;
 	font-display: swap;
-	src: url("../fonts/Geologica-SemiBold.woff2") format("woff2"), url("../fonts/Geologica-SemiBold.woff") format("woff");
-	font-weight: 600;
-	font-style: normal;
-}
-@font-face {
-	font-family: Geologica;
-	font-display: swap;
 	src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
 	font-weight: 300;
 	font-style: normal;
@@ -52,6 +45,13 @@
 	font-display: swap;
 	src: url("../fonts/Geologica-Regular.woff2") format("woff2"), url("../fonts/Geologica-Regular.woff") format("woff");
 	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: Geologica;
+	font-display: swap;
+	src: url("../fonts/Geologica-SemiBold.woff2") format("woff2"), url("../fonts/Geologica-SemiBold.woff") format("woff");
+	font-weight: 600;
 	font-style: normal;
 }
 @font-face {
