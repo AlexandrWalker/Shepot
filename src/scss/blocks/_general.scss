@@ -59,8 +59,20 @@
       }
     }
 
-    &-text {}
+    &-text {
+      font-weight: 300;
+      font-size: 2rem;
+      line-height: 140%;
+      color: var(--cream-50);
+    }
   }
 
   &__body {}
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
 }

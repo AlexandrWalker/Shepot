@@ -5,4 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //=include modules/_header.js
   //=include modules/_burger.js
+  //=include modules/_clip-slider.js
+  //=include modules/_menu-btns.js
+  //=include modules/_fancybox.js
 });

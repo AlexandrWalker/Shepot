@@ -1,0 +1,171 @@
+@use './../mixins' as *;
+
+.menu {
+
+  .general {
+
+    &__inner {
+      gap: 5rem;
+
+      @include dosm {
+        gap: 4rem 2rem;
+      }
+    }
+
+    &__head {
+
+      @include dosm {
+        grid-column: 1/5;
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    grid-row: 3/4;
+
+
+    @include dosm {
+      grid-column: 1/5;
+      grid-row: 2/3;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 7rem;
+    padding: 0 2rem;
+    border-radius: 0.8rem;
+    border: 0.05rem solid var(--cream-2);
+
+    color: var(--cream);
+
+    @include dosm {
+      height: 14rem;
+      padding: 0 3rem 0 5rem;
+    }
+
+    &:hover {
+
+      @include dosm {
+
+        i {
+          opacity: 1;
+        }
+      }
+    }
+
+    &-text {
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 140%;
+
+      @include dosm {
+        font-size: 3.6rem;
+      }
+    }
+
+    i {
+      --font-size: 2.4rem;
+
+      @include dosm {
+        --font-size: 3.2rem;
+
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__cover {
+    width: 100%;
+    height: 23.6rem;
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+    border-radius: 0.8rem;
+    background: var(--light-purple-50);
+    box-shadow: 0px 37px 63.8px #281930;
+
+    grid-row: 2/3;
+
+    position: relative;
+
+    @include dosm {
+      height: 66.5rem;
+      padding: 2rem;
+      margin: 7.4rem 0 0 1rem;
+      grid-column: 6/13;
+      grid-row: 1/3;
+    }
+
+    &::before {
+      content: "";
+      width: 31.2rem;
+      height: 20.5rem;
+      border-radius: 0.8rem;
+      border: 0.05rem solid var(--cream);
+
+      position: absolute;
+      top: 4.1rem;
+      left: -1rem;
+      z-index: 1;
+
+      @include dosm {
+        width: 95.9rem;
+        height: 63.2rem;
+
+        top: 4.3rem;
+      }
+    }
+
+    &-imgs {
+      width: 100%;
+      height: 100%;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0.8rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+
+      &--bar {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &--main {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &--show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
