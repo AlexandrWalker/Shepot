@@ -10,7 +10,8 @@ var afishaSlider = new Swiper('.afisha__slider', {
     stretch: 0,
     // depth: 430,
     modifier: 1,
-    scale: 0.73,
+    // scale: 0.73,
+    scale: 0.8575,
     slideShadows: false,
   },
   breakpoints: {
@@ -18,5 +19,9 @@ var afishaSlider = new Swiper('.afisha__slider', {
       slidesPerView: 'auto',
       spaceBetween: 157,
     },
+  },
+  navigation: {
+    nextEl: '.afisha-button-next',
+    prevEl: '.afisha-button-prev',
   },
 });

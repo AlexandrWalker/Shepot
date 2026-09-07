@@ -7,6 +7,41 @@
     --section-padding-bottom: 10rem;
   }
 
+  .general {
+
+    &__button {
+      width: 100%;
+      justify-content: center;
+
+      @include dosm {
+        width: calc(50% - 4.7rem);
+        justify-content: space-between;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+      }
+
+      @include sm {
+        margin-top: 4.5rem !important;
+      }
+    }
+  }
+
+  .swiper {
+
+    &-wrapper {
+      z-index: 2;
+    }
+
+    [class^=swiper-button-],
+    [class*=" swiper-button-"] {
+      color: var(--gold);
+    }
+  }
+
   &__head {
     margin-bottom: 2rem;
 
@@ -22,12 +57,6 @@
       font-size: 10rem;
       line-height: 120%;
       text-transform: uppercase;
-
-      background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
 
       @include dosm {
         font-size: 48rem;
@@ -94,13 +123,6 @@
       font-size: 3.4rem;
       line-height: 120%;
       text-transform: uppercase;
-
-      /* Градиент золото */
-      background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
 
       @include dosm {
         margin-bottom: 2rem;

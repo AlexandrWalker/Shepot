@@ -8,10 +8,13 @@
   width: 100%;
 }
 
-// .container-full {
-//   padding: 0 var(--container-padding);
-//   max-width: 100%;
-// }
+.container-full {
+  margin: 0 auto;
+
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
 
 // .container-left-50 {
 //   padding: 0 var(--container-padding);

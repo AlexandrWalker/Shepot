@@ -1,6 +1,14 @@
 @use './../mixins' as *;
 
 .clip-slider {
+  touch-action: pan-y;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-touch-callout: none;
 
   .swiper-wrapper {
     z-index: 1;
@@ -19,7 +27,12 @@
     height: 100%;
     -webkit-clip-path: inset(0 0 0 100%);
     clip-path: inset(0 0 0 100%);
-    transition: clip-path 0.5s ease, -webkit-clip-path 0.5s ease;
+    // transition: clip-path 0.5s ease, -webkit-clip-path 0.5s ease;
+    transition: clip-path 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+      -webkit-clip-path 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+
+    transform: translateZ(0);
+    will-change: clip-path;
 
     &.s--prev {
       z-index: 1;
@@ -38,7 +51,12 @@
       height: 100%;
       object-fit: cover;
       transform: scale(1);
-      transition: transform 0.5s ease;
+      // transition: transform 0.5s ease;
+      transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+
+      pointer-events: none;
+      -webkit-user-drag: none;
+      user-drag: none;
     }
   }
 }

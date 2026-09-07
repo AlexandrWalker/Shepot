@@ -1,10 +1,19 @@
-function initClipSlider(selector, contentSelector) {
+function initClipSlider(selector, contentSelector, options = {}) {
   const container = document.querySelector(selector);
   if (!container) return null;
 
+  const config = Object.assign({
+    pagination: '.swiper-pagination',
+    btnNext: '.swiper-button-next',
+    btnPrev: '.swiper-button-prev',
+    bulletClass: 'swiper-pagination-bullet',
+    activeClass: 's--active',
+    prevClass: 's--prev'
+  }, options);
+
   const paginationEl =
-    container.querySelector('.about-swiper-pagination') ||
-    document.querySelector('.about-swiper-pagination');
+    container.querySelector(config.pagination) ||
+    document.querySelector(config.pagination);
 
   const swiper = new Swiper(selector, {
     slidesPerView: 1,
@@ -26,7 +35,8 @@ function initClipSlider(selector, contentSelector) {
     }
   });
 
-  const contentContainer = document.querySelector(contentSelector);
+  const hasContent = contentSelector && typeof contentSelector === 'string';
+  const contentContainer = hasContent ? document.querySelector(contentSelector) : null;
   let contentSwiper = null;
 
   if (contentContainer) {
@@ -46,9 +56,12 @@ function initClipSlider(selector, contentSelector) {
   const total = () => swiper.slides.length;
   let prevIndex = 0;
   let blocked = false;
-  const DURATION = 500;
+  const DURATION = 700;
 
   swiper.on('slideChange', () => {
+    if (contentSwiper) {
+      contentSwiper.slideTo(swiper.activeIndex, 700);
+    }
     animate(prevIndex, swiper.activeIndex);
     prevIndex = swiper.activeIndex;
   });
@@ -60,9 +73,6 @@ function initClipSlider(selector, contentSelector) {
     blocked = true;
     setTimeout(() => { blocked = false; }, DURATION);
 
-    if (contentSwiper) {
-      contentSwiper.slideTo(to, 300);
-    }
     swiper.slideTo(to, 0);
   }
 
@@ -77,7 +87,7 @@ function initClipSlider(selector, contentSelector) {
     const next = swiper.slides[to];
     if (!cur || !next) return;
 
-    cur.classList.remove('s--active', 's--active-prev');
+    cur.classList.remove(config.activeClass, `${config.activeClass}-prev`);
 
     const nextImg = next.querySelector('img');
     if (nextImg) {
@@ -86,12 +96,12 @@ function initClipSlider(selector, contentSelector) {
       nextImg.getBoundingClientRect();
     }
 
-    next.classList.add('s--active');
-    if (!isRight) next.classList.add('s--active-prev');
+    next.classList.add(config.activeClass);
+    if (!isRight) next.classList.add(`${config.activeClass}-prev`);
 
     requestAnimationFrame(() => requestAnimationFrame(() => {
       if (nextImg) {
-        nextImg.style.transition = 'transform 0.5s ease';
+        nextImg.style.transition = 'transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)';
         nextImg.style.transform = 'scale(1)';
       }
     }));
@@ -102,34 +112,62 @@ function initClipSlider(selector, contentSelector) {
       curImg.style.transform = 'scale(1)';
     }
 
-    container.querySelector('.swiper-slide.s--prev')?.classList.remove('s--prev');
+    container.querySelector(`.swiper-slide.${config.prevClass}`)?.classList.remove(config.prevClass);
     let prev = to - 1;
     if (prev < 0) prev = total() - 1;
-    swiper.slides[prev].classList.add('s--prev');
+    if (swiper.slides[prev]) {
+      swiper.slides[prev].getClientRects();
+      swiper.slides[prev].classList.add(config.prevClass);
+    }
   }
 
   let startX = null;
-  const THRESHOLD = 50;
+  const THRESHOLD = 40; // Слегка уменьшили порог для более отзывчивого свайпа
 
-  container.addEventListener('pointerdown', e => {
-    if (e.pointerType === 'mouse' && e.button !== 0) return;
-    startX = e.clientX;
-    container.setPointerCapture?.(e.pointerId);
-  }, { passive: true });
+  const swipeStart = (clientX) => {
+    startX = clientX;
+  };
 
-  container.addEventListener('pointerup', e => {
+  const swipeEnd = (clientX) => {
     if (startX !== null) {
-      const dx = e.clientX - startX;
-      if (Math.abs(dx) >= THRESHOLD) go(dx < 0);
+      const dx = clientX - startX;
+      if (Math.abs(dx) >= THRESHOLD) {
+        go(dx < 0);
+      }
     }
     startX = null;
-  });
+  };
 
-  document.querySelector('.about-button-next')?.addEventListener('click', () => go(true));
-  document.querySelector('.about-button-prev')?.addEventListener('click', () => go(false));
+  container.addEventListener('mousedown', e => {
+    if (e.button !== 0) return;
+    swipeStart(e.clientX);
+  }, { passive: true });
 
-  swiper.slides[0]?.classList.add('s--active');
-  swiper.slides[total() - 1]?.classList.add('s--prev');
+  window.addEventListener('mouseup', e => {
+    swipeEnd(e.clientX);
+  }, { passive: true });
+
+  container.addEventListener('touchstart', e => {
+    if (e.touches && e.touches[0]) {
+      swipeStart(e.touches[0].clientX);
+    }
+  }, { passive: true });
+
+  container.addEventListener('touchend', e => {
+    if (e.changedTouches && e.changedTouches[0]) {
+      swipeEnd(e.changedTouches[0].clientX);
+    }
+  }, { passive: true });
+
+  document.querySelector(config.btnNext)?.addEventListener('click', () => go(true));
+  document.querySelector(config.btnPrev)?.addEventListener('click', () => go(false));
+
+  if (swiper.slides && swiper.slides[0]) {
+    swiper.slides[0].classList.add(config.activeClass);
+  }
+  if (swiper.slides && swiper.slides[total() - 1]) {
+    swiper.slides[total() - 1].classList.add(config.prevClass);
+  }
 
   if (contentSwiper) {
     contentSwiper.init();
@@ -139,5 +177,17 @@ function initClipSlider(selector, contentSelector) {
 }
 
 if (document.querySelector('.about__cover-slider')) {
-  initClipSlider('.about__cover-slider', '.about__content-slider');
+  initClipSlider('.about__cover-slider', '.about__content-slider', {
+    pagination: '.about-swiper-pagination',
+    btnNext: '.about-button-next',
+    btnPrev: '.about-button-prev'
+  });
+}
+
+if (document.querySelector('.gallery__slider')) {
+  initClipSlider('.gallery__slider', null, {
+    pagination: '.gallery-swiper-pagination',
+    btnNext: '.gallery-button-next',
+    btnPrev: '.gallery-button-prev'
+  });
 }

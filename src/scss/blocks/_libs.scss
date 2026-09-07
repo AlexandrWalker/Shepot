@@ -50,10 +50,7 @@
   &-button {
 
     &-prev {
-
-      i {
-        transform: scale(-1, 1);
-      }
+      transform: scale(-1, 1) !important;
     }
 
     &-disabled {
@@ -106,7 +103,7 @@
 [class*=" swiper-button-"] {
   width: 6rem;
   height: 6rem;
-  margin: 0;
+  margin: 0 !important;
   background-color: transparent;
   transition: all 0.3s ease;
   pointer-events: all;

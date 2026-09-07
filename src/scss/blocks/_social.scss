@@ -1,0 +1,51 @@
+@use './../mixins' as *;
+
+.social {
+  display: none;
+
+  position: fixed;
+  right: 2.2rem;
+  bottom: 15rem;
+  z-index: 800;
+
+  @include dosm {
+    display: block;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__item {
+    width: 5.6rem;
+    height: 5.6rem;
+
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5.6rem;
+      height: 5.6rem;
+      border-radius: 50%;
+      background-color: var(--cream-30);
+      transition: all 0.3s ease;
+
+      color: var(--cream-2-60);
+
+      &:hover {
+
+        @include dosm {
+          background-color: var(--light-purple);
+
+          color: var(--cream-2);
+        }
+      }
+
+      i {
+        --font-size: 5.6rem;
+      }
+    }
+  }
+}

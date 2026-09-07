@@ -1,0 +1,169 @@
+@use './../mixins' as *;
+
+.gallery {
+  height: 84.4rem;
+  padding: 0;
+
+  @include dosm {
+    height: 100rem;
+  }
+
+  .general {
+
+    &__button {
+      position: absolute;
+      bottom: 3rem;
+      z-index: 2;
+
+      @include dosm {
+        right: var(--container-padding);
+        bottom: 4rem;
+      }
+
+      @include sm {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .swiper {
+
+    [class^=swiper-button-],
+    [class*=" swiper-button-"] {
+      color: var(--gold);
+    }
+
+    &-pagination {
+      position: absolute;
+      bottom: 6rem;
+      left: var(--container-padding);
+      z-index: 2;
+    }
+  }
+
+  &__inner {
+    height: 100%;
+  }
+
+  &__slide {
+    width: 100%;
+    box-shadow: 0px 37px 63.8px #281930;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .clip-slider & {
+      height: 84.4rem;
+
+      @include dosm {
+        height: 100rem;
+      }
+    }
+  }
+
+  &__item {
+    height: 100%;
+    padding: 11rem var(--container-padding) 3rem;
+
+    position: relative;
+
+    @include dosm {
+      padding: 16.6rem var(--container-padding) 6rem;
+    }
+
+    &-head {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      transition: opacity 0.7s linear, visibility 0.7s linear;
+      opacity: 0;
+      visibility: hidden;
+
+      position: relative;
+      z-index: 2;
+
+      @include dosm {
+        gap: 4rem;
+      }
+
+      .swiper-slide-active & {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &-title {
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 3.4rem;
+      line-height: 120%;
+      text-transform: uppercase;
+
+      @include dosm {
+        font-size: 6.4rem;
+      }
+
+      span {
+        margin-left: 10.5rem;
+
+        @include dosm {
+          margin-left: 21.4rem;
+        }
+      }
+    }
+
+    &-text {
+      max-width: 43.5rem;
+
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 140%;
+      color: var(--cream-50);
+
+      @include dosm {
+        font-size: 2rem;
+      }
+    }
+
+    &-body {
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    &-cover {
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--dark-purple-40);
+        mix-blend-mode: normal;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      img {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+}

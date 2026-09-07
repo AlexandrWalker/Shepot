@@ -84,7 +84,7 @@
       }
 
       @include sm {
-        margin-top: -12.8rem;
+        // margin-top: -12.8rem;
       }
     }
 
@@ -96,7 +96,7 @@
       }
 
       @include sm {
-        margin-top: -12.8rem;
+        // margin-top: -12.8rem;
       }
     }
 
@@ -106,12 +106,6 @@
       line-height: 120%;
       text-align: right;
       text-transform: uppercase;
-
-      background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
 
       position: absolute;
       top: 2rem;
@@ -169,12 +163,6 @@
       font-size: 1.6rem;
       line-height: 100%;
       text-transform: uppercase;
-
-      background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
 
       @include dosm {
         font-size: 2rem;
