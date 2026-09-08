@@ -28,11 +28,20 @@
 
   &-label {
 
+    &:has(.form-input.filled, .form-input:hover, .form-input:focus, .form-input:active, .form-input:checked) {
+
+      .form-label-text {
+        opacity: 1;
+      }
+    }
+
     &-text {
       font-weight: 400;
       font-size: 1.4rem;
       line-height: 140%;
       text-transform: uppercase;
+      opacity: 0.5;
+      transition: opacity 0.5s ease;
 
       margin-bottom: 2.2rem;
 
@@ -172,12 +181,26 @@
       top: -99999px;
       left: -999999px;
 
+      &:hover {
+
+        @include dosm {
+
+          &+.form-checkbox-item {
+
+            &::before {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
       &:checked {
 
         &+.form-checkbox-item {
 
           &::before {
             transform: translateY(-50%) translateX(2.7rem);
+            opacity: 1;
           }
         }
       }
@@ -200,7 +223,8 @@
         background: var(--block-gold-gradient);
         flex-shrink: 0;
         border-radius: 50%;
-        transition: transform 0.15s ease;
+        transition: transform 0.15s ease, opacity 0.3s ease;
+        opacity: 0.5;
 
         position: absolute;
         top: 50%;
@@ -241,7 +265,7 @@
 
         .magnetic__inner,
         .magnetic__inner::before {
-          opacity: 1;
+          border-color: var(--gold);
         }
       }
     }

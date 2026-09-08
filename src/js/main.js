@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Анимации
 
   //=include modules/_block-animation.js
+  //=include modules/_text-animation.js
 
   // Функция магнитизма кнопок к курсору
 
@@ -24,6 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
   //=include modules/_form-filled.js
 
   //=include modules/_sticky-reveal.js
+
+  // Попап
+  
+  //=include modules/_popup.js
 
   //=include modules/_menu-btns.js
   //=include modules/_fancybox.js

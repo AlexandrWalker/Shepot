@@ -8,6 +8,35 @@
   text-fill-color: transparent;
 }
 
+/* Класс обертки-маски, которую создаст SplitText */
+.line {
+  display: block;
+  overflow: hidden;
+  /* Текст будет вылетать из этой невидимой границы */
+  position: relative;
+
+  // Принудительно выносим на GPU для идеальной плавности
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Внешняя невидимая маска-контейнер для каждой строки */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  /* Обрезает всё, что выходит снизу */
+  position: relative;
+  width: 100%;
+}
+
+/* Внутренняя строка с текстом */
+.line-child {
+  display: block;
+  will-change: transform;
+  transform: translateZ(0);
+  /* Выносим на GPU */
+}
+
 .gradient-border {
   position: relative;
 

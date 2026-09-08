@@ -43,7 +43,7 @@ function initClipSlider(selector, contentSelector, options = {}) {
     contentSwiper = new Swiper(contentSelector, {
       slidesPerView: 1,
       loop: false,
-      speed: 300,
+      speed: 800,
       allowTouchMove: false,
       init: false,
       effect: 'fade',
@@ -56,11 +56,11 @@ function initClipSlider(selector, contentSelector, options = {}) {
   const total = () => swiper.slides.length;
   let prevIndex = 0;
   let blocked = false;
-  const DURATION = 700;
+  const DURATION = 800;
 
   swiper.on('slideChange', () => {
     if (contentSwiper) {
-      contentSwiper.slideTo(swiper.activeIndex, 700);
+      contentSwiper.slideTo(swiper.activeIndex, 800);
     }
     animate(prevIndex, swiper.activeIndex);
     prevIndex = swiper.activeIndex;
@@ -101,7 +101,7 @@ function initClipSlider(selector, contentSelector, options = {}) {
 
     requestAnimationFrame(() => requestAnimationFrame(() => {
       if (nextImg) {
-        nextImg.style.transition = 'transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)';
+        nextImg.style.transition = 'transform 0.8s ease';
         nextImg.style.transform = 'scale(1)';
       }
     }));

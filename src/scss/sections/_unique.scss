@@ -2,6 +2,7 @@
 
 .unique {
   position: relative;
+  z-index: 1;
 
   @include dosm {
     --section-padding-top: 8rem;
@@ -82,10 +83,6 @@
         grid-column: 2/3;
         grid-row: 2/4;
       }
-
-      @include sm {
-        // margin-top: -12.8rem;
-      }
     }
 
     &--3 {
@@ -93,10 +90,6 @@
       @include dosm {
         grid-column: 3/4;
         grid-row: 1/4;
-      }
-
-      @include sm {
-        // margin-top: -12.8rem;
       }
     }
 
@@ -136,7 +129,7 @@
       }
 
       .unique__item--1 & {
-        background-image: url(./../../images/temp/unique-icon-1.png);
+        background-image: url(./../images/temp/unique-icon-1.png);
       }
 
       .unique__item--2 & {

@@ -3,6 +3,10 @@
 .gallery {
   height: 84.4rem;
   padding: 0;
+  box-shadow: 0px 37px 63.8px #281930;
+
+  position: relative;
+  z-index: 2;
 
   @include dosm {
     height: 100rem;
@@ -48,7 +52,6 @@
 
   &__slide {
     width: 100%;
-    box-shadow: 0px 37px 63.8px #281930;
 
     position: absolute;
     top: 0;
@@ -73,6 +76,16 @@
 
     @include dosm {
       padding: 16.6rem var(--container-padding) 6rem;
+    }
+
+    .slide-text-wrapper {
+      left: 1.6rem;
+      top: 11rem;
+
+      @include dosm {
+        left: 10rem;
+        top: 16.6rem;
+      }
     }
 
     &-head {

@@ -1,9 +1,12 @@
 var afishaSlider = new Swiper('.afisha__slider', {
+  slidesPerGroup: 1,
   slidesPerView: 1,
   spaceBetween: 20,
   centeredSlides: true,
   grabCursor: true,
   loop: true,
+  slideToClickedSlide: true,
+  speed: 800,
   effect: 'coverflow',
   coverflowEffect: {
     rotate: 0,

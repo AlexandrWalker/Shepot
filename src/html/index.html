@@ -12,7 +12,6 @@
     <main class="main">
 
       <section class="hero">
-
         <div class="hero__bg">
           <picture>
             <source media="(min-width: 601px)" srcset="./../images/temp/hero-bg-desktop.jpg">
@@ -26,7 +25,7 @@
 
             <div class="hero__content">
               <div class="hero__head"></div>
-              <div class="hero__title gradient-text">
+              <div class="hero__title" data-split="lines">
                 <h1>
                   <span>пространство <br></span>
                   <span>тихой <br></span>
@@ -57,7 +56,7 @@
                   <div class="hero__block-icon">
                     <i class="icon-arrow-right"></i>
                   </div>
-                  <a class="hero__block-link" href="/">
+                  <a class="hero__block-link" href="#callback">
                     Забронировать столик
                   </a>
                 </div>
@@ -88,7 +87,7 @@
                   О баре
                 </p>
               </div>
-              <div class="general__head-title gradient-text" data-split="lines">
+              <div class="general__head-title" data-split="lines">
                 <h2>
                   Не просто бар. <br>
                   Пространство для избранных
@@ -160,22 +159,22 @@
               <div class="swiper about__cover-slider clip-slider">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide about__cover-slide s--active">
-                    <div class="about__cover-img">
+                    <div class="about__cover-img slide-img-wrapper">
                       <img src="./../images/temp/about-cover-1.jpg" alt="">
                     </div>
                   </div>
                   <div class="swiper-slide about__cover-slide">
-                    <div class="about__cover-img">
+                    <div class="about__cover-img slide-img-wrapper">
                       <img src="./../images/temp/about-cover-1.jpg" alt="">
                     </div>
                   </div>
                   <div class="swiper-slide about__cover-slide">
-                    <div class="about__cover-img">
+                    <div class="about__cover-img slide-img-wrapper">
                       <img src="./../images/temp/about-cover-1.jpg" alt="">
                     </div>
                   </div>
                   <div class="swiper-slide about__cover-slide">
-                    <div class="about__cover-img">
+                    <div class="about__cover-img slide-img-wrapper">
                       <img src="./../images/temp/about-cover-1.jpg" alt="">
                     </div>
                   </div>
@@ -198,7 +197,7 @@
                   уникальность
                 </p>
               </div>
-              <div class="general__head-title gradient-text">
+              <div class="general__head-title" data-split="lines">
                 <h2>
                   главные особенности
                 </h2>
@@ -262,7 +261,7 @@
         </div>
       </section>
 
-      <section class="gallery">
+      <section class="gallery anim-block">
         <div class="container-full">
           <div class="gallery__inner">
 
@@ -270,19 +269,23 @@
               <div class="swiper-wrapper">
                 <div class="swiper-slide gallery__slide s--active">
                   <div class="gallery__item">
-                    <div class="gallery__item-head">
-                      <div class="gallery__item-title gradient-text">
-                        Почувствуйте <br>
-                        <span>атмосферу</span>
-                      </div>
-                      <div class="gallery__item-text">
-                        <p>
-                          Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
-                          важные задания по разработке форм развития.
-                        </p>
+
+                    <div class="slide-text-wrapper">
+                      <div class="gallery__item-head slide-text-content">
+                        <div class="gallery__item-title gradient-text">
+                          Почувствуйте <br>
+                          <span>атмосферу</span>
+                        </div>
+                        <div class="gallery__item-text">
+                          <p>
+                            Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
+                            важные задания по разработке форм развития.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div class="gallery__item-body">
+
+                    <div class="gallery__item-body slide-img-wrapper">
                       <div class="gallery__item-cover">
                         <picture>
                           <source media="(min-width: 601px)" srcset="./../images/temp/gallery-cover-1.jpg">
@@ -295,19 +298,23 @@
                 </div>
                 <div class="swiper-slide gallery__slide">
                   <div class="gallery__item">
-                    <div class="gallery__item-head">
-                      <div class="gallery__item-title gradient-text">
-                        Почувствуйте <br>
-                        <span>атмосферу</span>
-                      </div>
-                      <div class="gallery__item-text">
-                        <p>
-                          Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
-                          важные задания по разработке форм развития.
-                        </p>
+
+                    <div class="slide-text-wrapper">
+                      <div class="gallery__item-head slide-text-content">
+                        <div class="gallery__item-title gradient-text">
+                          Почувствуйте <br>
+                          <span>атмосферу</span>
+                        </div>
+                        <div class="gallery__item-text">
+                          <p>
+                            Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
+                            важные задания по разработке форм развития.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div class="gallery__item-body">
+
+                    <div class="gallery__item-body slide-img-wrapper">
                       <div class="gallery__item-cover">
                         <picture>
                           <source media="(min-width: 601px)" srcset="./../images/temp/gallery-cover-2.jpg">
@@ -320,19 +327,23 @@
                 </div>
                 <div class="swiper-slide gallery__slide">
                   <div class="gallery__item">
-                    <div class="gallery__item-head">
-                      <div class="gallery__item-title gradient-text">
-                        Почувствуйте <br>
-                        <span>атмосферу</span>
-                      </div>
-                      <div class="gallery__item-text">
-                        <p>
-                          Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
-                          важные задания по разработке форм развития.
-                        </p>
+
+                    <div class="slide-text-wrapper">
+                      <div class="gallery__item-head slide-text-content">
+                        <div class="gallery__item-title gradient-text">
+                          Почувствуйте <br>
+                          <span>атмосферу</span>
+                        </div>
+                        <div class="gallery__item-text">
+                          <p>
+                            Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
+                            важные задания по разработке форм развития.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div class="gallery__item-body">
+
+                    <div class="gallery__item-body slide-img-wrapper">
                       <div class="gallery__item-cover">
                         <picture>
                           <source media="(min-width: 601px)" srcset="./../images/temp/gallery-cover-3.jpg">
@@ -345,19 +356,23 @@
                 </div>
                 <div class="swiper-slide gallery__slide">
                   <div class="gallery__item">
-                    <div class="gallery__item-head">
-                      <div class="gallery__item-title gradient-text">
-                        Почувствуйте <br>
-                        <span>атмосферу</span>
-                      </div>
-                      <div class="gallery__item-text">
-                        <p>
-                          Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
-                          важные задания по разработке форм развития.
-                        </p>
+
+                    <div class="slide-text-wrapper">
+                      <div class="gallery__item-head slide-text-content">
+                        <div class="gallery__item-title gradient-text">
+                          Почувствуйте <br>
+                          <span>атмосферу</span>
+                        </div>
+                        <div class="gallery__item-text">
+                          <p>
+                            Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
+                            важные задания по разработке форм развития.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div class="gallery__item-body">
+
+                    <div class="gallery__item-body slide-img-wrapper">
                       <div class="gallery__item-cover">
                         <picture>
                           <source media="(min-width: 601px)" srcset="./../images/temp/gallery-cover-4.jpg">
@@ -370,19 +385,23 @@
                 </div>
                 <div class="swiper-slide gallery__slide">
                   <div class="gallery__item">
-                    <div class="gallery__item-head">
-                      <div class="gallery__item-title gradient-text">
-                        Почувствуйте <br>
-                        <span>атмосферу</span>
-                      </div>
-                      <div class="gallery__item-text">
-                        <p>
-                          Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
-                          важные задания по разработке форм развития.
-                        </p>
+
+                    <div class="slide-text-wrapper">
+                      <div class="gallery__item-head slide-text-content">
+                        <div class="gallery__item-title gradient-text">
+                          Почувствуйте <br>
+                          <span>атмосферу</span>
+                        </div>
+                        <div class="gallery__item-text">
+                          <p>
+                            Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
+                            важные задания по разработке форм развития.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div class="gallery__item-body">
+
+                    <div class="gallery__item-body slide-img-wrapper">
                       <div class="gallery__item-cover">
                         <picture>
                           <source media="(min-width: 601px)" srcset="./../images/temp/gallery-cover-5.jpg">
@@ -395,19 +414,23 @@
                 </div>
                 <div class="swiper-slide gallery__slide">
                   <div class="gallery__item">
-                    <div class="gallery__item-head">
-                      <div class="gallery__item-title gradient-text">
-                        Почувствуйте <br>
-                        <span>атмосферу</span>
-                      </div>
-                      <div class="gallery__item-text">
-                        <p>
-                          Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
-                          важные задания по разработке форм развития.
-                        </p>
+
+                    <div class="slide-text-wrapper">
+                      <div class="gallery__item-head slide-text-content">
+                        <div class="gallery__item-title gradient-text">
+                          Почувствуйте <br>
+                          <span>атмосферу</span>
+                        </div>
+                        <div class="gallery__item-text">
+                          <p>
+                            Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
+                            важные задания по разработке форм развития.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div class="gallery__item-body">
+
+                    <div class="gallery__item-body slide-img-wrapper">
                       <div class="gallery__item-cover">
                         <picture>
                           <source media="(min-width: 601px)" srcset="./../images/temp/gallery-cover-6.jpg">
@@ -420,19 +443,23 @@
                 </div>
                 <div class="swiper-slide gallery__slide">
                   <div class="gallery__item">
-                    <div class="gallery__item-head">
-                      <div class="gallery__item-title gradient-text">
-                        Почувствуйте <br>
-                        <span>атмосферу</span>
-                      </div>
-                      <div class="gallery__item-text">
-                        <p>
-                          Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
-                          важные задания по разработке форм развития.
-                        </p>
+
+                    <div class="slide-text-wrapper">
+                      <div class="gallery__item-head slide-text-content">
+                        <div class="gallery__item-title gradient-text">
+                          Почувствуйте <br>
+                          <span>атмосферу</span>
+                        </div>
+                        <div class="gallery__item-text">
+                          <p>
+                            Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять
+                            важные задания по разработке форм развития.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div class="gallery__item-body">
+
+                    <div class="gallery__item-body slide-img-wrapper">
                       <div class="gallery__item-cover">
                         <picture>
                           <source media="(min-width: 601px)" srcset="./../images/temp/gallery-cover-7.jpg">
@@ -469,12 +496,12 @@
                   меню ресторана
                 </p>
               </div>
-              <div class="general__head-title gradient-text">
+              <div class="general__head-title" data-split="lines">
                 <h2>
                   изысканная кухня для избранных
                 </h2>
               </div>
-              <div class="general__head-text">
+              <div class="general__head-text" data-split="text">
                 <p>
                   Разнообразный и богатый опыт новая модель организационной деятельности позволяет выполнять важные
                   задания по разработке форм развития.
@@ -517,7 +544,7 @@
           <div class="afisha__inner">
 
             <div class="afisha__head">
-              <div class="afisha__head-title gradient-text">
+              <div class="afisha__head-title" data-split="lines">
                 <h2>
                   афиша
                 </h2>
@@ -527,7 +554,7 @@
               <div class="swiper afisha__slider">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide afisha__slide">
-                    <div class="afisha__item">
+                    <div class="afisha__item" data-popup="popup-events">
                       <div class="afisha__item-content">
                         <div class="afisha__item-date">
                           01.11.2027
@@ -545,7 +572,7 @@
                     </div>
                   </div>
                   <div class="swiper-slide afisha__slide">
-                    <div class="afisha__item">
+                    <div class="afisha__item" data-popup="popup-events">
                       <div class="afisha__item-content">
                         <div class="afisha__item-date">
                           01.11.2027
@@ -563,7 +590,7 @@
                     </div>
                   </div>
                   <div class="swiper-slide afisha__slide">
-                    <div class="afisha__item">
+                    <div class="afisha__item" data-popup="popup-events">
                       <div class="afisha__item-content">
                         <div class="afisha__item-date">
                           01.11.2027
@@ -581,7 +608,7 @@
                     </div>
                   </div>
                   <div class="swiper-slide afisha__slide">
-                    <div class="afisha__item">
+                    <div class="afisha__item" data-popup="popup-events">
                       <div class="afisha__item-content">
                         <div class="afisha__item-date">
                           01.11.2027
@@ -599,7 +626,7 @@
                     </div>
                   </div>
                   <div class="swiper-slide afisha__slide">
-                    <div class="afisha__item">
+                    <div class="afisha__item" data-popup="popup-events">
                       <div class="afisha__item-content">
                         <div class="afisha__item-date">
                           01.11.2027
@@ -617,7 +644,7 @@
                     </div>
                   </div>
                   <div class="swiper-slide afisha__slide">
-                    <div class="afisha__item">
+                    <div class="afisha__item" data-popup="popup-events">
                       <div class="afisha__item-content">
                         <div class="afisha__item-date">
                           01.11.2027
@@ -650,24 +677,24 @@
         </div>
       </section>
 
-      <section class="callback">
+      <section id="callback" class="callback">
         <div class="container">
           <div class="callback__inner general__inner">
 
             <div class="callback__cover">
-              <div class="callback__cover-img">
+              <div class="callback__cover-img parallax-container">
                 <img src="./../images/temp/callback-cover.jpg" alt="">
               </div>
             </div>
 
             <div class="callback__body">
               <div class="general__head">
-                <div class="general__head-title">
+                <div class="general__head-title" data-split="lines">
                   <h2>
                     Забронировать столик
                   </h2>
                 </div>
-                <div class="general__head-text">
+                <div class="general__head-text" data-split="text">
                   <p>
                     Оставьте контакты&nbsp;&mdash; мы&nbsp;свяжемся с&nbsp;вами и&nbsp;расскажем, как попасть
                     в&nbsp;закрытое пространство форма для заполнения данных
@@ -727,7 +754,7 @@
                       <button class="form-btn">
                         <div class="magnetic">
                           <span class="magnetic__inner">
-                            <span class="magnetic__text">
+                            <span class="magnetic__text gradient-text">
                               отправить
                             </span>
                           </span>
@@ -747,6 +774,8 @@
     </main>
     <!-- Подвал -->
     @@include('blocks/footer.html')
+    <!-- Попап -->
+    @@include('blocks/popup.html')
   </div>
   <!-- libs and script -->
   @@include('blocks/libs.html')
