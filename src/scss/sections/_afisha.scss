@@ -32,10 +32,6 @@
 
   .swiper {
 
-    &-wrapper {
-      z-index: 2;
-    }
-
     [class^=swiper-button-],
     [class*=" swiper-button-"] {
       color: var(--gold);
@@ -66,9 +62,24 @@
 
   &__slide {
     max-width: 55.3rem;
-    filter: drop-shadow(0px 37px 63.8px #281930);
-    pointer-events: all;
-    box-sizing: border-box; 
+    pointer-events: auto !important;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    // transform: scale(0.476) !important;
+    // transition: transform 0.8s ease;
+
+    // &.swiper-slide-active {
+    //   transform: scale(1) !important;
+    // }
+
+    // &.swiper-slide-prev {
+    //   transform: scale(0.738) !important;
+    // }
+
+    // &.swiper-slide-next {
+    //   transform: scale(0.738) !important;
+    // }
   }
 
   &__item {
@@ -79,6 +90,7 @@
     overflow: hidden;
     opacity: 0.5;
     transition: opacity 0.3s ease;
+    filter: drop-shadow(0px 37px 63.8px #281930);
 
     position: relative;
 
@@ -90,11 +102,14 @@
 
     &:hover {
 
-      .afisha__item-cover {
+      @include dosm {
 
-        img {
-          transform: scale(1.2);
-          transition: transform 1.5s linear;
+        .afisha__item-cover {
+
+          img {
+            transform: scale(1.2);
+            transition: transform 1.5s linear;
+          }
         }
       }
     }

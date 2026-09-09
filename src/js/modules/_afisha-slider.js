@@ -6,6 +6,7 @@ var afishaSlider = new Swiper('.afisha__slider', {
   grabCursor: true,
   loop: true,
   slideToClickedSlide: true,
+  watchSlidesProgress: true,
   speed: 800,
   effect: 'coverflow',
   coverflowEffect: {

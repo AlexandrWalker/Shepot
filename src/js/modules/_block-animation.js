@@ -50,7 +50,7 @@
         ease: "power2.out",
         scrollTrigger: {
           trigger: block,
-          start: "top 85%",
+          start: "top 95%",
           toggleActions: "play none none none"
         }
       }
