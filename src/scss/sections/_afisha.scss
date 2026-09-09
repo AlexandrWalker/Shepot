@@ -32,6 +32,10 @@
 
   .swiper {
 
+    &-wrapper {
+      z-index: 2;
+    }
+
     [class^=swiper-button-],
     [class*=" swiper-button-"] {
       color: var(--gold);

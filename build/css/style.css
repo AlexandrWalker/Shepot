@@ -29,8 +29,8 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Medium.woff2") format("woff2"), url("../fonts/Geologica-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -45,8 +45,8 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/Geologica-Medium.woff2") format("woff2"), url("../fonts/Geologica-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -642,10 +642,8 @@ img {
 .parallax-container {
   position: relative;
   overflow: hidden;
-  /* Важно: скрываем увеличенные края картинки */
   width: 100%;
   height: 100%;
-  /* Задайте вашу высоту по макету */
 }
 
 .parallax-container img {
@@ -656,8 +654,8 @@ img {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  -webkit-transform: scale(1.1) translateZ(0);
-          transform: scale(1.1) translateZ(0);
+  -webkit-transform: scale(1.2) translateZ(0);
+          transform: scale(1.2) translateZ(0);
   will-change: transform;
 }
 
@@ -2525,6 +2523,10 @@ html.with-fancybox body.hide-scrollbar {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.afisha .swiper-wrapper {
+  z-index: 2;
 }
 
 .afisha .swiper [class^=swiper-button-],

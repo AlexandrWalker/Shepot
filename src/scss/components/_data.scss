@@ -3,7 +3,6 @@
 [data-split="lines"] {
 
   * {
-    // // Базовое состояние переменной прогресса маски
     // --reveal-progress: 0%;
 
     // background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
@@ -12,11 +11,9 @@
     // -webkit-text-fill-color: transparent;
     // text-fill-color: transparent;
 
-    // // Премиальная маска: 20% зазора между точками создают мягкий, размытый край проявления ("эффект тумана")
     // -webkit-mask-image: linear-gradient(to bottom, #fff calc(var(--reveal-progress) - 20%), transparent var(--reveal-progress));
     // mask-image: linear-gradient(to bottom, #fff calc(var(--reveal-progress) - 20%), transparent var(--reveal-progress));
 
-    // // Базовые настройки для благородного 3D-параллакса при появлении
     // transform-style: preserve-3d;
     // backface-visibility: hidden;
     // will-change: mask-image, transform;
@@ -37,10 +34,8 @@
 .parallax-container {
   position: relative;
   overflow: hidden;
-  /* Важно: скрываем увеличенные края картинки */
   width: 100%;
   height: 100%;
-  /* Задайте вашу высоту по макету */
 
   img {
     position: absolute;
@@ -50,8 +45,7 @@
     height: 100%;
     object-fit: cover;
 
-    // Изначально увеличиваем картинку, давая запас для движения по вертикали
-    transform: scale(1.1) translateZ(0);
+    transform: scale(1.2) translateZ(0);
     will-change: transform;
   }
 }
