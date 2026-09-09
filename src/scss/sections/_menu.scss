@@ -2,6 +2,10 @@
 
 .menu {
 
+  @include sm {
+    --section-padding-top: 4rem;
+  }
+
   .general {
 
     &__inner {

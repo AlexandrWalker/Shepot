@@ -3,23 +3,34 @@
 [data-split="lines"] {
 
   * {
-    // Базовое состояние переменной прогресса маски
-    --reveal-progress: 0%;
+    // // Базовое состояние переменной прогресса маски
+    // --reveal-progress: 0%;
 
+    // background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+    // -webkit-background-clip: text;
+    // background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // text-fill-color: transparent;
+
+    // // Премиальная маска: 20% зазора между точками создают мягкий, размытый край проявления ("эффект тумана")
+    // -webkit-mask-image: linear-gradient(to bottom, #fff calc(var(--reveal-progress) - 20%), transparent var(--reveal-progress));
+    // mask-image: linear-gradient(to bottom, #fff calc(var(--reveal-progress) - 20%), transparent var(--reveal-progress));
+
+    // // Базовые настройки для благородного 3D-параллакса при появлении
+    // transform-style: preserve-3d;
+    // backface-visibility: hidden;
+    // will-change: mask-image, transform;
+
+    color: transparent;
     background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
-    -webkit-background-clip: text;
+    background-size: 200% 100%;
+    background-repeat: repeat-x;
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-
-    // Премиальная маска: 20% зазора между точками создают мягкий, размытый край проявления ("эффект тумана")
-    -webkit-mask-image: linear-gradient(to bottom, #fff calc(var(--reveal-progress) - 20%), transparent var(--reveal-progress));
-    mask-image: linear-gradient(to bottom, #fff calc(var(--reveal-progress) - 20%), transparent var(--reveal-progress));
-
-    // Базовые настройки для благородного 3D-параллакса при появлении
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-    will-change: mask-image, transform;
+    cursor: default;
+    width: fit-content;
+    will-change: background-position;
   }
 }
 

@@ -1,11 +1,22 @@
 @use './../mixins' as *;
 
 .gradient-text {
+  // background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+  // -webkit-background-clip: text;
+  // background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  // text-fill-color: transparent;
+
+  color: transparent;
   background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
-  -webkit-background-clip: text;
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+  cursor: default;
+  width: fit-content;
+  will-change: background-position;
 }
 
 .gradient-border {

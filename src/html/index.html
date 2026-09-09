@@ -13,11 +13,14 @@
 
       <section class="hero">
         <div class="hero__bg">
-          <picture>
+          <!-- <picture>
             <source media="(min-width: 601px)" srcset="./../images/temp/hero-bg-desktop.jpg">
             <source media="(max-width: 600px)" srcset="./../images/temp/hero-bg-mob.jpg">
             <img src="./../images/temp/hero-bg-desktop.jpg" alt="">
-          </picture>
+          </picture> -->
+          <video autoplay muted playsinline disablepictureinpicture>
+            <source src="./video/cover.mp4" type="video/mp4">
+          </video>
         </div>
 
         <div class="container hero__container">
@@ -65,8 +68,21 @@
             <div class="hero__btn">
               <a class="hero__btn-link magnetic" href="#bar">
                 <span class="magnetic__inner">
-                  <span class="magnetic__text gradient-icon">
-                    <i class="icon-chevron-down"></i>
+                  <span class="magnetic__text">
+                    <!-- <span class="magnetic__text gradient-icon"> -->
+                    <!-- <i class="icon-chevron-down"></i> -->
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M26 12L16 22L6 12" stroke="url(#paint0_linear_15_1475)" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                      <defs>
+                        <linearGradient id="paint0_linear_15_1475" x1="29.5429" y1="30.172" x2="10.48" y2="3.5837"
+                          gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#F2D1AB" />
+                          <stop offset="0.451923" stop-color="#BB8747" />
+                          <stop offset="0.807692" stop-color="#F0CFA8" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </span>
                 </span>
                 <span class="magnetic__hit"></span>

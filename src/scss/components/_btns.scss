@@ -89,7 +89,8 @@
 
     &:hover {
 
-      i {
+      i,
+      img {
 
         @include dosm {
           transform: scale(1.2);
@@ -99,6 +100,18 @@
 
     i {
       --font-size: var(--btn-height);
+    }
+
+    img {
+      display: block;
+      width: var(--btn-height);
+      height: var(--btn-height);
+      transition: transform 0.3s ease;
+    }
+
+    svg {
+      width: 4rem;
+      height: 4rem;
     }
   }
 }

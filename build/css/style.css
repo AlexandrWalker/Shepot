@@ -13,16 +13,16 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-ExtraBold.woff2") format("woff2"), url("../fonts/Geologica-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
-  font-weight: 300;
+  src: url("../fonts/Geologica-ExtraBold.woff2") format("woff2"), url("../fonts/Geologica-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -37,8 +37,8 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -67,18 +67,18 @@
 }
 
 @font-face {
-  font-family: Geologica;
-  font-display: swap;
-  src: url("../fonts/Geologica-Thin.woff2") format("woff2"), url("../fonts/Geologica-Thin.woff") format("woff");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
   font-family: LTRemark;
   font-display: swap;
   src: url("../fonts/LTRemark-Regular.woff2") format("woff2"), url("../fonts/LTRemark-Regular.woff") format("woff");
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Geologica;
+  font-display: swap;
+  src: url("../fonts/Geologica-Thin.woff2") format("woff2"), url("../fonts/Geologica-Thin.woff") format("woff");
+  font-weight: 100;
   font-style: normal;
 }
 
@@ -427,6 +427,22 @@ img {
   --font-size: var(--btn-height);
 }
 
+.btn--icon img {
+  display: block;
+  width: var(--btn-height);
+  height: var(--btn-height);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.btn--icon svg {
+  width: 4rem;
+  height: 4rem;
+}
+
 @-webkit-keyframes pulse-wave {
   0% {
     -webkit-box-shadow: 0 0 0 0.1rem rgb(255, 91, 91);
@@ -607,23 +623,20 @@ img {
 }
 
 [data-split=lines] * {
-  --reveal-progress: 0%;
+  color: transparent;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(-17.71%, #F2D1AB), color-stop(36.29%, #BB8747), color-stop(78.81%, #F0CFA8));
   background: -o-linear-gradient(top, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
   background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
-  -webkit-background-clip: text;
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(transparent));
-  -webkit-mask-image: linear-gradient(to bottom, #fff calc(var(--reveal-progress) - 20%), transparent var(--reveal-progress));
-  mask-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(transparent));
-  mask-image: linear-gradient(to bottom, #fff calc(var(--reveal-progress) - 20%), transparent var(--reveal-progress));
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: mask-image, transform;
+  cursor: default;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  will-change: background-position;
 }
 
 .parallax-container {
@@ -1095,13 +1108,20 @@ img {
 }
 
 .gradient-text {
+  color: transparent;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(-17.71%, #F2D1AB), color-stop(36.29%, #BB8747), color-stop(78.81%, #F0CFA8));
   background: -o-linear-gradient(top, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
   background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
-  -webkit-background-clip: text;
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+  cursor: default;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  will-change: background-position;
 }
 
 .gradient-border {
@@ -2649,8 +2669,6 @@ html.with-fancybox body.hide-scrollbar {
 .gallery {
   height: 84.4rem;
   padding: 0;
-  -webkit-box-shadow: 0px 37px 63.8px #281930;
-          box-shadow: 0px 37px 63.8px #281930;
   position: relative;
   z-index: 2;
 }
@@ -2792,7 +2810,9 @@ html.with-fancybox body.hide-scrollbar {
   z-index: 1;
 }
 
+.hero__bg video,
 .hero__bg img {
+  display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -2855,6 +2875,7 @@ html.with-fancybox body.hide-scrollbar {
 }
 
 .hero__btn {
+  display: none;
   width: 18rem;
   height: 18rem;
   position: absolute;
@@ -2875,6 +2896,11 @@ html.with-fancybox body.hide-scrollbar {
 
 .hero__btn-link i {
   --font-size: 3.2rem;
+}
+
+.hero__btn-link svg {
+  width: 3.2rem;
+  height: 3.2rem;
 }
 
 .hero__btn .magnetic__inner {
@@ -3412,7 +3438,8 @@ html.with-fancybox body.hide-scrollbar {
             animation-delay: 1s;
   }
 
-  .btn--icon:hover i {
+  .btn--icon:hover i,
+  .btn--icon:hover img {
     -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
             transform: scale(1.2);
@@ -3839,6 +3866,8 @@ html.with-fancybox body.hide-scrollbar {
 
   .gallery {
     height: 100rem;
+    -webkit-box-shadow: 0px 37px 63.8px #281930;
+            box-shadow: 0px 37px 63.8px #281930;
   }
 
   .gallery .general__button {
@@ -3913,6 +3942,10 @@ html.with-fancybox body.hide-scrollbar {
     height: 5.3rem;
     font-size: 12rem;
     line-height: 10rem;
+  }
+
+  .hero__btn {
+    display: block;
   }
 
   .hero__block {
@@ -4339,6 +4372,10 @@ html.with-fancybox body.hide-scrollbar {
 
   .hero {
     height: 63.6rem;
+  }
+
+  .menu {
+    --section-padding-top: 4rem;
   }
 }
 
