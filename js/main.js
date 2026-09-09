@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           yPercent: -10,
 
-          scale: 1.1
+          scale: 1.2
 
         },
 
@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           yPercent: 10,
 
-          scale: 1.1,
+          scale: 1.2,
 
           ease: "none",
 
