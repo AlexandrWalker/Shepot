@@ -13,14 +13,6 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Geologica;
-  font-display: swap;
   src: url("../fonts/Geologica-ExtraBold.woff2") format("woff2"), url("../fonts/Geologica-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
@@ -37,6 +29,14 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
+  src: url("../fonts/Geologica-Medium.woff2") format("woff2"), url("../fonts/Geologica-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Geologica;
+  font-display: swap;
   src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
@@ -45,8 +45,8 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Medium.woff2") format("woff2"), url("../fonts/Geologica-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -67,18 +67,18 @@
 }
 
 @font-face {
-  font-family: LTRemark;
-  font-display: swap;
-  src: url("../fonts/LTRemark-Regular.woff2") format("woff2"), url("../fonts/LTRemark-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: Geologica;
   font-display: swap;
   src: url("../fonts/Geologica-Thin.woff2") format("woff2"), url("../fonts/Geologica-Thin.woff") format("woff");
   font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: LTRemark;
+  font-display: swap;
+  src: url("../fonts/LTRemark-Regular.woff2") format("woff2"), url("../fonts/LTRemark-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -1151,18 +1151,20 @@ img {
 }
 
 .gradient-icon {
+  color: transparent;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(-17.71%, #F2D1AB), color-stop(36.29%, #BB8747), color-stop(78.81%, #F0CFA8));
   background: -o-linear-gradient(top, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
   background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
-  color: transparent;
-  display: inline-block;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  will-change: transform;
+  cursor: default;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  will-change: background-position;
 }
 
 [class^=icon-],
