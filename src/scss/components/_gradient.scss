@@ -50,17 +50,28 @@
 }
 
 .gradient-icon {
-  background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+  // background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
 
+  // background-clip: text;
+  // -webkit-background-clip: text;
+
+  // -webkit-text-fill-color: transparent;
+  // text-fill-color: transparent;
+  // color: transparent;
+
+  // display: inline-block;
+
+  // transform: translateZ(0);
+  // will-change: transform;
+
+  color: transparent;
+  background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
   background-clip: text;
   -webkit-background-clip: text;
-
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
-  color: transparent;
-
-  display: inline-block;
-
-  transform: translateZ(0);
-  will-change: transform;
+  cursor: default;
+  width: fit-content;
+  will-change: background-position;
 }
