@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             trigger: block,
 
-            start: "top 85%",
+            start: "top 95%",
 
             toggleActions: "play none none none"
 
@@ -1063,6 +1063,7 @@ document.addEventListener('DOMContentLoaded', () => {
     grabCursor: true,
     loop: true,
     slideToClickedSlide: true,
+    watchSlidesProgress: true,
     speed: 800,
     effect: 'coverflow',
     coverflowEffect: {

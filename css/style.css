@@ -21,6 +21,14 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
+  src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Geologica;
+  font-display: swap;
   src: url("../fonts/Geologica-ExtraLight.woff2") format("woff2"), url("../fonts/Geologica-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
@@ -45,8 +53,8 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
-  font-weight: 300;
+  src: url("../fonts/Geologica-Regular.woff2") format("woff2"), url("../fonts/Geologica-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -55,14 +63,6 @@
   font-display: swap;
   src: url("../fonts/Geologica-SemiBold.woff2") format("woff2"), url("../fonts/Geologica-SemiBold.woff") format("woff");
   font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Geologica;
-  font-display: swap;
-  src: url("../fonts/Geologica-Regular.woff2") format("woff2"), url("../fonts/Geologica-Regular.woff") format("woff");
-  font-weight: 400;
   font-style: normal;
 }
 
@@ -1104,38 +1104,6 @@ img {
   text-fill-color: transparent;
 }
 
-/* Класс обертки-маски, которую создаст SplitText */
-
-.line {
-  display: block;
-  overflow: hidden;
-  /* Текст будет вылетать из этой невидимой границы */
-  position: relative;
-  will-change: transform;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-}
-
-/* Внешняя невидимая маска-контейнер для каждой строки */
-
-.line-mask {
-  display: block;
-  overflow: hidden;
-  /* Обрезает всё, что выходит снизу */
-  position: relative;
-  width: 100%;
-}
-
-/* Внутренняя строка с текстом */
-
-.line-child {
-  display: block;
-  will-change: transform;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  /* Выносим на GPU */
-}
-
 .gradient-border {
   position: relative;
 }
@@ -1168,6 +1136,8 @@ img {
   background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
   background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
   color: transparent;
   display: inline-block;
   -webkit-transform: translateZ(0);
@@ -2535,10 +2505,6 @@ html.with-fancybox body.hide-scrollbar {
           justify-content: center;
 }
 
-.afisha .swiper-wrapper {
-  z-index: 2;
-}
-
 .afisha .swiper [class^=swiper-button-],
 .afisha .swiper [class*=" swiper-button-"] {
   color: var(--gold);
@@ -2559,11 +2525,9 @@ html.with-fancybox body.hide-scrollbar {
 
 .afisha__slide {
   max-width: 55.3rem;
-  -webkit-filter: drop-shadow(0px 37px 63.8px #281930);
-          filter: drop-shadow(0px 37px 63.8px #281930);
-  pointer-events: all;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  pointer-events: auto !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .afisha__item {
@@ -2576,18 +2540,9 @@ html.with-fancybox body.hide-scrollbar {
   -webkit-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
+  -webkit-filter: drop-shadow(0px 37px 63.8px #281930);
+          filter: drop-shadow(0px 37px 63.8px #281930);
   position: relative;
-}
-
-.afisha__item:hover .afisha__item-cover img {
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: -webkit-transform 1.5s linear;
-  transition: -webkit-transform 1.5s linear;
-  -o-transition: transform 1.5s linear;
-  transition: transform 1.5s linear;
-  transition: transform 1.5s linear, -webkit-transform 1.5s linear;
 }
 
 .swiper-slide-active .afisha__item {
@@ -3837,6 +3792,17 @@ html.with-fancybox body.hide-scrollbar {
     width: 55.3rem;
     height: 83.2rem;
     padding: 5rem 4rem;
+  }
+
+  .afisha__item:hover .afisha__item-cover img {
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition: -webkit-transform 1.5s linear;
+    transition: -webkit-transform 1.5s linear;
+    -o-transition: transform 1.5s linear;
+    transition: transform 1.5s linear;
+    transition: transform 1.5s linear, -webkit-transform 1.5s linear;
   }
 
   .afisha__item-date {
