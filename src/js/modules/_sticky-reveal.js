@@ -9,9 +9,8 @@ function stickyReveal() {
     if (destroyed || window.innerWidth > MOBILE_BREAKPOINT) return;
 
     items.forEach((item, index) => {
-      // Раздаем инлайновый top для каждого айтема: шапка + базовый отступ 2rem + каскадный шаг 16rem
       item.style.position = 'sticky';
-      item.style.top = `calc(var(--header-height) + 2rem + (${16 * index}rem))`;
+      item.style.top = `calc(var(--header-height) + 2rem + (${14 * index}rem))`;
     });
   }
 

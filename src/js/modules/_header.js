@@ -42,3 +42,42 @@
     }, 0);
   }, { passive: true });
 })();
+
+(function () {
+  const activeClass = 'header__control-link--active';
+
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-js-header-link]');
+
+    if (trigger) {
+      if (e.target.closest('a') || e.target.closest('button')) {
+        if (!trigger.hasAttribute('href')) e.preventDefault();
+      }
+
+      const isCurrentActive = trigger.classList.contains(activeClass);
+
+      document.querySelectorAll('[data-js-header-link]').forEach(btn => {
+        btn.classList.remove(activeClass);
+      });
+
+      if (!isCurrentActive) {
+        trigger.classList.add(activeClass);
+      }
+      return;
+    }
+
+    if (!e.target.closest('.header__control-wrap')) {
+      document.querySelectorAll('[data-js-header-link]').forEach(btn => {
+        btn.classList.remove(activeClass);
+      });
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('[data-js-header-link]').forEach(btn => {
+        btn.classList.remove(activeClass);
+      });
+    }
+  });
+})();

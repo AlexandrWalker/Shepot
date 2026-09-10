@@ -128,8 +128,8 @@
     &__inner {
       display: flex;
       flex-direction: column;
-      gap: 4rem;
-      padding: calc(var(--header-height) + 0.2rem) 0 4rem 0;
+      gap: 3rem;
+      padding: calc(var(--header-height) + 0.2rem) 0 5rem 0;
       height: fit-content;
       min-height: 100%;
 
@@ -160,8 +160,16 @@
     }
 
     &__contacts {
-      padding-top: 4rem;
+      padding-top: 3rem;
       border-top: 0.1rem dotted var(--cream-2-50);
+
+      .contacts {
+        gap: 2.5rem;
+
+        &__wrap {
+          gap: 1rem;
+        }
+      }
     }
   }
 }

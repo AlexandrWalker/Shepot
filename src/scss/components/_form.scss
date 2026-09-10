@@ -65,7 +65,7 @@
     font-weight: 400;
     font-size: 2rem;
     line-height: 143%;
-    color: var(--gold);
+    color: var(--cream);
 
     @include dosm {
       padding: 0 2rem 3.5rem 4.4rem;
@@ -81,6 +81,10 @@
         opacity: 1;
         transform: rotate(180deg);
       }
+    }
+
+    &::placeholder {
+      color: var(--cream-50);
     }
 
     &-icon {

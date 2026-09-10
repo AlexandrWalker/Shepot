@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //=include modules/_block-animation.js
   //=include modules/_text-animation.js
+  //=include modules/_item-animation.js
+  //=include modules/_anim-parallax.js
 
   // Функция магнитизма кнопок к курсору
 

@@ -3,6 +3,7 @@
 .footer {
   background-color: var(--body-bg);
   box-shadow: 0px 37px 63.8px #281930;
+  width: 100%;
 
   &__inner {
     display: flex;
@@ -23,7 +24,7 @@
     align-items: center;
 
     @include dosm {
-      padding-bottom: 8.9rem;
+      padding-bottom: 6.3rem;
       margin-bottom: 6rem;
       border-bottom: 0.1rem dotted var(--cream-2-50);
     }
@@ -41,9 +42,19 @@
       }
     }
 
-    &-text {
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
       max-width: 65.7rem;
 
+      @include dosm {
+        gap: 2rem;
+        align-items: flex-end;
+      }
+    }
+
+    &-text {
       font-family: var(--second-family);
       font-weight: 400;
       font-size: 3.4rem;
@@ -52,6 +63,17 @@
 
       @include dosm {
         font-size: 3.6rem;
+        text-align: right;
+      }
+    }
+
+    &-suptitle {
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 125%;
+      color: var(--cream);
+
+      @include dosm {
         text-align: right;
       }
     }
@@ -98,9 +120,11 @@
 
     &-control {
       display: flex;
+      margin: 0.5rem 0 1rem;
 
       @include dosm {
         justify-content: flex-end;
+        margin: 0;
       }
 
       @include sm {
@@ -114,6 +138,23 @@
       line-height: 125%;
       text-transform: uppercase;
       color: var(--cream);
+
+      &.link {
+        padding: 0 0 0 3.7rem;
+        min-height: 7.4rem;
+
+        &::before {
+          width: 7.4rem;
+          height: 7.4rem;
+        }
+
+        &::after {
+          width: 5.5rem;
+          height: 5.5rem;
+
+          left: 0.95rem;
+        }
+      }
     }
   }
 

@@ -30,7 +30,7 @@
   }
 
   &__wrap {
-    max-width: 141.2rem;
+    max-width: 109.1rem;
     width: 100%;
     height: 100%;
     background-color: var(--dark-purple);
@@ -135,11 +135,11 @@
     flex-direction: column;
     gap: 1.5rem;
     height: fit-content;
-    padding: 4rem 1.5rem 2rem 1.5rem;
+    padding: 4rem 1.5rem 1.5rem 1.5rem;
 
     @include dosm {
       gap: 3rem;
-      padding: 8.6rem 24.6rem 2rem 17.5rem;
+      padding: 8.6rem 24.6rem 2rem 14.5rem;
     }
   }
 
@@ -152,7 +152,9 @@
       gap: 3rem;
     }
 
-    &-date {}
+    &-date {
+      color: var(--cream-50);
+    }
 
     &-title {
       max-width: 31rem;
@@ -175,6 +177,37 @@
   &__body {}
 
   &__content {
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 3.4rem;
+      line-height: 120%;
+      text-transform: uppercase;
+
+      color: transparent;
+      background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+      background-size: 200% 100%;
+      background-repeat: repeat-x;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: default;
+      width: fit-content;
+      will-change: background-position;
+
+      margin-bottom: 3rem;
+
+      @include sm {
+        font-size: 2.4rem;
+
+        margin-bottom: 1.5rem;
+      }
+    }
 
     p {
       margin-bottom: 3rem;
@@ -265,6 +298,7 @@
   }
 
   .callback {
+    height: fit-content;
 
     .general {
 
@@ -281,7 +315,7 @@
       gap: 3rem;
 
       @include dosm {
-        padding: 5rem 38.8rem 5.8rem 17.6rem;
+        padding: 5rem 9.8rem 3rem 14.5rem;
       }
     }
   }

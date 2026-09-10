@@ -42,11 +42,12 @@
   &__items {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 0 3rem;
+    gap: 2rem;
 
     @include dosm {
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 18rem 18rem auto;
+      gap: 0 3rem;
       padding-top: 1.8rem;
     }
   }
@@ -67,6 +68,15 @@
     @include dosm {
       min-height: 44.5rem;
       padding: 2rem 3rem 4.4rem 3rem;
+
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      -webkit-font-smoothing: antialiased;
+
+      transform-style: preserve-3d;
+      will-change: transform;
     }
 
     &--1 {

@@ -14,19 +14,43 @@
 
   .general {
 
-    &__button {
+    &__head {
+      gap: 1.5rem;
+
       position: absolute;
-      bottom: 3rem;
+      top: 16.6rem;
+      left: var(--container-padding);
       z-index: 2;
 
       @include dosm {
-        right: var(--container-padding);
-        bottom: 4rem;
+        gap: 4rem;
       }
 
-      @include sm {
-        left: 50%;
-        transform: translateX(-50%);
+      &-title {
+
+        span {
+          margin-left: 10.5rem;
+
+          @include dosm {
+            margin-left: 21.4rem;
+          }
+        }
+      }
+
+      &-text {
+        max-width: 43.5rem;
+      }
+    }
+
+    &__button {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      z-index: 2;
+      transform: translateX(-50%);
+
+      @include dosm {
+        bottom: 4rem;
       }
     }
   }

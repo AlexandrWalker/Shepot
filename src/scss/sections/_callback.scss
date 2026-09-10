@@ -3,6 +3,9 @@
 .callback {
   background-color: var(--light-purple);
   padding: 0;
+  
+  position: relative;
+  z-index: 2;
 
   .general {
 

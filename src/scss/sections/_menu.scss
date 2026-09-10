@@ -1,6 +1,7 @@
 @use './../mixins' as *;
 
 .menu {
+  --section-padding-top: 8rem;
 
   @include sm {
     --section-padding-top: 4rem;
