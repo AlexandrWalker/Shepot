@@ -160,6 +160,86 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
   })();
+
+  
+
+  (function () {
+
+    const activeClass = 'header__control-link--active';
+
+  
+
+    document.addEventListener('click', (e) => {
+
+      const trigger = e.target.closest('[data-js-header-link]');
+
+  
+
+      if (trigger) {
+
+        if (e.target.closest('a') || e.target.closest('button')) {
+
+          if (!trigger.hasAttribute('href')) e.preventDefault();
+
+        }
+
+  
+
+        const isCurrentActive = trigger.classList.contains(activeClass);
+
+  
+
+        document.querySelectorAll('[data-js-header-link]').forEach(btn => {
+
+          btn.classList.remove(activeClass);
+
+        });
+
+  
+
+        if (!isCurrentActive) {
+
+          trigger.classList.add(activeClass);
+
+        }
+
+        return;
+
+      }
+
+  
+
+      if (!e.target.closest('.header__control-wrap')) {
+
+        document.querySelectorAll('[data-js-header-link]').forEach(btn => {
+
+          btn.classList.remove(activeClass);
+
+        });
+
+      }
+
+    });
+
+  
+
+    window.addEventListener('keydown', (e) => {
+
+      if (e.key === 'Escape') {
+
+        document.querySelectorAll('[data-js-header-link]').forEach(btn => {
+
+          btn.classList.remove(activeClass);
+
+        });
+
+      }
+
+    });
+
+  })();
+
+  
   /**
    * Функция управления поведением мобильного меню, меню-каталога и поиска.
    */
@@ -471,6 +551,59 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     });
   });
+  (function () {
+    const isMobile = window.innerWidth < 600;
+    if (isMobile) return;
+  
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      const section = document.querySelector('.unique');
+      const items = document.querySelectorAll('.unique__item');
+      if (!section || items.length < 3) return;
+  
+      gsap.fromTo(items[0],
+        { rotateY: -15, rotateX: 5, yPercent: -10 },
+        { rotateY: 10, rotateX: -5, yPercent: 10, ease: "none", scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: true } }
+      );
+  
+      gsap.fromTo(items[1],
+        { rotateX: 10, scale: 0.95 },
+        { rotateX: -10, scale: 1.02, ease: "none", scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: true } }
+      );
+  
+      gsap.fromTo(items[2],
+        { rotateY: 15, rotateX: -5, yPercent: 15 },
+        { rotateY: -10, rotateX: 5, yPercent: -15, ease: "none", scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: true } }
+      );
+    }
+  })();
+  (function () {
+    const isMobile = window.innerWidth < 600;
+    if (isMobile) return;
+  
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      const parallaxElements = document.querySelectorAll('.anim-parallax');
+      if (!parallaxElements.length) return;
+  
+      parallaxElements.forEach(element => {
+        const speedAttr = element.getAttribute('data-parallax-speed');
+        const speed = speedAttr ? parseFloat(speedAttr) : 15;
+  
+        gsap.fromTo(element,
+          { yPercent: speed },
+          {
+            yPercent: -speed,
+            ease: "none",
+            scrollTrigger: {
+              trigger: element,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true
+            }
+          }
+        );
+      });
+    }
+  })();
 
   // Функция магнитизма кнопок к курсору
 
@@ -1179,11 +1312,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       items.forEach((item, index) => {
 
-        // Раздаем инлайновый top для каждого айтема: шапка + базовый отступ 2rem + каскадный шаг 16rem
-
         item.style.position = 'sticky';
 
-        item.style.top = `calc(var(--header-height) + 2rem + (${16 * index}rem))`;
+        item.style.top = `calc(var(--header-height) + 2rem + (${14 * index}rem))`;
 
       });
 
@@ -1276,8 +1407,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
   let globalStickyInstance = stickyReveal();
-
-  
 
   // Попап
   
