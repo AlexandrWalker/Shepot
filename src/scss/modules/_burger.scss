@@ -26,13 +26,16 @@
 
     &.burger-btn--active {
 
-      &::before {
-        border-color: var(--cream-2-50);
-      }
+      --link-border-color-1: var(--cream-2-50);
+      --link-border-color-2: var(--cream-2);
 
-      &::after {
-        border-color: var(--cream-2);
-      }
+      // &::before {
+      //   border-color: var(--cream-2-50);
+      // }
+
+      // &::after {
+      //   border-color: var(--cream-2);
+      // }
 
       .burger-btn__line {
         background-color: var(--cream-2);
@@ -47,37 +50,37 @@
       }
     }
 
-    &::before {
-      content: "";
-      display: block;
-      width: var(--burger-btn-width);
-      height: var(--burger-btn-height);
-      border-radius: 50%;
-      border: 0.05rem solid var(--purple-50);
-      transition: border-color 0.5s ease;
+    // &::before {
+    //   content: "";
+    //   display: block;
+    //   width: var(--burger-btn-width);
+    //   height: var(--burger-btn-height);
+    //   border-radius: 50%;
+    //   border: 0.05rem solid var(--purple-50);
+    //   transition: border-color 0.5s ease;
 
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 1;
-      transform: translate(-50%, -50%);
-    }
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   z-index: 1;
+    //   transform: translate(-50%, -50%);
+    // }
 
-    &::after {
-      content: "";
-      display: block;
-      width: calc(var(--burger-btn-width) - 1.4rem);
-      height: calc(var(--burger-btn-height) - 1.4rem);
-      border-radius: 50%;
-      border: 0.1rem solid var(--purple);
-      transition: border-color 0.5s ease;
+    // &::after {
+    //   content: "";
+    //   display: block;
+    //   width: calc(var(--burger-btn-width) - 1.4rem);
+    //   height: calc(var(--burger-btn-height) - 1.4rem);
+    //   border-radius: 50%;
+    //   border: 0.1rem solid var(--purple);
+    //   transition: border-color 0.5s ease;
 
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 1;
-      transform: translate(-50%, -50%);
-    }
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   z-index: 1;
+    //   transform: translate(-50%, -50%);
+    // }
 
     &__line {
       width: 1.6rem;

@@ -1,5 +1,37 @@
 @use './../mixins' as *;
 
+@keyframes premiumSyncBefore {
+  0% {
+    border-color: var(--link-border-color-1);
+    box-shadow: 0 0 0 0rem var(--link-border-color-1);
+  }
+
+  75% {
+    border-color: var(--link-border-color-1);
+    box-shadow: 0 0 0 1.6rem rgba(242, 209, 171, 0);
+  }
+
+  100% {
+    border-color: var(--link-border-color-1);
+  }
+}
+
+@keyframes premiumSyncAfter {
+  0% {
+    border-color: var(--link-border-color-2);
+    box-shadow: 0 0 0 0rem var(--link-border-color-1);
+  }
+
+  75% {
+    border-color: var(--link-border-color-2);
+    box-shadow: 0 0 0 1.4rem rgba(187, 135, 71, 0);
+  }
+
+  100% {
+    border-color: var(--link-border-color-2);
+  }
+}
+
 .link {
   display: grid;
   grid-template-rows: 0.95fr auto 1fr;
@@ -7,18 +39,7 @@
   padding: 0 0 0 2.4rem;
   height: fit-content;
   min-height: 5.6rem;
-
   position: relative;
-
-  &:hover {
-
-    @include dosm {
-
-      &::before {
-        border-color: var(--link-border-color-2);
-      }
-    }
-  }
 
   &--cream {
     --link-border-color-1: var(--cream-2-50);
@@ -30,40 +51,61 @@
     --link-border-color-2: var(--purple);
   }
 
-  &::before {
+  &::before,
+  &::after {
     content: "";
     display: block;
-    width: 5.6rem;
-    height: 5.6rem;
     border-radius: 50%;
-    border: 0.05rem solid var(--link-border-color-1);
-    transition: border-color 0.3s ease;
-
+    border-style: solid;
     position: absolute;
     top: 50%;
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+    will-change: border-color, box-shadow;
+  }
+
+  &::before {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-width: 0.05rem;
+    border-color: var(--link-border-color-1);
+    transition: all 0.5s ease;
   }
 
   &::after {
-    content: "";
-    display: block;
     width: 4.2rem;
     height: 4.2rem;
-    border-radius: 50%;
-    border: 0.1rem solid var(--link-border-color-2);
-
-    position: absolute;
-    top: 50%;
+    border-width: 0.1rem;
+    border-color: var(--link-border-color-2);
     left: 0.7rem;
-    z-index: 1;
-    transform: translateY(-50%);
+    transition: all 0.5s ease;
+  }
+
+  &.is-animating {
+    @include dosm {
+      &::before {
+        animation: premiumSyncBefore 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+
+      &::after {
+        animation: premiumSyncAfter 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+    }
+  }
+
+  &.is-clicked {
+    &::before {
+      animation: premiumSyncBefore 1.6s cubic-bezier(0.16, 1, 0.3, 1) 1;
+    }
+
+    &::after {
+      animation: premiumSyncAfter 1.6s cubic-bezier(0.16, 1, 0.3, 1) 1;
+    }
   }
 
   &-text {
     grid-row: 2/3;
-
     position: relative;
     z-index: 2;
   }
@@ -71,7 +113,6 @@
   &-suptitle {
     grid-row: 3/4;
     margin-left: auto;
-
     font-weight: 100;
     font-size: 1.2rem;
     line-height: 125%;

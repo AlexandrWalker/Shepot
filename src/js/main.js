@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //=include modules/_magnetic.js
 
+  // Пульсация link
+
+  //=include modules/_pulse.js
+
   // Слайдеры
 
   //=include modules/_clip-slider.js
