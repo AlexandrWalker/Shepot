@@ -1,10 +1,33 @@
-/**
- * Функция управления поведением мобильного меню, меню-каталога и поиска.
- */
 (function () {
   const burgerBtn = document.querySelector('[data-js-burger-btn]');
   const burgerMenu = document.querySelector('[data-js-burger-menu]');
   const isMobileQuery = window.matchMedia('(max-width: 600px)');
+
+  let menuTl = null;
+
+  if (typeof gsap !== 'undefined') {
+    menuTl = gsap.timeline({ paused: true });
+    
+    menuTl.fromTo([
+      '.burger-menu__nav',
+      '.burger-menu__contacts'
+    ], 
+      { 
+        y: -60,
+        rotateX: -4,
+        opacity: 0 
+      },
+      { 
+        y: 0, 
+        rotateX: 0,
+        opacity: 1, 
+        duration: 1.2, 
+        stagger: 0.12, 
+        ease: 'power4.out',
+        delay: 0.5
+      }
+    );
+  }
 
   const syncBurgerBtnState = () => {
     if (!burgerBtn) return;
@@ -21,6 +44,10 @@
     document.documentElement.classList.add('burger-menu--open');
     if (typeof lenis !== 'undefined') lenis.stop();
     syncBurgerBtnState();
+
+    if (menuTl) {
+      menuTl.restart();
+    }
   };
 
   const closeBurger = () => {
@@ -28,6 +55,10 @@
     if (typeof lenis !== 'undefined') lenis.start();
     document.dispatchEvent(new CustomEvent('menu:close'));
     syncBurgerBtnState();
+
+    if (menuTl) {
+      menuTl.pause(0);
+    }
   };
 
   if (burgerBtn) {

@@ -151,6 +151,11 @@
     }
 
     &__nav {
+      opacity: 0;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: transform, opacity;
 
       .nav {
 
@@ -165,6 +170,11 @@
     &__contacts {
       padding-top: 3rem;
       border-top: 0.1rem dotted var(--cream-2-50);
+      opacity: 0;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: transform, opacity;
 
       .contacts {
         gap: 2.5rem;
