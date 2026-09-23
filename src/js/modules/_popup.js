@@ -5,11 +5,11 @@
     const trigger = e.target.closest('[data-popup]');
 
     if (trigger) {
-      if (e.target.closest('a') || e.target.closest('button')) {
-        if (!trigger.hasAttribute('href')) e.preventDefault();
-      }
+      e.preventDefault();
 
-      const popupId = trigger.dataset.popup;
+      const popupId = trigger.getAttribute('data-popup');
+      if (!popupId) return;
+
       const targetPopup = document.getElementById(popupId);
 
       if (targetPopup) {

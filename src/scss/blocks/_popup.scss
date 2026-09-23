@@ -172,6 +172,17 @@
         font-size: 6.4rem;
       }
     }
+
+    &-text {
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 140%;
+      color: var(--cream-50);
+
+      @include dosm {
+        font-size: 2rem;
+      }
+    }
   }
 
   &__body {}
@@ -316,6 +327,37 @@
 
       @include dosm {
         padding: 5rem 9.8rem 3rem 14.5rem;
+      }
+    }
+  }
+}
+
+#popup-callback {
+
+  .popup {
+
+    &__inner {
+      gap: 3rem;
+      padding: 8rem 1.5rem 4rem 1.5rem;
+
+      @include dosm {
+        gap: 3.5rem;
+        padding: 8.6rem 9.8rem 2rem 14.5rem;
+      }
+    }
+
+    &__wrap {
+      background-color: var(--light-purple);
+    }
+  }
+
+  .form {
+
+    &-inner {
+      gap: 2rem;
+
+      @include dosm {
+        gap: 3.5rem;
       }
     }
   }

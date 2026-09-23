@@ -67,4 +67,14 @@
     align-items: center;
     gap: 2rem;
   }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    @include dosm {
+      gap: 2rem;
+    }
+  }
 }

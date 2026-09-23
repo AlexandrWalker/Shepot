@@ -1330,73 +1330,73 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 
-  
+
   /**
-  
+
    * Функция для присвоения класса filled для заполненных форм
-  
+
    */
-  
+
   (function () {
+
   
-  
-  
+
     const form = document.querySelector('form');
+
   
-  
-  
+
     if (form) {
-  
+
       const inputElements = document.querySelectorAll('.form-input');
-  
+
       const textareaElements = document.querySelectorAll('.form-textarea');
-  
+
       const className = 'filled';
+
   
-  
-  
+
       inputElements.forEach(element => {
-  
+
         element.addEventListener('input', function () {
-  
+
           if (this.value.trim() !== '') {
-  
+
             element.classList.add(className);
-  
+
           } else {
-  
+
             element.classList.remove(className);
-  
+
           }
-  
+
         });
-  
+
       });
+
   
-  
-  
+
       textareaElements.forEach(element => {
-  
+
         element.addEventListener('input', function () {
-  
+
           if (this.value.trim() !== '') {
-  
+
             element.classList.add(className);
-  
+
           } else {
-  
+
             element.classList.remove(className);
-  
+
           }
-  
+
         });
-  
+
       });
-  
+
     }
+
   
-  
-  
+
   })();
 
   function stickyReveal() {
@@ -1517,108 +1517,248 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let globalStickyInstance = stickyReveal();
 
-  // Попап
-  
+  /**
+
+   * ВЫПАДАЮЩИЙ СПИСОК (dropdown--js)
+
+   *    
+
+   * Кастомный select на основе radio-инпутов.
+
+   * Открывается кликом, закрывается кликом вне или выбором опции.
+
+   */
+
   (function () {
-  
-    const showClass = 'popup--show';
-  
-  
-  
+
     document.addEventListener('click', (e) => {
+
+      const selectedBtn = e.target.closest('.dropdown__selected--js');
+
+      const currentDropdown = e.target.closest('.dropdown--js');
+
+      const allDropdowns = document.querySelectorAll('.dropdown--js');
+
   
+
+      const radioClick = e.target.closest('.dropdown__radio');
+
+  
+
+      if (radioClick && radioClick.checked && currentDropdown) {
+
+        currentDropdown.classList.remove('is-active');
+
+        return;
+
+      }
+
+  
+
+      if (selectedBtn && currentDropdown) {
+
+        e.stopPropagation();
+
+  
+
+        allDropdowns.forEach(dropdown => {
+
+          if (dropdown !== currentDropdown) {
+
+            dropdown.classList.remove('is-active');
+
+          }
+
+        });
+
+  
+
+        currentDropdown.classList.toggle('is-active');
+
+        return;
+
+      }
+
+  
+
+      allDropdowns.forEach(dropdown => {
+
+        if (!dropdown.contains(e.target)) {
+
+          dropdown.classList.remove('is-active');
+
+        }
+
+      });
+
+    });
+
+  
+
+    document.addEventListener('change', (e) => {
+
+      if (!e.target.classList.contains('dropdown__radio')) return;
+
+  
+
+      const radio = e.target;
+
+      if (!radio.checked) return;
+
+  
+
+      const dropdown = radio.closest('.dropdown--js');
+
+      if (!dropdown) return;
+
+  
+
+      const selectedInputJs = dropdown.querySelector('.dropdown__selected-input--js');
+
+      const selectedLabelJs = dropdown.querySelector('.dropdown__selected-label--js');
+
+      const dropdownValue = dropdown.querySelector('.dropdown__value');
+
+  
+
+      const value = radio.value;
+
+  
+
+      if (selectedLabelJs) selectedLabelJs.textContent = value;
+
+      if (selectedInputJs) selectedInputJs.value = value;
+
+      if (dropdownValue) dropdownValue.value = value;
+
+  
+
+      dropdown.classList.remove('is-active');
+
+  
+
+      // Проверяем, находится ли инпут внутри .dropdown__label--first или связан ли с ним
+
+      const isFirst = radio.closest('.dropdown__label--first') || dropdown.querySelector(`label[for="${radio.id}"].dropdown__label--first`);
+
+  
+
+      if (isFirst) {
+
+        dropdown.classList.remove('filled');
+
+      } else {
+
+        dropdown.classList.add('filled');
+
+      }
+
+    });
+
+  })();
+
+  // Попап
+
+  (function () {
+
+    const showClass = 'popup--show';
+
+  
+
+    document.addEventListener('click', (e) => {
+
       const trigger = e.target.closest('[data-popup]');
+
   
-  
-  
+
       if (trigger) {
+
+        e.preventDefault();
+
   
-        if (e.target.closest('a') || e.target.closest('button')) {
+
+        const popupId = trigger.getAttribute('data-popup');
+
+        if (!popupId) return;
+
   
-          if (!trigger.hasAttribute('href')) e.preventDefault();
-  
-        }
-  
-  
-  
-        const popupId = trigger.dataset.popup;
-  
+
         const targetPopup = document.getElementById(popupId);
+
   
-  
-  
+
         if (targetPopup) {
-  
+
           targetPopup.classList.add(showClass);
-  
+
           if (typeof lenis !== 'undefined') lenis.stop();
-  
+
         }
-  
+
         return;
-  
+
       }
+
   
-  
-  
+
       const closeBtn = e.target.closest('.popup__close');
-  
+
       if (closeBtn) {
-  
+
         const activePopup = closeBtn.closest('.popup');
-  
+
         if (activePopup) {
-  
+
           activePopup.classList.remove(showClass);
-  
+
           if (typeof lenis !== 'undefined') lenis.start();
-  
+
         }
-  
+
         return;
-  
+
       }
+
   
-  
-  
+
       const overlayPopup = e.target.closest('.popup');
-  
+
       if (overlayPopup) {
-  
+
         const isInsideContent = e.target.closest('.popup__wrap');
-  
+
         if (!isInsideContent) {
-  
+
           overlayPopup.classList.remove(showClass);
-  
+
           if (typeof lenis !== 'undefined') lenis.start();
-  
+
         }
-  
+
       }
-  
+
     });
+
   
-  
-  
+
     window.addEventListener('keydown', (e) => {
-  
+
       if (e.key === 'Escape') {
-  
+
         const activePopup = document.querySelector(`.popup.${showClass}`);
-  
+
         if (activePopup) {
-  
+
           activePopup.classList.remove(showClass);
-  
+
           if (typeof lenis !== 'undefined') lenis.start();
-  
+
         }
-  
+
       }
-  
+
     });
-  
+
   })();
 
   (function () {
@@ -1684,6 +1824,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   })();
+  (function () {
+    const activeClass = 'events__item--active';
+  
+    const isMobile = () => window.innerWidth < 600;
+  
+    document.addEventListener('click', (e) => {
+      if (!isMobile()) return;
+  
+      const currentItem = e.target.closest('.events__item');
+  
+      if (!currentItem) {
+        if (!e.target.closest('.events__item')) {
+          document.querySelectorAll('.events__item').forEach(item => {
+            item.classList.remove(activeClass);
+          });
+        }
+        return;
+      }
+  
+      if (e.target.closest('a') || e.target.closest('button')) return;
+  
+      e.preventDefault();
+  
+      const isCurrentActive = currentItem.classList.contains(activeClass);
+  
+      document.querySelectorAll('.events__item').forEach(item => {
+        item.classList.remove(activeClass);
+      });
+  
+      if (!isCurrentActive) {
+        currentItem.classList.add(activeClass);
+      }
+    });
+  })();
   /**
    * Инициализация Fancybox
    */
@@ -1707,4 +1881,54 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('resize', function () { ScrollTrigger.update() });
+
+  /**
+
+   * УВЕДОМЛЕНИЕ О COOKIE                     
+
+   *    
+
+   * Показывает плашку если cookie COOKIE_ACCEPT ≠ '1'.            
+
+   * checkCookies() вызывается из HTML при клике на кнопку.         
+
+   */
+
+  const cookieAccepted =
+
+    ('; ' + document.cookie).split(`; COOKIE_ACCEPT=`).pop().split(';')[0] === '1';
+
+  
+
+  if (!cookieAccepted) {
+
+    const cookiesNotify = document.getElementById('plate_cookie');
+
+    if (cookiesNotify) {
+
+      setTimeout(() => {
+
+        cookiesNotify.classList.add('cookie--active');
+
+      }, 500);
+
+    }
+
+  }
 });
+
+/**
+ * Принимает cookie и скрывает плашку уведомления.
+ *
+ * Устанавливает COOKIE_ACCEPT=1 сроком на 1 год.
+ */
+function checkCookies() {
+  const expires = new Date(Date.now() + 86400e3 * 365).toUTCString();
+  document.cookie = `COOKIE_ACCEPT=1;path=/;expires=${expires}`;
+
+  const plate = document.getElementById('plate_cookie');
+  if (!plate) return;
+  plate.classList.remove('cookie--active');
+
+  setTimeout(() => plate.remove(), 5000);
+}

@@ -18,12 +18,14 @@
       gap: 1.5rem;
 
       position: absolute;
-      top: 16.6rem;
+      top: 11rem;
       left: var(--container-padding);
       z-index: 2;
 
       @include dosm {
         gap: 4rem;
+
+        top: 16.6rem;
       }
 
       &-title {
@@ -104,11 +106,11 @@
 
     .slide-text-wrapper {
       left: 1.6rem;
-      top: 11rem;
+      top: 20.7rem;
 
       @include dosm {
         left: 10rem;
-        top: 16.6rem;
+        top: 36rem;
       }
     }
 

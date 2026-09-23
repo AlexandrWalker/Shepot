@@ -1,7 +1,7 @@
 @use './../mixins' as *;
 
 .footer {
-  background-color: var(--body-bg);
+  background-color: var(--light-purple);
   box-shadow: 0px 37px 63.8px #281930;
   width: 100%;
 
@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    padding: 7rem 0 0 0;
+    padding: 3rem 0 0 0;
 
     @include dosm {
       gap: 0;

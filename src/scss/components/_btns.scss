@@ -44,6 +44,78 @@
     pointer-events: none;
   }
 
+  &__text {
+    position: relative;
+    z-index: 3;
+  }
+
+  &--purple {
+    --btn-background: var(--light-purple);
+    --btn-color: var(--cream);
+    --btn-border-radius: 0.8rem;
+
+    box-shadow: 0px 37px 63.8px #281930;
+
+    &:hover {
+
+      @include dosm {
+        color: var(--dark-purple-3);
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(214.89deg, #F2D1AB -44.01%, #BB8747 30.73%, #F0CFA8 89.58%);
+      box-shadow: 0px 37px 63.8px #281930;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      transition: opacity 0.3s ease;
+      opacity: 0.5;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      @include dosm {
+        opacity: 0;
+      }
+    }
+  }
+
+  &--border {
+    --btn-background: transparent;
+    --btn-color: var(--cream);
+    --btn-border-radius: 0.8rem;
+
+    &.gradient-border::before {
+      transition: opacity 0.3s ease;
+
+      @include sm {
+        background: linear-gradient(180deg,
+            rgba(242, 209, 171, 0.15) -17.71%,
+            rgba(187, 135, 71, 0.2) 36.29%,
+            rgba(240, 207, 168, 0.15) 78.81%) border-box;
+      }
+    }
+
+    &:hover {
+      --btn-background: var(--light-purple);
+
+      box-shadow: 0px 37px 63.8px #281930;
+
+      &.gradient-border::before {
+        opacity: 0;
+      }
+    }
+  }
+
   &--pulse {
     z-index: 2;
 

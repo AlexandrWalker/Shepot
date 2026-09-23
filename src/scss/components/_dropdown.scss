@@ -1,0 +1,157 @@
+@use './../mixins' as *;
+
+.dropdown {
+  height: 5.6rem;
+  user-select: none;
+
+  position: relative;
+
+  // &.filled,
+  // &:hover {
+
+  //   &+.form-input-icon {
+  //     opacity: 1;
+  //     transform: rotate(180deg);
+  //   }
+  // }
+
+  &.is-active {
+
+    .dropdown__selected {
+      padding-left: 0;
+    }
+
+    &+.form-input-icon {
+      opacity: 0;
+    }
+  }
+
+  &__selected {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 2rem 2rem 4.4rem;
+    background-color: transparent;
+    border-bottom: 0.1rem dotted var(--gold);
+    border-radius: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    position: relative;
+
+    @include dosm {
+      padding: 0 2rem 3.5rem 4.4rem;
+    }
+
+    i {
+      --font-size: 2.4rem;
+
+      border-radius: 50%;
+
+      color: var(--cream-50);
+
+      .dropdown.is-active & {
+        transform: scale(1, -1);
+
+        color: var(--cream);
+      }
+    }
+
+    .dropdown.is-active & {}
+
+    &-label--js {
+
+      .filled & {}
+    }
+
+    &--js {
+
+      .filled & {}
+    }
+  }
+
+  &__label {
+    display: block;
+    width: 100%;
+    transition: color 0.3s ease;
+
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 140%;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--cream);
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .filled & {}
+
+    &:hover {
+
+      @include dosm {}
+    }
+  }
+
+  &__container {
+    width: 100%;
+    max-height: 30rem;
+    padding: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    scrollbar-gutter: stable;
+
+    position: absolute;
+    top: calc(100% + 0.1rem);
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    .dropdown.is-active & {
+      pointer-events: all;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 104%;
+    padding: 2rem 2rem 3rem 2rem;
+    background-color: var(--cream);
+    transform: translateY(-101%);
+    will-change: transform;
+    transition: transform 0.3s ease;
+
+    .dropdown.is-active & {
+      transform: translateY(0);
+    }
+
+    .dropdown__label {
+      width: fit-content;
+      transition: font-weight 0.3s ease;
+
+      color: var(--dark-purple-3);
+
+      &:hover {
+
+        @include dosm {
+          font-weight: 700;
+        }
+      }
+
+      &--first {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__radio {
+    display: none;
+  }
+}

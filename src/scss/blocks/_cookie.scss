@@ -1,0 +1,96 @@
+@use './../mixins' as *;
+
+.cookie {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 850;
+
+  &.cookie--active {
+
+    .cookie__inner {
+      transform: translateX(0%);
+      opacity: 1;
+      pointer-events: all;
+
+      @include sm {
+        transform: translateY(0%);
+      }
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    max-width: 63.5rem;
+    width: fit-content;
+    height: auto;
+    background-color: var(--light-purple);
+    box-shadow: 0px 37px 63.8px rgba(51, 32, 61, 0.68);
+    border-radius: 0.8rem;
+    padding: 0.8rem 1.5rem;
+    margin: 0 var(--container-padding) 2rem 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform;
+
+    @include sm {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      padding: 1.5em 1.5rem 1rem 1.5rem;
+      margin: 0 var(--container-padding) 1rem var(--container-padding);
+      transform: translateY(100%);
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 140%;
+    color: var(--white-50);
+
+    a {
+      color: var(--purple-50);
+      text-decoration: underline;
+
+      &:hover {
+
+        @include dosm {
+          color: var(--purple);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &__btn {
+    --btn-height: 4.8rem;
+    --btn-padding-x: 2rem;
+
+    font-weight: 300;
+    font-size: 1.6rem;
+
+    &.btn--purple::before {
+      opacity: 0.5;
+    }
+
+    @include sm {
+      --btn-height: 4rem;
+      --btn-padding-x: 1rem;
+
+      font-size: 1.4rem;
+    }
+  }
+}
