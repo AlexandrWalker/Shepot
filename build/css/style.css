@@ -2141,12 +2141,28 @@ img {
   margin: 0.5rem 0 1rem;
 }
 
+.footer__mid-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .footer__mid-link {
+  width: 100%;
   font-weight: 300;
   font-size: 2rem;
   line-height: 125%;
   text-transform: uppercase;
   color: var(--cream);
+  cursor: pointer;
 }
 
 .footer__mid-link.link {
@@ -3231,6 +3247,7 @@ html.with-fancybox body.hide-scrollbar {
 .afisha__item-cover {
   width: 100%;
   height: 100%;
+  will-change: transform;
   position: absolute;
   top: 0;
   left: 0;
@@ -3247,6 +3264,7 @@ html.with-fancybox body.hide-scrollbar {
   -o-transition: transform 0.5s linear;
   transition: transform 0.5s linear;
   transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+  will-change: transform;
 }
 
 .callback {
@@ -3341,6 +3359,7 @@ html.with-fancybox body.hide-scrollbar {
   overflow: hidden;
   border: 0.05rem solid #F2D1AB;
   color: var(--dark-purple-3);
+  cursor: pointer;
   position: relative;
 }
 
@@ -3463,17 +3482,15 @@ html.with-fancybox body.hide-scrollbar {
 .events__item-btn {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 0fr;
-  grid-template-rows: 0fr;
+  -ms-grid-rows: 1fr;
+  grid-template-rows: 1fr;
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  margin-top: -1rem;
   font-weight: 300;
   font-size: 1.4rem;
   line-height: 140%;
   color: var(--gold);
-  cursor: pointer;
 }
 
 .events__item-btn--text {
@@ -4910,6 +4927,8 @@ html.with-fancybox body.hide-scrollbar {
   }
 
   .events__item-btn {
+    -ms-grid-rows: 0fr;
+    grid-template-rows: 0fr;
     margin-top: -3rem;
     font-size: 2rem;
   }
@@ -5374,6 +5393,10 @@ html.with-fancybox body.hide-scrollbar {
             order: 1;
   }
 
+  .footer__mid-links {
+    gap: 2rem;
+  }
+
   .footer__bot-copyright {
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
@@ -5502,6 +5525,10 @@ html.with-fancybox body.hide-scrollbar {
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
     grid-row: 2/3;
+  }
+
+  .events__item-btn--text {
+    color: var(--dark-purple-3);
   }
 
   .hero {

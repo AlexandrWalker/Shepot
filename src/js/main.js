@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //=include modules/_popup.js
 
   //=include modules/_menu-btns.js
-  //=include modules/_events-items.js
   //=include modules/_fancybox.js
 
   window.addEventListener('resize', function () { ScrollTrigger.update() });

@@ -123,6 +123,7 @@
     border: 0.05rem solid #F2D1AB;
 
     color: var(--dark-purple-3);
+    cursor: pointer;
 
     position: relative;
 
@@ -302,17 +303,16 @@
 
     &-btn {
       display: grid;
-      grid-template-rows: 0fr;
+      grid-template-rows: 1fr;
       transition: all 0.5s ease;
-      margin-top: -1rem;
 
       font-weight: 300;
       font-size: 1.4rem;
       line-height: 140%;
       color: var(--gold);
-      cursor: pointer;
 
       @include dosm {
+        grid-template-rows: 0fr;
         margin-top: -3rem;
 
         font-size: 2rem;
@@ -320,6 +320,10 @@
 
       &--text {
         overflow: hidden;
+
+        @include sm {
+          color: var(--dark-purple-3);
+        }
       }
     }
   }

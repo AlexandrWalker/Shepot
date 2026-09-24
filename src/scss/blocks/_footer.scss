@@ -132,12 +132,26 @@
       }
     }
 
+    &-links {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      width: fit-content;
+
+      @include sm {
+        gap: 2rem;
+      }
+    }
+
     &-link {
+      width: 100%;
+
       font-weight: 300;
       font-size: 2rem;
       line-height: 125%;
       text-transform: uppercase;
       color: var(--cream);
+      cursor: pointer;
 
       &.link {
         padding: 0 0 0 3.7rem;
