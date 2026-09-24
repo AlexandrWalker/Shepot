@@ -13,6 +13,14 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
+  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Geologica;
+  font-display: swap;
   src: url("../fonts/Geologica-ExtraBold.woff2") format("woff2"), url("../fonts/Geologica-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
@@ -23,14 +31,6 @@
   font-display: swap;
   src: url("../fonts/Geologica-ExtraLight.woff2") format("woff2"), url("../fonts/Geologica-ExtraLight.woff") format("woff");
   font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Geologica;
-  font-display: swap;
-  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
-  font-weight: 700;
   font-style: normal;
 }
 
@@ -883,6 +883,7 @@ img {
 }
 
 .form-label:has(.form-input.filled, .form-input:hover, .form-input:focus, .form-input:active, .form-input:checked) .form-label-text,
+.form-label:has(.form-textarea.filled, .form-textarea:hover, .form-textarea:focus, .form-textarea:active, .form-textarea:checked) .form-label-text,
 .form-label:has(.dropdown.filled, .dropdown:hover) .form-label-text {
   opacity: 1;
 }
@@ -966,7 +967,7 @@ img {
   transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
   color: var(--gold);
   position: absolute;
-  bottom: 2.5rem;
+  top: 4.8rem;
   left: 0;
   z-index: 1;
 }
@@ -976,6 +977,8 @@ img {
 }
 
 .form-input-icon svg {
+  width: 2.4rem;
+  height: 2.4rem;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
@@ -1095,6 +1098,39 @@ img {
   text-transform: uppercase;
   text-align: center;
   position: relative;
+}
+
+.form-textarea {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  border-bottom: 0.1rem dotted var(--gold);
+  border-radius: 0;
+  padding: 0 2rem 2rem 4.4rem;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  resize: none;
+  overflow: hidden;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 143%;
+  color: var(--cream);
+}
+
+.form-textarea.filled + .form-input-icon,
+.form-textarea:hover + .form-input-icon,
+.form-textarea:focus + .form-input-icon,
+.form-textarea:active + .form-input-icon,
+.form-textarea:checked + .form-input-icon {
+  opacity: 1;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.form-textarea + .form-input-icon {
+  top: 4.2rem;
 }
 
 .form-total-weight::before {
@@ -2982,16 +3018,19 @@ html.with-fancybox body.hide-scrollbar {
   gap: 3rem;
 }
 
-#popup-callback .popup__inner {
+#popup-callback .popup__inner,
+#popup-partner .popup__inner {
   gap: 3rem;
   padding: 8rem 1.5rem 4rem 1.5rem;
 }
 
-#popup-callback .popup__wrap {
+#popup-callback .popup__wrap,
+#popup-partner .popup__wrap {
   background-color: var(--light-purple);
 }
 
-#popup-callback .form-inner {
+#popup-callback .form-inner,
+#popup-partner .form-inner {
   gap: 2rem;
 }
 
@@ -4362,7 +4401,7 @@ html.with-fancybox body.hide-scrollbar {
   }
 
   .form-input-icon {
-    bottom: 3.5rem;
+    top: 5rem;
   }
 
   .form-foot {
@@ -4392,6 +4431,16 @@ html.with-fancybox body.hide-scrollbar {
   .form-btn:hover .magnetic__inner,
   .form-btn:hover .magnetic__inner::before {
     border-color: var(--gold);
+  }
+
+  .form-textarea {
+    padding: 0 2rem 3.5rem 4.4rem;
+    font-weight: 400;
+    font-size: 2rem;
+  }
+
+  .form-textarea + .form-input-icon {
+    top: 5rem;
   }
 
   .link.is-animating::before {
@@ -4661,12 +4710,14 @@ html.with-fancybox body.hide-scrollbar {
     padding: 5rem 9.8rem 3rem 14.5rem;
   }
 
-  #popup-callback .popup__inner {
+  #popup-callback .popup__inner,
+  #popup-partner .popup__inner {
     gap: 3.5rem;
     padding: 8.6rem 9.8rem 2rem 14.5rem;
   }
 
-  #popup-callback .form-inner {
+  #popup-callback .form-inner,
+  #popup-partner .form-inner {
     gap: 3.5rem;
   }
 
