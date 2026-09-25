@@ -9,6 +9,8 @@
     @@include('./blocks/header.html')
     <!-- Соц. сети -->
     @@include('./blocks/social.html')
+    <!-- Подтверждение возраста -->
+    @@include('./blocks/verified.html')
     <main class="main">
 
       <section class="hero">
@@ -42,22 +44,8 @@
             <div class="hero__block">
               <div class="hero__block-inner">
                 <div class="hero__block-content">
-                  <div class="hero__block-item hero__block-item--2">
-                    <picture>
-                      <source media="(min-width: 601px)" srcset="./../images/temp/hero-ticket-2.png">
-                      <source media="(max-width: 600px)" srcset="./../images/temp/hero-ticket-mob-2.png">
-                      <img src="./../images/temp/hero-ticket-2.png" alt="">
-                    </picture>
-                  </div>
-                  <div class="hero__block-item hero__block-item--1">
-                    <picture>
-                      <source media="(min-width: 601px)" srcset="./../images/temp/hero-ticket-1.png">
-                      <source media="(max-width: 600px)" srcset="./../images/temp/hero-ticket-mob-1.png">
-                      <img src="./../images/temp/hero-ticket-1.png" alt="">
-                    </picture>
-                  </div>
-                  <div class="hero__block-icon">
-                    <i class="icon-arrow-right"></i>
+                  <div class="hero__block-item">
+                    <img src="./../images/temp/hero-block-cover.png" alt="">
                   </div>
                   <a class="hero__block-link" href="#callback">
                     Забронировать столик
@@ -69,8 +57,6 @@
               <a class="hero__btn-link magnetic" href="#bar">
                 <span class="magnetic__inner">
                   <span class="magnetic__text">
-                    <!-- <span class="magnetic__text gradient-icon"> -->
-                    <!-- <i class="icon-chevron-down"></i> -->
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M26 12L16 22L6 12" stroke="url(#paint0_linear_15_1475)" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -582,6 +568,9 @@
                   Барное меню
                 </div>
                 <i class="icon-chevron-right"></i>
+                <div class="menu__btn-img">
+                  <img src="./../images/icon/file.svg" alt="">
+                </div>
               </a>
               <a class="menu__btn menu__btn--main gradient-border" data-fancybox
                 href="./../images/temp/menu-cover-2.jpg" data-caption="Основное меню">
@@ -589,6 +578,9 @@
                   Основное меню
                 </div>
                 <i class="icon-chevron-right"></i>
+                <div class="menu__btn-img">
+                  <img src="./../images/icon/file.svg" alt="">
+                </div>
               </a>
             </div>
             <div class="menu__cover anim-parallax">
@@ -800,7 +792,7 @@
               <div class="general__head">
                 <div class="general__head-title" data-split="lines">
                   <h2>
-                    Забронировать столик
+                    Забронировать <br> столик
                   </h2>
                 </div>
                 <div class="general__head-text" data-split="text">
@@ -928,7 +920,7 @@
             </div>
 
             <div class="general__btns">
-              <div class="events__btn btn btn--purple" data-popup="popup-callback">
+              <div class="events__btn btn btn--purple" data-popup="popup-reservation">
                 <div class="btn__text">
                   Забронировать мероприятие
                 </div>
@@ -942,7 +934,7 @@
 
             <div class="events__body">
               <div class="events__items anim-items">
-                <div class="events__item gradient-border anim-item" data-popup="popup-callback">
+                <div class="events__item gradient-border anim-item" data-popup="popup-reservation">
                   <div class="events__item-count">
                     01
                   </div>
@@ -966,7 +958,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="events__item gradient-border anim-item" data-popup="popup-callback">
+                <div class="events__item gradient-border anim-item" data-popup="popup-reservation">
                   <div class="events__item-count">
                     02
                   </div>
@@ -990,7 +982,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="events__item gradient-border anim-item" data-popup="popup-callback">
+                <div class="events__item gradient-border anim-item" data-popup="popup-reservation">
                   <div class="events__item-count">
                     03
                   </div>
@@ -1014,7 +1006,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="events__item gradient-border anim-item" data-popup="popup-callback">
+                <div class="events__item gradient-border anim-item" data-popup="popup-reservation">
                   <div class="events__item-count">
                     04
                   </div>

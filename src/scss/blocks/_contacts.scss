@@ -24,6 +24,10 @@
       line-height: 120%;
       text-transform: uppercase;
 
+      .burger-menu & {
+        font-size: 2.4rem;
+      }
+
       @include dosm {
         font-size: 6.4rem;
       }
@@ -74,8 +78,13 @@
     .burger-menu & {
 
       .btn--icon {
-        --btn-width: 6rem;
-        --btn-height: 6rem;
+        --btn-width: 5rem;
+        --btn-height: 5rem;
+
+        @include dosm {
+          --btn-width: 6rem;
+          --btn-height: 6rem;
+        }
       }
     }
   }

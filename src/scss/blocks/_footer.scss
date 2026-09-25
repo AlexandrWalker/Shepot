@@ -11,6 +11,8 @@
     gap: 3rem;
     padding: 3rem 0 0 0;
 
+    position: relative;
+
     @include dosm {
       gap: 0;
       padding: 8rem 0 0 0;
@@ -57,7 +59,7 @@
     &-text {
       font-family: var(--second-family);
       font-weight: 400;
-      font-size: 3.4rem;
+      font-size: 2.4rem;
       line-height: 120%;
       text-transform: uppercase;
 
@@ -83,7 +85,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
-    padding-bottom: 4.7rem;
+    padding-bottom: 3rem;
     border-bottom: 0.1rem dotted var(--cream-2-50);
 
     @include dosm {
@@ -116,11 +118,21 @@
       @include sm {
         order: 3;
       }
+
+      .contacts {
+
+        &__wrap {
+
+          @include sm {
+            gap: 1rem;
+          }
+        }
+      }
     }
 
     &-control {
       display: flex;
-      margin: 0.5rem 0 1rem;
+      margin: 0 0 1rem;
 
       @include dosm {
         justify-content: flex-end;
@@ -260,6 +272,33 @@
           }
         }
       }
+    }
+  }
+
+  &__mark {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 3.4rem;
+    line-height: 120%;
+    text-align: right;
+    text-transform: uppercase;
+
+    background: linear-gradient(180deg, #F2D1AB -17.71%, #BB8747 36.29%, #F0CFA8 78.81%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    opacity: 0.5;
+
+    position: absolute;
+    right: 0;
+    bottom: 2.5rem;
+
+    @include dosm {
+      font-size: 6.4rem;
+
+      bottom: 14.2rem;
     }
   }
 }

@@ -116,6 +116,112 @@
     }
   }
 
+  &--outline {
+    --btn-background: transparent;
+    --btn-color: var(--cream);
+    --btn-border-radius: 0.8rem;
+
+    position: relative;
+
+    &:hover {
+      --btn-background: var(--light-purple);
+
+      box-shadow: 0px 37px 63.8px #281930;
+
+      &::after {
+        opacity: 0.5;
+      }
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border: 1px solid transparent;
+      border-radius: 0.8rem;
+      pointer-events: none;
+      background: linear-gradient(180deg,
+          rgba(242, 209, 171, 0.15) -17.71%,
+          rgba(187, 135, 71, 0.2) 36.29%,
+          rgba(240, 207, 168, 0.15) 78.81%) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0) border-box;
+      mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0) border-box;
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      transition: opacity 0.3s ease;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 0.8rem;
+      background: linear-gradient(118.41deg, #68437A 72.96%, #B078CB 109.43%, #68437A 138.14%);
+      opacity: 0;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      transition: opacity 0.3s ease;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &--gold-gradient {
+    --btn-height: 4.8rem;
+    --btn-padding-x: 2rem;
+    --btn-background: var(--light-purple);
+    --btn-color: var(--cream);
+    --btn-border-radius: 0.8rem;
+
+    box-shadow: 0px 37px 63.8px #281930;
+
+    font-weight: 300;
+    font-size: 1.6rem;
+
+    @include sm {
+      --btn-height: 4rem;
+      --btn-padding-x: 1rem;
+
+      font-size: 1.4rem;
+    }
+
+    &:hover {
+
+      @include dosm {
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(214.89deg, #F2D1AB -44.01%, #BB8747 30.73%, #F0CFA8 89.58%);
+      box-shadow: 0px 37px 63.8px #281930;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      transition: opacity 0.3s ease;
+      opacity: 0.5;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+  }
+
   &--pulse {
     z-index: 2;
 
@@ -150,14 +256,19 @@
   }
 
   &--icon {
-    --btn-width: 8rem;
-    --btn-height: 8rem;
+    --btn-width: 5rem;
+    --btn-height: 5rem;
     --btn-padding-x: 0;
     --btn-border-radius: 50%;
     --btn-background: transparent;
     --btn-color: var(--cream-2);
 
     border: 0.05rem solid var(--cream-2-50);
+
+    @include dosm {
+      --btn-width: 8rem;
+      --btn-height: 8rem;
+    }
 
     .header__control-item:hover &,
     &:hover {

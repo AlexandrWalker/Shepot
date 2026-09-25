@@ -131,7 +131,7 @@
     &__inner {
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 2rem;
       padding: calc(var(--header-height) + 0.2rem) 0 5rem 0;
       height: fit-content;
       min-height: 100%;
@@ -168,7 +168,7 @@
     }
 
     &__contacts {
-      padding-top: 3rem;
+      padding-top: 2rem;
       border-top: 0.1rem dotted var(--cream-2-50);
       opacity: 0;
       transform-style: preserve-3d;
@@ -177,7 +177,7 @@
       will-change: transform, opacity;
 
       .contacts {
-        gap: 2.5rem;
+        gap: 1.5rem;
 
         &__wrap {
           gap: 1rem;

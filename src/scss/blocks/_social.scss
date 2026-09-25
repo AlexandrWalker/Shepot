@@ -12,15 +12,55 @@
     display: block;
   }
 
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    clip-path: inset(calc(100% - 5.6rem) 0 0 0);
+    transition: all 0.5s ease;
+    overflow: hidden;
+    border-radius: 2.8rem;
+
+    &:hover {
+      clip-path: inset(0 0 0 0);
+
+      .social__items {
+        transform: translateY(0%);
+        opacity: 1;
+      }
+
+      &>.social__item {
+
+        .social__item-link {
+
+          @include dosm {
+            background-color: var(--cream);
+
+            color: var(--light-purple);
+          }
+        }
+      }
+    }
+  }
+
   &__items {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    transform: translateY(100%);
+    transition: all 0.5s ease;
+    opacity: 0;
+
+    position: relative;
+    z-index: 1;
   }
 
   &__item {
     width: 5.6rem;
     height: 5.6rem;
+
+    position: relative;
+    z-index: 2;
 
     &-link {
       display: flex;
@@ -33,6 +73,7 @@
       transition: all 0.3s ease;
 
       color: var(--cream-2-60);
+      cursor: pointer;
 
       &:hover {
 

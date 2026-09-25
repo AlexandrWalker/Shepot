@@ -51,8 +51,8 @@
   &__body {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    padding: 5rem 0;
+    gap: 2rem;
+    padding: 3rem 0;
 
     @include dosm {
       grid-column: 7/13;

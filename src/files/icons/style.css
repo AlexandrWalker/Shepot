@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'ShepotIconFont';
-  src:  url('fonts/ShepotIconFont.eot?as6fab');
-  src:  url('fonts/ShepotIconFont.eot?as6fab#iefix') format('embedded-opentype'),
-    url('fonts/ShepotIconFont.ttf?as6fab') format('truetype'),
-    url('fonts/ShepotIconFont.woff?as6fab') format('woff'),
-    url('fonts/ShepotIconFont.svg?as6fab#ShepotIconFont') format('svg');
+  src:  url('fonts/ShepotIconFont.eot?xz74tt');
+  src:  url('fonts/ShepotIconFont.eot?xz74tt#iefix') format('embedded-opentype'),
+    url('fonts/ShepotIconFont.ttf?xz74tt') format('truetype'),
+    url('fonts/ShepotIconFont.woff?xz74tt') format('woff'),
+    url('fonts/ShepotIconFont.svg?xz74tt#ShepotIconFont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -49,15 +49,21 @@
 .icon-plus:before {
   content: "\e907";
 }
-.icon-tg:before {
+.icon-tel:before {
   content: "\e908";
 }
-.icon-tg-social:before {
+.icon-tel-social:before {
   content: "\e909";
 }
-.icon-wa:before {
+.icon-tg:before {
   content: "\e90a";
 }
-.icon-wa-social:before {
+.icon-tg-social:before {
   content: "\e90b";
+}
+.icon-wa:before {
+  content: "\e90c";
+}
+.icon-wa-social:before {
+  content: "\e90d";
 }

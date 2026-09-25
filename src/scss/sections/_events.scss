@@ -1,7 +1,7 @@
 @use './../mixins' as *;
 
 .events {
-  --section-padding-top: 5rem;
+  --section-padding-top: 3rem;
   --section-padding-bottom: 4rem;
 
   @include dosm {
@@ -33,6 +33,20 @@
 
         @include sm {
           display: none;
+        }
+      }
+
+      &-title {
+
+        @include sm {
+          max-width: 34rem;
+        }
+
+        br {
+
+          @include sm {
+            display: none;
+          }
         }
       }
 
@@ -323,6 +337,13 @@
 
         @include sm {
           color: var(--dark-purple-3);
+        }
+
+        &:hover {
+          
+          @include dosm {
+            text-decoration: underline;
+          }
         }
       }
     }

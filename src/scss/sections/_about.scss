@@ -21,7 +21,7 @@
 
       position: absolute;
       bottom: 2.4rem;
-      left: 5.4rem;
+      left: 3.8rem;
 
       @include dosm {
         bottom: 4rem;
@@ -34,8 +34,8 @@
     display: block;
     width: 40rem;
     height: fit-content;
-    min-height: 47.3rem;
-    padding: 14.9rem 0.7rem 5rem 4rem;
+    min-height: 36.8rem;
+    padding: 11.9rem 0.7rem 4rem 4rem;
     margin-left: calc((var(--container-padding) + 2.5rem) * -1);
     background: var(--block-gold-gradient);
     border-radius: 0.8rem;

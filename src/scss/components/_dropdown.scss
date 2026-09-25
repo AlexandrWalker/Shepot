@@ -15,6 +15,13 @@
   //   }
   // }
 
+  &+.form-input-icon {
+
+    @include dosm {
+      top: 4.6rem;
+    }
+  }
+
   &.is-active {
 
     .dropdown__selected {

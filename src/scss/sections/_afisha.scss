@@ -1,7 +1,7 @@
 @use './../mixins' as *;
 
 .afisha {
-  --section-padding-bottom: 5rem;
+  --section-padding-bottom: 1rem;
 
   @include dosm {
     --section-padding-bottom: 10rem;
@@ -25,7 +25,7 @@
       }
 
       @include sm {
-        margin-top: 4.5rem !important;
+        margin-top: 1rem !important;
       }
     }
   }
@@ -43,7 +43,7 @@
   }
 
   &__head {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 
     @include dosm {
       margin: -13rem 0 -24rem;

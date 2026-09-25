@@ -208,8 +208,8 @@
 .f-button svg {}
 
 .fancybox__backdrop {
-  background: var(--black-50);
-  backdrop-filter: blur(5.7px);
+  background: var(--dark-purple-2-80);
+  backdrop-filter: none;
   transition: all 0.3s ease;
 }
 

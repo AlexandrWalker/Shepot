@@ -164,7 +164,7 @@
   </div>
 </div>
 
-<div id="popup-callback" class="popup">
+<div id="popup-reservation" class="popup">
   <div class="popup__wrap" data-lenis-prevent>
     <button class="popup__close">
       <div class="magnetic">
@@ -194,7 +194,7 @@
                   <div class="form-label-text gradient-text">
                     Ваше имя
                   </div>
-                  <input class="form-input" name="popup_callback_name" type="text">
+                  <input class="form-input" name="popup_reservation_name" type="text">
                   <div class="form-input-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />
@@ -215,7 +215,7 @@
                   <div class="form-label-text gradient-text">
                     ваш телефон
                   </div>
-                  <input class="form-input" name="popup_callback_tel" type="tel" placeholder="+7 (123)-456-78-90">
+                  <input class="form-input" name="popup_reservation_tel" type="tel" placeholder="+7 (123)-456-78-90">
                   <div class="form-input-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />
@@ -231,73 +231,12 @@
                   </div>
                 </label>
               </div>
-              <div class="form-group">
-                <div class="form-label">
-                  <div class="form-label-text gradient-text">
-                    Мероприятия
-                  </div>
-                  <div class="dropdown dropdown--js">
-                    <div class="dropdown__selected dropdown__selected--js">
-                      <input class="dropdown__input dropdown__selected-input--js" type="hidden" value="">
-                      <label class="dropdown__label dropdown__selected-label--js">Выбрать</label>
-                      <i class="icon-chevron-down"></i>
-                    </div>
-                    <div class="dropdown__container">
-                      <div class="dropdown__content">
-                        <div class="dropdown__option">
-                          <label class="dropdown__label">
-                            <input class="dropdown__radio" name="trade_model" type="radio" value="Праздники"
-                              data-city="iPhone17Pro">
-                            Праздники
-                          </label>
-                        </div>
-                        <div class="dropdown__option">
-                          <label class="dropdown__label">
-                            <input class="dropdown__radio" name="trade_model" type="radio" value="Деловые события"
-                              data-city="iPhone17ProMax">
-                            Деловые события
-                          </label>
-                        </div>
-                        <div class="dropdown__option">
-                          <label class="dropdown__label">
-                            <input class="dropdown__radio" name="trade_model" type="radio" value="Закрытые мероприятия"
-                              data-city="iPhone16Pro">
-                            Закрытые мероприятия
-                          </label>
-                        </div>
-                        <div class="dropdown__option">
-                          <label class="dropdown__label">
-                            <input class="dropdown__radio" name="trade_model" type="radio" value="Частные ужины"
-                              data-city="iPhone16ProMax">
-                            Частные ужины
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <input class="dropdown__value" type="hidden">
-                  </div>
-                  <div class="form-input-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />
-                      <defs>
-                        <linearGradient id="paint0_linear_39_1937" x1="37.5268" y1="-0.365784" x2="37.5268" y2="22.3411"
-                          gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#F2D1AB" />
-                          <stop offset="0.451923" stop-color="#BB8747" />
-                          <stop offset="0.807692" stop-color="#F0CFA8" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
             </div>
             <div class="form-foot">
               <div class="form-privacy">
                 <div class="form-group">
                   <label class="form-checkbox-label">
-                    <input class="form-checkbox-input" name="popup_callback_policy" type="checkbox" required>
+                    <input class="form-checkbox-input" name="popup_reservation_policy" type="checkbox" required>
                     <span class="form-checkbox-item"></span>
                     <span class="form-checkbox-text">
                       Принимаю условия пользовательского соглашения
@@ -306,7 +245,7 @@
                 </div>
                 <div class="form-group">
                   <label class="form-checkbox-label">
-                    <input class="form-checkbox-input" name="popup_callback_privacy" type="checkbox" required>
+                    <input class="form-checkbox-input" name="popup_reservation_privacy" type="checkbox" required>
                     <span class="form-checkbox-item"></span>
                     <span class="form-checkbox-text">
                       Даю согласие на обработку моих персональных данных в соответствии с политикой обработки
@@ -406,27 +345,6 @@
                     ваша почта
                   </div>
                   <input class="form-input" name="popup_partner_email" type="email">
-                  <div class="form-input-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />
-                      <defs>
-                        <linearGradient id="paint0_linear_39_1937" x1="37.5268" y1="-0.365784" x2="37.5268" y2="22.3411"
-                          gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#F2D1AB" />
-                          <stop offset="0.451923" stop-color="#BB8747" />
-                          <stop offset="0.807692" stop-color="#F0CFA8" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
-                </label>
-              </div>
-              <div class="form-group">
-                <label class="form-label">
-                  <div class="form-label-text gradient-text">
-                    наименование организации
-                  </div>
-                  <input class="form-input" name="popup_partner_organization" type="text">
                   <div class="form-input-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />

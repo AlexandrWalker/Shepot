@@ -167,7 +167,7 @@
       text-transform: uppercase;
 
       @include dosm {
-        max-width: 100%;
+        max-width: 70rem;
 
         font-size: 6.4rem;
       }
@@ -333,6 +333,7 @@
 }
 
 #popup-callback,
+#popup-reservation,
 #popup-partner {
 
   .popup {

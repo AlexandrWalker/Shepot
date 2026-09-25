@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //=include modules/_menu-btns.js
   //=include modules/_fancybox.js
+  //=include modules/_verified.js
 
   window.addEventListener('resize', function () { ScrollTrigger.update() });
 
