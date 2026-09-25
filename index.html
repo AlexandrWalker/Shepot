@@ -104,7 +104,7 @@
             7 965 820-80-90
           </div>
         </a>
-        <div class="header__control-link link link--purple" data-popup="popup-callback">
+        <div class="header__control-link link link--purple" data-popup="popup-reservation">
           <div class="link-text">
             Забронировать столик
           </div>
@@ -217,26 +217,57 @@
 </div>
     <!-- Соц. сети -->
     <div class="social">
-  <div class="social__items">
-    <div class="social__item">
-      <a class="social__item-link" href="javascript:void(0)" target="_blank">
-        <i class="icon-wa-social"></i>
-      </a>
+  <div class="social__inner">
+    <div class="social__items">
+      <div class="social__item">
+        <a class="social__item-link" href="javascript:void(0)" target="_blank">
+          <i class="icon-wa-social"></i>
+        </a>
+      </div>
+      <div class="social__item">
+        <a class="social__item-link" href="javascript:void(0)" target="_blank">
+          <i class="icon-tg-social"></i>
+        </a>
+      </div>
+      <div class="social__item">
+        <a class="social__item-link" href="javascript:void(0)" target="_blank">
+          <i class="icon-mail-social"></i>
+        </a>
+      </div>
+      <div class="social__item">
+        <a class="social__item-link" href="javascript:void(0)" target="_blank">
+          <i class="icon-max-social"></i>
+        </a>
+      </div>
     </div>
     <div class="social__item">
-      <a class="social__item-link" href="javascript:void(0)" target="_blank">
-        <i class="icon-tg-social"></i>
-      </a>
+      <div class="social__item-link">
+        <i class="icon-tel-social"></i>
+      </div>
     </div>
-    <div class="social__item">
-      <a class="social__item-link" href="javascript:void(0)" target="_blank">
-        <i class="icon-mail-social"></i>
-      </a>
+  </div>
+</div>
+    <!-- Подтверждение возраста -->
+    <div id="age-verification-popup" class="popup-age" style="display: none;">
+  <div class="popup-age__wrap">
+    <div class="popup-age__title gradient-text">
+      Вам уже исполнилось <br> 18&nbsp;лет?
     </div>
-    <div class="social__item">
-      <a class="social__item-link" href="javascript:void(0)" target="_blank">
-        <i class="icon-max-social"></i>
-      </a>
+    <div class="popup-age__text">
+      Для доступа на сайт вы должны подтвердить свой совершеннолетний возраст. Сайт содержит
+      информацию об алкогольной продукции, которая не предназначена для лиц младше 18 лет.
+    </div>
+    <div class="popup-age__actions">
+      <button id="age-verify-fail" class="btn btn--outline">
+        <div class="btn__text">
+          Нет
+        </div>
+      </button>
+      <button id="age-verify-success" class="btn btn--gold-gradient">
+        <div class="btn__text">
+          Да
+        </div>
+      </button>
     </div>
   </div>
 </div>
@@ -273,22 +304,8 @@
             <div class="hero__block">
               <div class="hero__block-inner">
                 <div class="hero__block-content">
-                  <div class="hero__block-item hero__block-item--2">
-                    <picture>
-                      <source media="(min-width: 601px)" srcset="./images/temp/hero-ticket-2.png">
-                      <source media="(max-width: 600px)" srcset="./images/temp/hero-ticket-mob-2.png">
-                      <img src="./images/temp/hero-ticket-2.png" alt="">
-                    </picture>
-                  </div>
-                  <div class="hero__block-item hero__block-item--1">
-                    <picture>
-                      <source media="(min-width: 601px)" srcset="./images/temp/hero-ticket-1.png">
-                      <source media="(max-width: 600px)" srcset="./images/temp/hero-ticket-mob-1.png">
-                      <img src="./images/temp/hero-ticket-1.png" alt="">
-                    </picture>
-                  </div>
-                  <div class="hero__block-icon">
-                    <i class="icon-arrow-right"></i>
+                  <div class="hero__block-item">
+                    <img src="./images/temp/hero-block-cover.png" alt="">
                   </div>
                   <a class="hero__block-link" href="#callback">
                     Забронировать столик
@@ -300,8 +317,6 @@
               <a class="hero__btn-link magnetic" href="#bar">
                 <span class="magnetic__inner">
                   <span class="magnetic__text">
-                    <!-- <span class="magnetic__text gradient-icon"> -->
-                    <!-- <i class="icon-chevron-down"></i> -->
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M26 12L16 22L6 12" stroke="url(#paint0_linear_15_1475)" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -813,6 +828,9 @@
                   Барное меню
                 </div>
                 <i class="icon-chevron-right"></i>
+                <div class="menu__btn-img">
+                  <img src="./images/icon/file.svg" alt="">
+                </div>
               </a>
               <a class="menu__btn menu__btn--main gradient-border" data-fancybox
                 href="./images/temp/menu-cover-2.jpg" data-caption="Основное меню">
@@ -820,6 +838,9 @@
                   Основное меню
                 </div>
                 <i class="icon-chevron-right"></i>
+                <div class="menu__btn-img">
+                  <img src="./images/icon/file.svg" alt="">
+                </div>
               </a>
             </div>
             <div class="menu__cover anim-parallax">
@@ -1031,7 +1052,7 @@
               <div class="general__head">
                 <div class="general__head-title" data-split="lines">
                   <h2>
-                    Забронировать столик
+                    Забронировать <br> столик
                   </h2>
                 </div>
                 <div class="general__head-text" data-split="text">
@@ -1159,7 +1180,7 @@
             </div>
 
             <div class="general__btns">
-              <div class="events__btn btn btn--purple" data-popup="popup-callback">
+              <div class="events__btn btn btn--purple" data-popup="popup-reservation">
                 <div class="btn__text">
                   Забронировать мероприятие
                 </div>
@@ -1173,7 +1194,7 @@
 
             <div class="events__body">
               <div class="events__items anim-items">
-                <div class="events__item gradient-border anim-item" data-popup="popup-callback">
+                <div class="events__item gradient-border anim-item" data-popup="popup-reservation">
                   <div class="events__item-count">
                     01
                   </div>
@@ -1197,7 +1218,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="events__item gradient-border anim-item" data-popup="popup-callback">
+                <div class="events__item gradient-border anim-item" data-popup="popup-reservation">
                   <div class="events__item-count">
                     02
                   </div>
@@ -1221,7 +1242,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="events__item gradient-border anim-item" data-popup="popup-callback">
+                <div class="events__item gradient-border anim-item" data-popup="popup-reservation">
                   <div class="events__item-count">
                     03
                   </div>
@@ -1245,7 +1266,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="events__item gradient-border anim-item" data-popup="popup-callback">
+                <div class="events__item gradient-border anim-item" data-popup="popup-reservation">
                   <div class="events__item-count">
                     04
                   </div>
@@ -1374,7 +1395,7 @@
         </div>
         <div class="footer__mid-control">
           <div class="footer__mid-links">
-            <div class="footer__mid-link link link--purple" data-popup="popup-callback">
+            <div class="footer__mid-link link link--purple" data-popup="popup-reservation">
               <div class="link-text">
                 Провести мероприятие
               </div>
@@ -1402,6 +1423,10 @@
         <div class="footer__bot-made">
           Сделано в <a href="/">СОВКЕ</a>
         </div>
+      </div>
+
+      <div class="footer__mark">
+        18+
       </div>
 
     </div>
@@ -1574,7 +1599,7 @@
   </div>
 </div>
 
-<div id="popup-callback" class="popup">
+<div id="popup-reservation" class="popup">
   <div class="popup__wrap" data-lenis-prevent>
     <button class="popup__close">
       <div class="magnetic">
@@ -1604,7 +1629,7 @@
                   <div class="form-label-text gradient-text">
                     Ваше имя
                   </div>
-                  <input class="form-input" name="popup_callback_name" type="text">
+                  <input class="form-input" name="popup_reservation_name" type="text">
                   <div class="form-input-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />
@@ -1625,7 +1650,7 @@
                   <div class="form-label-text gradient-text">
                     ваш телефон
                   </div>
-                  <input class="form-input" name="popup_callback_tel" type="tel" placeholder="+7 (123)-456-78-90">
+                  <input class="form-input" name="popup_reservation_tel" type="tel" placeholder="+7 (123)-456-78-90">
                   <div class="form-input-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />
@@ -1641,73 +1666,12 @@
                   </div>
                 </label>
               </div>
-              <div class="form-group">
-                <div class="form-label">
-                  <div class="form-label-text gradient-text">
-                    Мероприятия
-                  </div>
-                  <div class="dropdown dropdown--js">
-                    <div class="dropdown__selected dropdown__selected--js">
-                      <input class="dropdown__input dropdown__selected-input--js" type="hidden" value="">
-                      <label class="dropdown__label dropdown__selected-label--js">Выбрать</label>
-                      <i class="icon-chevron-down"></i>
-                    </div>
-                    <div class="dropdown__container">
-                      <div class="dropdown__content">
-                        <div class="dropdown__option">
-                          <label class="dropdown__label">
-                            <input class="dropdown__radio" name="trade_model" type="radio" value="Праздники"
-                              data-city="iPhone17Pro">
-                            Праздники
-                          </label>
-                        </div>
-                        <div class="dropdown__option">
-                          <label class="dropdown__label">
-                            <input class="dropdown__radio" name="trade_model" type="radio" value="Деловые события"
-                              data-city="iPhone17ProMax">
-                            Деловые события
-                          </label>
-                        </div>
-                        <div class="dropdown__option">
-                          <label class="dropdown__label">
-                            <input class="dropdown__radio" name="trade_model" type="radio" value="Закрытые мероприятия"
-                              data-city="iPhone16Pro">
-                            Закрытые мероприятия
-                          </label>
-                        </div>
-                        <div class="dropdown__option">
-                          <label class="dropdown__label">
-                            <input class="dropdown__radio" name="trade_model" type="radio" value="Частные ужины"
-                              data-city="iPhone16ProMax">
-                            Частные ужины
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <input class="dropdown__value" type="hidden">
-                  </div>
-                  <div class="form-input-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />
-                      <defs>
-                        <linearGradient id="paint0_linear_39_1937" x1="37.5268" y1="-0.365784" x2="37.5268" y2="22.3411"
-                          gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#F2D1AB" />
-                          <stop offset="0.451923" stop-color="#BB8747" />
-                          <stop offset="0.807692" stop-color="#F0CFA8" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
             </div>
             <div class="form-foot">
               <div class="form-privacy">
                 <div class="form-group">
                   <label class="form-checkbox-label">
-                    <input class="form-checkbox-input" name="popup_callback_policy" type="checkbox" required>
+                    <input class="form-checkbox-input" name="popup_reservation_policy" type="checkbox" required>
                     <span class="form-checkbox-item"></span>
                     <span class="form-checkbox-text">
                       Принимаю условия пользовательского соглашения
@@ -1716,7 +1680,7 @@
                 </div>
                 <div class="form-group">
                   <label class="form-checkbox-label">
-                    <input class="form-checkbox-input" name="popup_callback_privacy" type="checkbox" required>
+                    <input class="form-checkbox-input" name="popup_reservation_privacy" type="checkbox" required>
                     <span class="form-checkbox-item"></span>
                     <span class="form-checkbox-text">
                       Даю согласие на обработку моих персональных данных в соответствии с политикой обработки
@@ -1816,27 +1780,6 @@
                     ваша почта
                   </div>
                   <input class="form-input" name="popup_partner_email" type="email">
-                  <div class="form-input-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />
-                      <defs>
-                        <linearGradient id="paint0_linear_39_1937" x1="37.5268" y1="-0.365784" x2="37.5268" y2="22.3411"
-                          gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#F2D1AB" />
-                          <stop offset="0.451923" stop-color="#BB8747" />
-                          <stop offset="0.807692" stop-color="#F0CFA8" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
-                </label>
-              </div>
-              <div class="form-group">
-                <label class="form-label">
-                  <div class="form-label-text gradient-text">
-                    наименование организации
-                  </div>
-                  <input class="form-input" name="popup_partner_organization" type="text">
                   <div class="form-input-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13 12H22V13H13V22H12V13H3V12H12V3H13V12Z" fill="url(#paint0_linear_39_1937)" />
