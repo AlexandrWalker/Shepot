@@ -1,7 +1,7 @@
 @use './../mixins' as *;
 
 .gallery {
-  height: 72.4rem;
+  height: 62.4rem;
   padding: 0;
 
   position: relative;
@@ -86,7 +86,7 @@
     left: 0;
 
     .clip-slider & {
-      height: 72.4rem;
+      height: 62.4rem;
 
       @include dosm {
         height: 100rem;

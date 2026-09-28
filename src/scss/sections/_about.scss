@@ -1,7 +1,7 @@
 @use './../mixins' as *;
 
 .about {
-  --section-padding-top: 21.4rem;
+  --section-padding-top: 2rem;
 
   @include dosm {
     --section-padding-top: 15.2rem;

@@ -65,6 +65,13 @@
       }
     }
 
+    &.gradient-border::before {
+
+      @include sm {
+        opacity: 0.5;
+      }
+    }
+
     &-text {
       font-weight: 300;
       font-size: 1.6rem;

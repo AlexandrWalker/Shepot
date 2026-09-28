@@ -8,7 +8,10 @@
   position: relative;
 
   @include sm {
-    height: 63.6rem;
+    // height: 63.6rem;
+    height: 59.7rem;
+
+    margin-bottom: 14.4rem;
   }
 
   &::before {
@@ -44,6 +47,8 @@
   }
 
   &__container {
+    height: 100%;
+
     position: relative;
     z-index: 3;
   }
@@ -51,6 +56,8 @@
   &__inner {
     padding-top: calc(var(--header-height) + 3rem);
     padding-bottom: 30.3rem;
+    padding-bottom: 0;
+    height: 100%;
 
     @include dosm {
       padding-top: 15.2rem;
@@ -198,7 +205,7 @@
 
     position: absolute;
     left: 2.7rem;
-    bottom: -15.4rem;
+    bottom: -11.4rem;
     z-index: 2;
 
     @include dosm {

@@ -85,7 +85,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
     border-bottom: 0.1rem dotted var(--cream-2-50);
 
     @include dosm {
@@ -189,11 +189,13 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 0 0 3rem 0;
+    margin-top: -1rem;
 
     @include dosm {
       grid-template-columns: repeat(3, 1fr);
       align-items: center;
       padding: 3.8rem 0;
+      margin-top: 0;
     }
 
     &-copyright {
@@ -205,6 +207,8 @@
 
       @include sm {
         grid-row: 2/3;
+
+        font-size: 1.2rem;
       }
     }
 
@@ -227,7 +231,7 @@
 
     &-link {
       font-weight: 300;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       line-height: 140%;
       text-transform: uppercase;
       color: var(--cream-50);
@@ -235,6 +239,7 @@
       text-decoration-skip-ink: none;
 
       @include dosm {
+        font-size: 1.4rem;
         white-space: nowrap;
       }
 
@@ -248,12 +253,13 @@
 
     &-made {
       font-weight: 300;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       line-height: 140%;
       text-transform: uppercase;
       color: var(--cream-50);
 
       @include dosm {
+        font-size: 1.4rem;
         text-align: right;
       }
 
@@ -293,7 +299,7 @@
 
     position: absolute;
     right: 0;
-    bottom: 2.5rem;
+    bottom: 2rem;
 
     @include dosm {
       font-size: 6.4rem;
