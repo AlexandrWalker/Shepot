@@ -29,6 +29,22 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
+  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Geologica;
+  font-display: swap;
+  src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Geologica;
+  font-display: swap;
   src: url("../fonts/Geologica-Medium.woff2") format("woff2"), url("../fonts/Geologica-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -59,26 +75,10 @@
 }
 
 @font-face {
-  font-family: Geologica;
-  font-display: swap;
-  src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
   font-family: LTRemark;
   font-display: swap;
   src: url("../fonts/LTRemark-Regular.woff2") format("woff2"), url("../fonts/LTRemark-Regular.woff") format("woff");
   font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Geologica;
-  font-display: swap;
-  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
-  font-weight: 700;
   font-style: normal;
 }
 
@@ -2225,7 +2225,7 @@ img {
 
 .footer__top-logo .logo {
   max-width: 30.5rem;
-  height: 15.7rem;
+  height: 16.1rem;
 }
 
 .footer__top-wrap {
@@ -4825,7 +4825,7 @@ html.with-fancybox body.hide-scrollbar {
 
   .footer__inner {
     gap: 0;
-    padding: 8rem 0 0 0;
+    padding: 6.6rem 0 0 0;
   }
 
   .footer__top {
@@ -5878,6 +5878,11 @@ html.with-fancybox body.hide-scrollbar {
 
   .swiper-pagination {
     display: none;
+  }
+
+  [class^=swiper-button-],
+  [class*=" swiper-button-"] {
+    opacity: 1;
   }
 
   .f-button.is-close-button {

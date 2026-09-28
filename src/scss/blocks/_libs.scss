@@ -116,7 +116,9 @@
   position: static;
   transform: unset;
 
-  @include sm {}
+  @include sm {
+    opacity: 1;
+  }
 
   &:hover {
     opacity: 1;
