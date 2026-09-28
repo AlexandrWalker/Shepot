@@ -39,7 +39,7 @@
 
     e.preventDefault();
 
-    const isMenuOpen = document.documentElement.classList.contains('menu--open');
+    const isMenuOpen = document.documentElement.classList.contains('burger-menu--open');
 
     if (isMenuOpen) {
       lenis.stop();
