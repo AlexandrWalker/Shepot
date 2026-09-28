@@ -13,14 +13,6 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Geologica;
-  font-display: swap;
   src: url("../fonts/Geologica-ExtraBold.woff2") format("woff2"), url("../fonts/Geologica-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
@@ -31,14 +23,6 @@
   font-display: swap;
   src: url("../fonts/Geologica-ExtraLight.woff2") format("woff2"), url("../fonts/Geologica-ExtraLight.woff") format("woff");
   font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Geologica;
-  font-display: swap;
-  src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
-  font-weight: 300;
   font-style: normal;
 }
 
@@ -75,10 +59,26 @@
 }
 
 @font-face {
+  font-family: Geologica;
+  font-display: swap;
+  src: url("../fonts/Geologica-Light.woff2") format("woff2"), url("../fonts/Geologica-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
   font-family: LTRemark;
   font-display: swap;
   src: url("../fonts/LTRemark-Regular.woff2") format("woff2"), url("../fonts/LTRemark-Regular.woff") format("woff");
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Geologica;
+  font-display: swap;
+  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -2261,7 +2261,7 @@ img {
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
   gap: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
   border-bottom: 0.1rem dotted var(--cream-2-50);
 }
 
@@ -2329,6 +2329,7 @@ img {
   grid-template-columns: 1fr;
   gap: 1rem;
   padding: 0 0 3rem 0;
+  margin-top: -1rem;
 }
 
 .footer__bot-copyright {
@@ -2352,7 +2353,7 @@ img {
 
 .footer__bot-link {
   font-weight: 300;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 140%;
   text-transform: uppercase;
   color: var(--cream-50);
@@ -2363,7 +2364,7 @@ img {
 
 .footer__bot-made {
   font-weight: 300;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 140%;
   text-transform: uppercase;
   color: var(--cream-50);
@@ -2392,7 +2393,7 @@ img {
   opacity: 0.5;
   position: absolute;
   right: 0;
-  bottom: 2.5rem;
+  bottom: 2rem;
 }
 
 .general__inner {
@@ -3324,7 +3325,7 @@ html.with-fancybox body.hide-scrollbar {
 /* Sections */
 
 .about {
-  --section-padding-top: 21.4rem;
+  --section-padding-top: 2rem;
 }
 
 .about .general__inner {
@@ -3774,7 +3775,7 @@ html.with-fancybox body.hide-scrollbar {
 }
 
 .gallery {
-  height: 72.4rem;
+  height: 62.4rem;
   padding: 0;
   position: relative;
   z-index: 2;
@@ -3832,7 +3833,7 @@ html.with-fancybox body.hide-scrollbar {
 }
 
 .clip-slider .gallery__slide {
-  height: 72.4rem;
+  height: 62.4rem;
 }
 
 .gallery__item {
@@ -3967,6 +3968,7 @@ html.with-fancybox body.hide-scrollbar {
 }
 
 .hero__container {
+  height: 100%;
   position: relative;
   z-index: 3;
 }
@@ -3974,6 +3976,8 @@ html.with-fancybox body.hide-scrollbar {
 .hero__inner {
   padding-top: calc(var(--header-height) + 3rem);
   padding-bottom: 30.3rem;
+  padding-bottom: 0;
+  height: 100%;
 }
 
 .hero__head {
@@ -4072,7 +4076,7 @@ html.with-fancybox body.hide-scrollbar {
   border-radius: 0.8rem;
   position: absolute;
   left: 2.7rem;
-  bottom: -15.4rem;
+  bottom: -11.4rem;
   z-index: 2;
 }
 
@@ -4871,6 +4875,7 @@ html.with-fancybox body.hide-scrollbar {
         -ms-flex-align: center;
             align-items: center;
     padding: 3.8rem 0;
+    margin-top: 0;
   }
 
   .footer__bot-links {
@@ -4888,6 +4893,7 @@ html.with-fancybox body.hide-scrollbar {
   }
 
   .footer__bot-link {
+    font-size: 1.4rem;
     white-space: nowrap;
   }
 
@@ -4896,6 +4902,7 @@ html.with-fancybox body.hide-scrollbar {
   }
 
   .footer__bot-made {
+    font-size: 1.4rem;
     text-align: right;
   }
 
@@ -5846,6 +5853,7 @@ html.with-fancybox body.hide-scrollbar {
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
     grid-row: 2/3;
+    font-size: 1.2rem;
   }
 
   .footer__bot-links {
@@ -6007,11 +6015,16 @@ html.with-fancybox body.hide-scrollbar {
   }
 
   .hero {
-    height: 63.6rem;
+    height: 59.7rem;
+    margin-bottom: 14.4rem;
   }
 
   .menu {
     --section-padding-top: 4rem;
+  }
+
+  .menu__btn.gradient-border::before {
+    opacity: 0.5;
   }
 }
 
