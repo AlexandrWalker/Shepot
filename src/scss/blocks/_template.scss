@@ -2,12 +2,25 @@
 
 .template {
 
+  @include dosm {
+    --section-padding-bottom: 3rem;
+  }
+
   &__head {
 
     &-title {
+      max-width: 100rem;
 
       h1 {
-        
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 3rem;
+        line-height: 120%;
+        text-transform: uppercase;
+
+        @include dosm {
+          font-size: 4.4rem;
+        }
       }
     }
   }

@@ -57,6 +57,14 @@ body {
 
 .main {
   flex: 1 0 auto;
+
+  .inner-page & {
+    padding-top: calc(var(--header-height) + 3rem);
+
+    @include dosm {
+      padding-top: 15.4rem;
+    }
+  }
 }
 
 .footer {

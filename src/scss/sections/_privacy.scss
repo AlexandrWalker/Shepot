@@ -1,0 +1,112 @@
+@use './../mixins' as *;
+
+.privacy {
+  --section-padding-top: 0;
+
+  &__inner {}
+
+  &__content {
+    max-width: 156.5rem;
+
+    p {
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 140%;
+      color: var(--cream-50);
+
+      @include dosm {
+        font-size: 2rem;
+      }
+
+      .policy-page & {
+        margin-bottom: 2rem;
+
+        @include dosm {
+          margin-bottom: 3rem;
+        }
+      }
+
+      &:has(b) {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
+        @include dosm {
+          margin-top: 3rem;
+          margin-bottom: 3rem;
+        }
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      b {
+        font-weight: 700;
+      }
+    }
+
+    ul {
+      padding-left: 3rem;
+
+      li {
+        list-style-type: disc;
+
+        font-weight: 300;
+        font-size: 1.6rem;
+        line-height: 140%;
+        color: var(--cream-50);
+
+        @include dosm {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      overflow: hidden;
+      border-spacing: 0;
+
+      @include sm {
+        width: fit-content;
+      }
+
+      td {
+        width: 57%;
+        padding: 1.8rem 2rem;
+        border: 0.1rem solid var(--cream-2);
+
+        font-weight: 300;
+        font-size: 1.6rem;
+        line-height: 140%;
+        color: var(--cream-50);
+        text-align: left;
+        vertical-align: top;
+
+        @include dosm {
+          font-size: 2rem;
+        }
+
+        @include sm {
+          min-width: 30rem;
+        }
+
+        &:first-child {
+          width: 43%;
+        }
+      }
+    }
+  }
+
+  &__table {
+    width: 100%;
+
+    @include sm {
+      overflow-x: auto;
+      width: 100vw;
+      padding: 0 var(--container-padding);
+      margin-right: calc(var(--container-padding) * -1);
+      margin-left: calc(var(--container-padding) * -1);
+    }
+  }
+}
