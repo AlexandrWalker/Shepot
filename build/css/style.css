@@ -3980,13 +3980,20 @@ html.with-fancybox body.hide-scrollbar {
   z-index: 1;
 }
 
-.hero__bg video,
-.hero__bg img {
+.hero__bg-video {
   display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+.hero__bg-video--desktop {
+  display: none;
+}
+
+.hero__bg-video--mob {
+  display: block;
 }
 
 .hero__container {
@@ -5503,6 +5510,14 @@ html.with-fancybox body.hide-scrollbar {
 
   .gallery__item-text {
     font-size: 2rem;
+  }
+
+  .hero__bg-video--desktop {
+    display: block;
+  }
+
+  .hero__bg-video--mob {
+    display: none;
   }
 
   .hero__inner {

@@ -40,12 +40,35 @@
     left: 0;
     z-index: 1;
 
-    video,
-    img {
+    // video,
+    // img {
+    //   display: block;
+    //   width: 100%;
+    //   height: 100%;
+    //   object-fit: cover;
+    // }
+
+    &-video {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
+
+      &--desktop {
+        display: none;
+
+        @include dosm {
+          display: block;
+        }
+      }
+
+      &--mob {
+        display: block;
+
+        @include dosm {
+          display: none;
+        }
+      }
     }
   }
 
