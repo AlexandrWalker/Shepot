@@ -45,6 +45,16 @@
       }
     }
 
+    a {
+
+      &:hover {
+
+        @include dosm {
+          text-decoration: underline;
+        }
+      }
+    }
+
     ul {
       padding-left: 3rem;
 

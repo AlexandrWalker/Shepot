@@ -255,6 +255,18 @@
       font-size: 1.4rem;
       line-height: 140%;
       color: var(--cream-50);
+
+      a {
+        color: var(--purple-50);
+
+
+        &:hover {
+
+          @include dosm {
+            color: var(--purple);
+          }
+        }
+      }
     }
   }
 
@@ -351,9 +363,9 @@
         transform: rotate(180deg);
       }
     }
-    
+
     &+.form-input-icon {
-      top: 4.2rem;  
+      top: 4.2rem;
 
       @include dosm {
         top: 5rem;
