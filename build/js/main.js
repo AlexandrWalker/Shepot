@@ -1846,9 +1846,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
   (function () {
-    const ALWAYS_ASK_MODE = true; 
-  
-    const STORAGE_KEY = 'age_verified_user';
+    const STORAGE_KEY = 'age_verified_session';
     const popupElement = document.getElementById('age-verification-popup');
     const successBtn = document.getElementById('age-verify-success');
     const failBtn = document.getElementById('age-verify-fail');
@@ -1858,11 +1856,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     let isSuccessClick = false;
   
-    if (ALWAYS_ASK_MODE) {
-      localStorage.removeItem(STORAGE_KEY);
-    }
-  
-    const isVerified = localStorage.getItem(STORAGE_KEY);
+    const isVerified = sessionStorage.getItem(STORAGE_KEY);
   
     if (!isVerified) {
       if (typeof window.lenis !== 'undefined') window.lenis.stop();
@@ -1881,13 +1875,7 @@ document.addEventListener('DOMContentLoaded', () => {
           },
           on: {
             destroy: () => {
-              if (isSuccessClick) {
-                if (typeof window.lenis !== 'undefined') window.lenis.start();
-                return;
-              }
-  
-              const currentCheck = localStorage.getItem(STORAGE_KEY);
-              if (!ALWAYS_ASK_MODE && currentCheck === 'true') {
+              if (isSuccessClick || sessionStorage.getItem(STORAGE_KEY) === 'true') {
                 if (typeof window.lenis !== 'undefined') window.lenis.start();
                 return;
               }
@@ -1910,10 +1898,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
   
       isSuccessClick = true;
-  
-      if (!ALWAYS_ASK_MODE) {
-        localStorage.setItem(STORAGE_KEY, 'true');
-      }
+      sessionStorage.setItem(STORAGE_KEY, 'true');
   
       if (typeof window.lenis !== 'undefined') window.lenis.start();
       Fancybox.close();
