@@ -13,8 +13,8 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/Geologica-ExtraBold.woff2") format("woff2"), url("../fonts/Geologica-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -29,8 +29,8 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-ExtraBold.woff2") format("woff2"), url("../fonts/Geologica-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -67,18 +67,18 @@
 }
 
 @font-face {
-  font-family: LTRemark;
-  font-display: swap;
-  src: url("../fonts/LTRemark-Regular.woff2") format("woff2"), url("../fonts/LTRemark-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: Geologica;
   font-display: swap;
   src: url("../fonts/Geologica-Thin.woff2") format("woff2"), url("../fonts/Geologica-Thin.woff") format("woff");
   font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: LTRemark;
+  font-display: swap;
+  src: url("../fonts/LTRemark-Regular.woff2") format("woff2"), url("../fonts/LTRemark-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -296,6 +296,10 @@ body {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
+}
+
+.inner-page .main {
+  padding-top: calc(var(--header-height) + 3rem);
 }
 
 .footer {
@@ -3253,6 +3257,18 @@ html.with-fancybox body.hide-scrollbar {
   --font-size: 5.6rem;
 }
 
+.template__head-title {
+  max-width: 100rem;
+}
+
+.template__head-title h1 {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
 .popup-age {
   max-width: 84.3rem;
   width: 100%;
@@ -4534,6 +4550,76 @@ html.with-fancybox body.hide-scrollbar {
   object-fit: cover;
 }
 
+.privacy {
+  --section-padding-top: 0;
+}
+
+.privacy__content {
+  max-width: 156.5rem;
+}
+
+.privacy__content p {
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 140%;
+  color: var(--cream-50);
+}
+
+.policy-page .privacy__content p {
+  margin-bottom: 2rem;
+}
+
+.privacy__content p:has(b) {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.privacy__content p:has(b):first-child {
+  margin-top: 0;
+}
+
+.privacy__content p b {
+  font-weight: 700;
+}
+
+.privacy__content ul {
+  padding-left: 3rem;
+}
+
+.privacy__content ul li {
+  list-style-type: disc;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 140%;
+  color: var(--cream-50);
+}
+
+.privacy__content table {
+  width: 100%;
+  overflow: hidden;
+  border-spacing: 0;
+}
+
+.privacy__content table td {
+  width: 57%;
+  padding: 1.8rem 2rem;
+  border: 0.1rem solid var(--cream-2);
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 140%;
+  color: var(--cream-50);
+  text-align: left;
+  vertical-align: top;
+}
+
+.privacy__content table td:first-child {
+  width: 43%;
+}
+
+.privacy__table {
+  width: 100%;
+}
+
 .unique {
   position: relative;
   z-index: 1;
@@ -4645,6 +4731,10 @@ html.with-fancybox body.hide-scrollbar {
 }
 
 @media (min-width: 601px) {
+  .inner-page .main {
+    padding-top: 15.4rem;
+  }
+
   .btn--purple:hover {
     color: var(--dark-purple-3);
   }
@@ -5082,6 +5172,14 @@ html.with-fancybox body.hide-scrollbar {
   .social__item-link:hover {
     background-color: var(--light-purple);
     color: var(--cream-2);
+  }
+
+  .template {
+    --section-padding-bottom: 3rem;
+  }
+
+  .template__head-title h1 {
+    font-size: 4.4rem;
   }
 
   .popup-age__wrap {
@@ -5576,6 +5674,27 @@ html.with-fancybox body.hide-scrollbar {
     top: 4.3rem;
   }
 
+  .privacy__content p {
+    font-size: 2rem;
+  }
+
+  .policy-page .privacy__content p {
+    margin-bottom: 3rem;
+  }
+
+  .privacy__content p:has(b) {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .privacy__content ul li {
+    font-size: 2rem;
+  }
+
+  .privacy__content table td {
+    font-size: 2rem;
+  }
+
   .unique {
     --section-padding-top: 8rem;
     --section-padding-bottom: 9.7rem;
@@ -6032,6 +6151,24 @@ html.with-fancybox body.hide-scrollbar {
 
   .menu__btn.gradient-border::before {
     opacity: 0.5;
+  }
+
+  .privacy__content table {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .privacy__content table td {
+    min-width: 30rem;
+  }
+
+  .privacy__table {
+    overflow-x: auto;
+    width: 100vw;
+    padding: 0 var(--container-padding);
+    margin-right: calc(var(--container-padding) * -1);
+    margin-left: calc(var(--container-padding) * -1);
   }
 }
 
