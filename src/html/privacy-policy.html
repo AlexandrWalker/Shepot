@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('blocks/head.html', {"title": "Шёпот"})
+
+<body>
+  <!-- @@include('blocks/sprite.html') -->
+  <div class="wrapper">
+    <!-- Шапка -->
+    @@include('./blocks/header.html')
+    <!-- Соц. сети -->
+    @@include('./blocks/social.html')
+    <!-- Подтверждение возраста -->
+    @@include('./blocks/verified.html')
+    <main class="main">
+
+      <section class="template">
+        <div class="container">
+          <div class="template__inner">
+
+            <div class="template__head">
+              <div class="template__head-title">
+                <h1>
+                  Политика конфиденциальности
+                </h1>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy">
+        <div class="container">
+          <div class="privacy__inner">
+
+            <div class="privacy__content">
+              
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <!-- Подвал -->
+    @@include('blocks/footer.html')
+  </div>
+  <!-- libs and script -->
+  @@include('blocks/libs.html')
+</body>
+
+</html>

@@ -13,8 +13,8 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-ExtraBold.woff2") format("woff2"), url("../fonts/Geologica-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -29,8 +29,8 @@
 @font-face {
   font-family: Geologica;
   font-display: swap;
-  src: url("../fonts/Geologica-Bold.woff2") format("woff2"), url("../fonts/Geologica-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/Geologica-ExtraBold.woff2") format("woff2"), url("../fonts/Geologica-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -67,18 +67,18 @@
 }
 
 @font-face {
-  font-family: Geologica;
-  font-display: swap;
-  src: url("../fonts/Geologica-Thin.woff2") format("woff2"), url("../fonts/Geologica-Thin.woff") format("woff");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
   font-family: LTRemark;
   font-display: swap;
   src: url("../fonts/LTRemark-Regular.woff2") format("woff2"), url("../fonts/LTRemark-Regular.woff") format("woff");
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Geologica;
+  font-display: swap;
+  src: url("../fonts/Geologica-Thin.woff2") format("woff2"), url("../fonts/Geologica-Thin.woff") format("woff");
+  font-weight: 100;
   font-style: normal;
 }
 
@@ -2610,7 +2610,7 @@ img {
   color: var(--cream);
 }
 
-.header__control-icon {
+.header__control-icon.btn--icon {
   --btn-width: 6rem;
   --btn-height: 6rem;
 }
@@ -3941,6 +3941,7 @@ html.with-fancybox body.hide-scrollbar {
   height: 100%;
   background: rgba(51, 32, 61, 0.3);
   mix-blend-mode: normal;
+  pointer-events: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -3950,6 +3951,7 @@ html.with-fancybox body.hide-scrollbar {
 }
 
 .hero__bg {
+  pointer-events: none;
   position: absolute;
   top: 0;
   right: 0;

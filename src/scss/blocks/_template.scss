@@ -1,0 +1,14 @@
+@use './../mixins' as *;
+
+.template {
+
+  &__head {
+
+    &-title {
+
+      h1 {
+        
+      }
+    }
+  }
+}
